@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import MainButtons from '../Buttons/MainButtons';
 
 const Login = () => {
-  const[email, setEmail] = useState("")
+  const user = {
+    "email" : "mariferrm97@hotmail.com",
+    "password" : "1234"
+  }
 
-  console.log(email);
   const data = (e) => {
   e.preventDefault()
   
+  let email = e.target.email.value
+  let password = e.target.password.value
+
 }
 
   return (
@@ -15,7 +20,7 @@ const Login = () => {
       <form onSubmit={data}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email</label>
-          <input type="email" className="form-control" name="" id="email" onChange={e => setEmail(e.target.value)} aria-describedby="helpId" placeholder=""/>
+          <input type="email" className="form-control" name="" id="email" aria-describedby="helpId" placeholder=""/>
         </div>
 
         <div className="mb-3">
