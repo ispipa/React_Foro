@@ -6,9 +6,9 @@ import Register from './components/Login/Register';
 function App() {
   return (
     <>
-    {/* <Login />
-    <Register/> */}
-    <Home/>
+    <Login />
+    <Register/>
+    {/*<Home/>*/}
     </>
   );
 }
