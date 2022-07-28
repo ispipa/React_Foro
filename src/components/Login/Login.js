@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MainButtons from '../Buttons/MainButtons';
+import '../Login/Login.css'
 
 const Login = () => {
   const user = {
@@ -16,16 +17,16 @@ const Login = () => {
 }
 
   return (
-    <div>
-      <form onSubmit={data}>
+    <div id='formBox'>
+      <form onSubmit={data} className="form">
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email</label>
-          <input type="email" className="form-control" name="" id="email" aria-describedby="helpId" placeholder=""/>
+          <label htmlFor='email' className="form-label"></label>
+          <input className="input" type="email" className="form-control" name="" id="email" aria-describedby="helpId" placeholder="Email"/>
         </div>
 
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">Contraseña</label>
-          <input type="password" className="form-control" name="" id="password" aria-describedby="helpId" placeholder=""/>
+          <label htmlFor="password" className="form-label"></label>
+          <input className="input" type="password" className="form-control" name="" id="password" aria-describedby="helpId" placeholder="Password"/>
         </div>
 
         <MainButtons mainbutton={"Enviar"}/>
