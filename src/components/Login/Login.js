@@ -1,19 +1,18 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import MainButtons from '../Buttons/MainButtons';
 import '../Login/Login.css'
 
 const Login = () => {
-  const user = {
-    "email" : "mariferrm97@hotmail.com",
-    "password" : "1234"
-  }
-
   const data = (e) => {
   e.preventDefault()
   
   let email = e.target.email.value
   let password = e.target.password.value
-
+  axios.post("http://localhost/php/Prueba_Api/login.php",{email,
+  contraseña:password})
+  .then(res => console.log(res))
+  .catch(error =>console.log(error));
 }
 
   return (
@@ -21,12 +20,12 @@ const Login = () => {
       <form onSubmit={data} className="form">
         <div className="mb-3">
           <label htmlFor='email' className="form-label"></label>
-          <input className="input" type="email" className="form-control" name="" id="email" aria-describedby="helpId" placeholder="Email"/>
+          <input className="form-control input" type="email"  name="" id="email" aria-describedby="helpId" placeholder="Email"/>
         </div>
 
         <div className="mb-3">
           <label htmlFor="password" className="form-label"></label>
-          <input className="input" type="password" className="form-control" name="" id="password" aria-describedby="helpId" placeholder="Password"/>
+          <input className="form-control input" type="password"  name="" id="password" aria-describedby="helpId" placeholder="Password"/>
         </div>
 
         <MainButtons mainbutton={"Enviar"}/>
