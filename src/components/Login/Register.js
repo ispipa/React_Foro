@@ -1,28 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MainButtons from '../Buttons/MainButtons';
 
 const Register = () => {
+
+    const [ alert, setAlert ] = useState(false)
+
+    const data = e => {
+        e.preventDefault()
+
+        let username = e.target.username.value
+        let email = e.target.email.value
+        let password = e.target.password.value
+        let confirmPassword = e.target.confirmPassword.value
+
+        if (password !== confirmPassword) {
+            setAlert(true)
+        
+            console.log("las contraseñas no coinciden");
+        }
+        
+    }
+
     return (
         <div>
-            <form>
+            { alert && <h1>Las contraseñas no coinciden</h1> }
+            
+            <form onSubmit={data}>
                 <div>
-                    <label htmlfor>Username</label>
-                    <input type="text" id='username' name='username'/>
+                    <label>Username</label>
+                    <input type="text"  name='username'/>
                 </div>
 
                 <div>
-                    <label htmlfor>Email</label>
-                    <input type="email" id='email' name='email'/>
+                    <label>Email</label>
+                    <input type="email" name='email'/>
                 </div>
 
                 <div>
-                    <label htmlfor>Contraseña</label>
-                    <input type="password" id='password' name='password'/>
+                    <label>Contraseña</label>
+                    <input type="password"  name='password'/>
                 </div>
 
                 <div>
-                    <label htmlfor>Confirma contraseña</label>
-                    <input type="password" id='password' name='password'/>
+                    <label>Confirma contraseña</label>
+                    <input type="password"  name='confirmPassword'/>
                 </div>
                 <MainButtons mainbutton='Regístrate'/>
             </form> 
