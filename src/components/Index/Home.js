@@ -3,7 +3,7 @@ import React from 'react';
 const home = () => {
     return (
         <div>
-            <section>
+            <section className='header'>
                 <h1>Encuentra un tema del que hablar</h1>
             </section>
             <section>
