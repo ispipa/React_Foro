@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import MainButtons from '../Buttons/MainButtons';
+import Login from './Login';
 
 const Register = () => {
 
     const [ alert, setAlert ] = useState(false)
     const [ err , setErr ] = useState(false)
     const [ mesageError , setMesageError ] = useState("Prueba")
+    const [login, setLogin] = useState(false)
+
 
     const data = e => {
         e.preventDefault()
@@ -28,6 +31,10 @@ const Register = () => {
             setMesageError(error.response.data.mesage)
             setErr(true) 
         });
+    }
+
+    if(login){
+        return (<Login />)
     }
 
     return (
@@ -56,6 +63,7 @@ const Register = () => {
                 </div>
                 <MainButtons mainbutton='Regístrate'/>
             </form> 
+            <button onClick={() => setLogin(true)}>Volver</button>
         </div>
     );
 };
