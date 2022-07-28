@@ -1,13 +1,11 @@
 import React from 'react';
 
 const Topics = () => {
-    const topic
 
-    
     return (
         <div>
             <section className='header2'>
-                <h1>Hilos en...{/*[insertar tema con fórmula]*/}</h1>  
+                <h1>Hilos en...{/*[insertar tema con función]*/}</h1>  
             </section>
             <section>
                 <div>
