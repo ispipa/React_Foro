@@ -1,13 +1,16 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import MainButtons from '../Buttons/MainButtons';
 
 const Register = () => {
 
     const [ alert, setAlert ] = useState(false)
+    const [ err , setErr ] = useState(false)
+    const [ mesageError , setMesageError ] = useState("Prueba")
 
     const data = e => {
         e.preventDefault()
-
+        setErr(false)
         let username = e.target.username.value
         let email = e.target.email.value
         let password = e.target.password.value
@@ -15,16 +18,22 @@ const Register = () => {
 
         if (password !== confirmPassword) {
             setAlert(true)
-        
-            console.log("las contraseñas no coinciden");
+            return console.log("las contraseñas no coinciden");
         }
-        
+        axios.post("http://localhost/php/Prueba_Api/usuarios.php",{nombre:username,
+        contraseña:password,
+        email:email})
+        .then(res => console.log(res))
+        .catch(error =>{ 
+            setMesageError(error.response.data.mesage)
+            setErr(true) 
+        });
     }
 
     return (
         <div>
             { alert && <h1>Las contraseñas no coinciden</h1> }
-            
+            { err && <h1>{ mesageError }</h1> }
             <form onSubmit={data}>
                 <div>
                     <label>Username</label>
