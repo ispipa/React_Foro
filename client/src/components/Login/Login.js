@@ -43,7 +43,7 @@ if (register) {
         <MainButtons mainbutton={"Enviar"}/>
       
       </form>
-      <button onClick={() => setRegister(true)} >Registrarse</button>
+      <button id="registrar" onClick={() => setRegister(true)} >Registrarse</button>
     </div>
 );
 

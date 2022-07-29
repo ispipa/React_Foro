@@ -32,9 +32,16 @@ body{
     margin-top: 25vh;
 }
 
-#formBox button{
-   border: none;
-   cursor: pointer;
+#registrar, #volver{
+    border: 1px solid #ff1616;
+    background-color: white;
+    font-size: large;
+    border-radius: 6vh;
+    font-family: 'Bree Serif', serif;    
+    height: 5vh;
+    width: 30vh;
+    margin-top: 1vh;
+    cursor: pointer;
 }
 
 input{
@@ -56,4 +63,8 @@ input{
 }
 .marginB{
     margin-bottom: 6vh;
+}
+
+.marginInput{
+    margin-bottom: 1vh;
 }
