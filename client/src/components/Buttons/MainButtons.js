@@ -1,4 +1,5 @@
 import React from 'react';
+import './MainButtons.css';
 
 const MainButtons = ({mainbutton}) => {
     return (
