@@ -1,6 +1,15 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from "react";
+import { useParams } from 'react-router-dom';
 
 const Hilos = () => {
+    const { id } =  useParams()
+    const [ temas , setTemas ] = useState("Prueba")
+    useEffect(() => {
+        axios.get(`http://localhost/php/App_foro/foro/server/hilos.php?id=${id}`)
+        .then(res =>console.log(res))
+        .catch(error =>console.log(error))
+    }, [])
     return (
         <div>
             <section className='header2'>

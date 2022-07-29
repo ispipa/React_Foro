@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from "react";
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
             <section>
                 <div className='topic' id={ temas[0].id }>
                     <img></img>
-                    <h2>{ temas[0].temas }</h2>
+                    <Link to = {`/hilos/${temas[0].id}`}><h2>{ temas[0].temas }</h2></Link>
                 </div>
                 <div className='topic' id={ temas[1].id }>
                     <img></img>
