@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import MainButtons from '../Buttons/MainButtons';
 import './Login.css'
 import Register from './Register';
+import foro from '../../img/foro.JPG';
 
 const Login = () => {
 
@@ -24,16 +25,19 @@ if (register) {
 }
 
   return (
+    
     <div id='formBox'>
+      <img className='foro' src={foro}/>
+
       <form onSubmit={data} className="form">
         <div className="mb-3">
           <label htmlFor='email' className="form-label"></label>
-          <input className="form-control input" type="email"  name="" id="email" aria-describedby="helpId" placeholder="Email"/>
+          <input className="form-control marginT" type="email"  name="" id="email" aria-describedby="helpId" placeholder="Email"/>
         </div>
 
         <div className="mb-3">
           <label htmlFor="password" className="form-label"></label>
-          <input className="form-control input" type="password"  name="" id="password" aria-describedby="helpId" placeholder="Password"/>
+          <input className="form-control marginB" type="password"  name="" id="password" aria-describedby="helpId" placeholder="Password"/>
         </div>
 
         <MainButtons mainbutton={"Enviar"}/>
