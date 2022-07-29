@@ -10,7 +10,7 @@ class temas extends conexion
     //obtenemos la lista de temas
     public function listTemas()
     {
-        $query = "SELECT temas FROM temas";
+        $query = "SELECT * FROM temas";
         $datos = parent::obtenerDatos($query);
         return $datos;
     }

@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
         $listaTemas =  $_temas->listTemasId($tema_concreto);
         echo json_encode($listaTemas);
     }
-    else if($_GET)
+    else 
     {
         $listaTemas =  $_temas->listTemas();
         echo json_encode($listaTemas);
