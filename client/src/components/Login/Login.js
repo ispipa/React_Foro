@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import MainButtons from '../Buttons/MainButtons';
-import './Login.css'
+import '../../styles/Login.css'
 import Register from './Register';
 
 const Login = () => {
