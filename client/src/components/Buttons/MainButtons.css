@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 /*Para usarla: font-family: 'Bree Serif', serif; */
 
@@ -10,4 +11,21 @@ button{
     font-family: 'Bree Serif', serif;    
     height: 5vh;
     width: 30vh;
+=======
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+/*Para usarla: font-family: 'Bree Serif', serif; */
+
+#enviar{
+    background-color: #ff1616;
+    color: white;
+    font-size: large;
+    border-radius: 6vh;
+    border-width: 1px;
+    font-family: 'Bree Serif', serif;    
+    height: 5vh;
+    width: 30vh;
+    margin-top: 1vh;
+    border: none;
+    cursor: pointer;
+>>>>>>> 06556d7116dec31d67c6b9f00ca0bcabf35d7cb6
 }

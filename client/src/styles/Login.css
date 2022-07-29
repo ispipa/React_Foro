@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* TIPOGRAFÍAS */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
@@ -57,3 +58,75 @@ input{
 .marginB{
     margin-bottom: 6vh;
 }
+=======
+/* TIPOGRAFÍAS */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+/*Para usarla: font-family: 'Open Sans', sans-serif;
+*/
+
+*{
+    box-sizing: border-box;
+    overflow-wrap: break-word; 
+
+}
+
+html{
+	width: 100%;
+	height: 100%;
+}
+
+body{
+    margin: 0 auto;
+}
+
+.foro{
+   width: 120px;
+}
+
+/* FORMULARIO */
+
+#formBox{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 25vh;
+}
+
+#registrar, #volver{
+    border: 1px solid #ff1616;
+    background-color: white;
+    font-size: large;
+    border-radius: 6vh;
+    font-family: 'Bree Serif', serif;    
+    height: 5vh;
+    width: 30vh;
+    margin-top: 1vh;
+    cursor: pointer;
+}
+
+input{
+    background-color: #d9d9d9;
+    border-radius: 10vh;
+    border-width: 1px;
+    font-family: 'Open Sans', sans-serif;    
+    height: 5vh;
+    width: 30vh;
+    padding-left: 2vh;
+}
+
+.mb-3{
+    line-height: 6.5vh;
+}
+
+.marginT{
+    margin-top: 6vh;
+}
+.marginB{
+    margin-bottom: 6vh;
+}
+
+.marginInput{
+    margin-bottom: 1vh;
+}
+>>>>>>> 06556d7116dec31d67c6b9f00ca0bcabf35d7cb6
