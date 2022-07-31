@@ -27,7 +27,7 @@
     border-radius: 0;
     border-width: 10;
     font-family: var(--secundary-font);
-    height: 4vw;
+    height: auto;
     width: 60vw;
     padding-left: 2vh;
     margin-left: 4vw;
