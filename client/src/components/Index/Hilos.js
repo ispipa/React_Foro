@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
 
+import maletin from '../../img/maletin.jfif'
+
 const Hilos = () => {
     const { id } =  useParams()
     const [ temas , setTemas ] = useState("Prueba")
