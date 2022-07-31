@@ -1,14 +1,15 @@
 import React from 'react';
 import '../../styles/temas.css'
 
-import maletin from '../../img/maletin.jfif'
+import globo from '../../img/globo.jfif'
+import cuadroTexto from '../../img/cuadroTexto.png'
 
 const Topics = () => {
 
     return (
         <div>
             <section className='header2'>
-                <img src={maletin} alt="maletin" />
+                <img src={globo} alt="globo de conversación" />
                 <div>
                     <h1>Hilos en...</h1>
                     <h2>Empleo / Emprendimiento</h2>
@@ -25,7 +26,7 @@ const Topics = () => {
                             <p>9:54</p>
                         </div>
                         <div className='totalComments'>
-                            <img className='num_com'></img>
+                            <img className='num_com' src={cuadroTexto} alt="Cuadro de dialogo"/>
                             <p>3</p>
                         </div>
                         <div>
@@ -43,7 +44,7 @@ const Topics = () => {
                             <p>9:54</p>
                         </div>
                         <div className='totalComments'>
-                            <img className='num_com'></img>
+                            <img className='num_com' src={cuadroTexto} alt="Cuadro de dialogo"/>
                             <p>3</p>
                         </div>
                         <div>
@@ -61,7 +62,7 @@ const Topics = () => {
                             <p>9:54</p>
                         </div>
                         <div className='totalComments'>
-                            <img className='num_com'></img>
+                            <img className='num_com' src={cuadroTexto} alt="Cuadro de dialogo"/>
                             <p>3</p>
                         </div>
                         <div>
@@ -79,7 +80,7 @@ const Topics = () => {
                             <p>9:54</p>
                         </div>
                         <div className='totalComments'>
-                            <img className='num_com'></img>
+                            <img className='num_com' src={cuadroTexto} alt="Cuadro de dialogo"/>
                             <p>3</p>
                         </div>
                         <div>

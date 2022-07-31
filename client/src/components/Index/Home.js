@@ -10,6 +10,7 @@ import ocio from '../../img/ocio.jfif'
 import relaciones from '../../img/person.jfif'
 import pesas from '../../img/pesas.jfif'
 import viajes from '../../img/viajes.jfif'
+import user from '../../img/user.png'
 
 
 
@@ -26,8 +27,12 @@ const Home = () => {
    
     return (
         <div>
-            <section className='header'>
+            <section className='header'>             
                 <h1>Encuentra un tema del que hablar</h1>
+                <div className='userSesion'>
+                <h4>Iniciar sesión/ Registrarse</h4>
+                <img src={user} alt="iniciar sesión"/>
+                </div>
             </section>
             <section>
                 <div className='topic' id={ temas[0].id }>

@@ -3,6 +3,9 @@ import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import '../../styles/messages.css';
+
+import globo from '../../img/globo.jfif'
 
 const Messages = () => 
 {
@@ -18,15 +21,15 @@ const Messages = () =>
     return (
         <div>
             <section className='header2'>
-                <img src="" />
+                <img src={globo} alt="globo de conversación" />
                 <h1>Inicia tu hilo</h1>
             </section>
-            <section>
+            <section className='formulario'>
                 <form>
                     <label>Título:</label>
-                    <input></input>
+                    <input id='title'></input><br/>
                     <label>Tema:</label>
-                    <select name="tema_select">
+                    <select name="tema_select" id="temas">
                         <option value="value1">Empleo/Emprendimiento</option>
                         <option value="value2" selected>Finanzas</option>
                         <option value="value3">Salud y entrenamiento</option>
@@ -52,9 +55,12 @@ const Messages = () =>
                         console.log( 'Focus.', editor );
                     } }
                     />
-                    <button>Enviar</button>
+                    <div id="btn_dir">
+                        <button>ENVIAR</button>
+                    </div>
+                    
                 </form>
-                <p>Una vez que envíes el mensaje, no podrás editarlo o eliminarlo</p>
+                <p>Una vez que envíes el mensaje, no podrás editarlo o eliminarlo.</p>
             </section>
 
         </div>

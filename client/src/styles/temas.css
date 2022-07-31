@@ -70,7 +70,7 @@
     height: 10vw;
     margin-right: 5vw;
     margin-left: 15vw;
-    margin: 0 3vw 0 2vw;
+    margin: 2vw 3vw 0 2vw;
 }
 
 .totalComments{
@@ -84,7 +84,7 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: var(--secundary-font);
     color: var(--title-color);
 }
