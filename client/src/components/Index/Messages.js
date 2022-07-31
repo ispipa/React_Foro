@@ -1,8 +1,20 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from "react";
+import { useParams } from 'react-router-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-const Messages = () => {
+const Messages = () => 
+{
+    const { id } =  useParams()
+    const [ temas , setTemas ] = useState("Prueba")
+    useEffect(() => {
+        axios.get(`http://localhost/php/App_foro/foro/server/mensajes.php?id=${id}`)
+        .then(res =>console.log(res))
+        .catch(error =>console.log(error))
+    }, [])
+
+
     return (
         <div>
             <section className='header2'>

@@ -27,5 +27,12 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
         echo json_encode($listaTemas);
     }
 }
+else if ($_SERVER["REQUEST_METHOD"] == "POST" ) 
+{
+        //$postBody = file_get_contents("php://input");
+        $postBody = $_POST + $_FILES;
+        $resp = $_temas->post(json_encode($postBody));
+        print_r($resp);
+}
 
 ?>

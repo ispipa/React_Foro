@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from "react";
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 import maletin from '../../img/maletin.jfif'
@@ -14,6 +15,7 @@ const Hilos = () => {
     }, [])
     return (
         <div>
+             <Link to = {`/mensajes/${id}`}><h2>Prueba para mensaje</h2></Link>
             <section className='header2'>
                 <img src=""/>
                 <h1>{/*[insertar tema con fórmula]*/}</h1>  

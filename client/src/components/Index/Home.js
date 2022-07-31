@@ -36,23 +36,23 @@ const Home = () => {
                 </div>
                 <div className='topic' id={ temas[1].id }>
                     <img src={dolar} alt="dolar"/>
-                    <h2>{ temas[1].temas }</h2>
+                    <Link to = {`/hilos/${temas[1].id}`}><h2>{ temas[1].temas }</h2></Link>
                 </div>
                 <div className='topic' id={ temas[2].id }>
                     <img src={pesas} alt="pesas"/>
-                    <h2>{ temas[2].temas }</h2>
+                    <Link to = {`/hilos/${temas[2].id}`}><h2>{ temas[2].temas }</h2></Link>
                 </div>
                 <div className='topic'id={ temas[3].id }>
                     <img src={relaciones} alt="relaciones"/>
-                    <h2>{ temas[3].temas }</h2>
+                    <Link to = {`/hilos/${temas[3].id}`}><h2>{ temas[3].temas }</h2></Link>
                 </div>
                 <div className='topic' id={ temas[4].id }>
                     <img src={viajes} alt="viajes"/>
-                    <h2>{ temas[4].temas }</h2>
+                    <Link to = {`/hilos/${temas[4].id}`}><h2>{ temas[4].temas }</h2></Link>
                 </div>
                 <div className='topic' id={ temas[5].id }>
                     <img src={ocio} alt="ocio"/>
-                    <h2>{ temas[5].temas }</h2>
+                    <Link to = {`/hilos/${temas[5].id}`}><h2>{ temas[5].temas }</h2></Link>
                 </div>
             </section>
             <footer>
