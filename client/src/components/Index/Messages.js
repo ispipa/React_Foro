@@ -9,13 +9,13 @@ import globo from '../../img/globo.jfif'
 
 const Messages = () => 
 {
-    const { id } =  useParams()
-    const [ temas , setTemas ] = useState("Prueba")
-    useEffect(() => {
-        axios.get(`http://localhost/php/App_foro/foro/server/mensajes.php?id=${id}`)
-        .then(res =>console.log(res))
-        .catch(error =>console.log(error))
-    }, [])
+    // const { id } =  useParams()
+    // const [ temas , setTemas ] = useState("Prueba")
+    // useEffect(() => {
+    //     axios.get(`http://localhost/php/App_foro/foro/server/mensajes.php?id=${id}`)
+    //     .then(res =>console.log(res))
+    //     .catch(error =>console.log(error))
+    // }, [])
 
 
     return (
