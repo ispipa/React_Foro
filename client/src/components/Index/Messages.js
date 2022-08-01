@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import '../../styles/messages.css';
+import './messages.css';
 
 import globo from '../../img/globo.jfif'
 
@@ -39,10 +39,10 @@ const Messages = () =>
                     </select>
                     <CKEditor
                     editor={ ClassicEditor }
-                    data="<p>Hello from CKEditor 5!</p>"
+                    data="<p>Escribe</p>"
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
-                        console.log( 'Editor is ready to use!', editor );
+                        console.log( 'Escribe', editor );
                     } }
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
@@ -56,7 +56,7 @@ const Messages = () =>
                     } }
                     />
                     <div id="btn_dir">
-                        <button>ENVIAR</button>
+                        <button className='button-mensaje'>ENVIAR</button>
                     </div>
                     
                 </form>

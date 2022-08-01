@@ -12,6 +12,7 @@ if($method == "OPTIONS") {
 }
 
 
+
 $_usuarios = new usuarios;
 
     if($_SERVER["REQUEST_METHOD"] == "GET")
@@ -29,7 +30,7 @@ $_usuarios = new usuarios;
             echo json_encode($user_data);
         }
     }
-    else if ($_SERVER["REQUEST_METHOD"] == "POST") 
+    else if ($method == "POST") 
     {
         $postBody = file_get_contents("php://input");
         $resp = $_usuarios->post($postBody);

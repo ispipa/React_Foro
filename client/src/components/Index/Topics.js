@@ -1,8 +1,9 @@
 import React from 'react';
-import '../../styles/temas.css'
+import './temas.css'
 
 import globo from '../../img/globo.jfif'
 import cuadroTexto from '../../img/cuadroTexto.png'
+import { NavLink } from 'react-router-dom';
 
 const Topics = () => {
 
@@ -17,7 +18,9 @@ const Topics = () => {
             </section>
             <section className='hilos'>
                 <div>
-                    <button>Empieza un nuevo tema</button>
+                    <NavLink to="/mensajes">
+                        <button className='button-default'>Empieza un nuevo tema</button>
+                    </NavLink>
                 </div>
                 <div className='comments'>
                     <div className='caja'>

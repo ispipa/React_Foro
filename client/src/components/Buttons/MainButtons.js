@@ -4,7 +4,7 @@ import './MainButtons.css';
 const MainButtons = ({mainbutton}) => {
     return (
 
-        <button>{mainbutton}</button>
+        <button className='button-default'>{mainbutton}</button>
         
     );
 };

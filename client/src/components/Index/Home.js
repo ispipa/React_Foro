@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
-import '../../styles/home.css'
+import './home.css'
 
 
 import maletin from '../../img/maletin.jfif'

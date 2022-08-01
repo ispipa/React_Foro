@@ -15,7 +15,7 @@ const Register = () => {
     const data = e => {
         e.preventDefault()
         setErr(false)
-        let username = e.target.username.value
+        let user = e.target.username.value
         let email = e.target.email.value
         let password = e.target.password.value
         let confirmPassword = e.target.confirmPassword.value
@@ -24,9 +24,7 @@ const Register = () => {
             setAlert(true)
             return console.log("las contraseñas no coinciden");
         }
-        axios.post("http://localhost/php/App_foro/foro/server/usuarios.php",{nombre:username,
-        contraseña:password,
-        email:email})
+        axios.post("http://localhost/foro/server/usuarios.php",{user, password,email})
         .then(res => console.log(res))
         .catch(error =>{ 
             setMesageError(error.response.data.mesage)
@@ -67,7 +65,7 @@ const Register = () => {
                     </div>
                     <MainButtons mainbutton='Regístrate'/>
                 </form> 
-                <button id="volver" onClick={() => setLogin(true)}>Volver</button>
+                <button id="volver"  className='button-default' onClick={() => setLogin(true)}>Volver</button>
             </div>
         </div>
     );
