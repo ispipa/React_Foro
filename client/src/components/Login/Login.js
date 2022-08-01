@@ -4,20 +4,34 @@ import MainButtons from '../Buttons/MainButtons';
 import './Login.css'
 import Register from './Register';
 import foro from '../../img/foro.JPG';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
    const [ register, setRegister ] = useState(false)
+   const [ isLoading, setIsLoading] = useState(false)
+   const [ msgErr, setMsgErr ] = useState(false)
+
+   const navigate = useNavigate();
 
   const data = (e) => {
   e.preventDefault()
+  setIsLoading(true)
+  setMsgErr(false)
   
   let email = e.target.email.value
   let password = e.target.password.value
   axios.post("http://localhost/foro/server/login",{email,
   contraseña:password})
-  .then(res => console.log(res))
-  .catch(error =>console.log(error));
+  .then(res => {
+    navigate('/')
+    console.log(res)})
+  .catch(error =>{
+    setTimeout(() => {
+      setMsgErr(true)
+      setIsLoading(false)
+    }, 2000);    
+    console.log(error)});
 }
 
 if (register) {
@@ -27,6 +41,9 @@ if (register) {
   return (
     
     <div id='formBox'>
+
+      { msgErr &&  <div>Datos incorrectos</div> }
+
       <img className='foro' src={foro}/>
 
       <form onSubmit={data} className="form">
@@ -40,7 +57,15 @@ if (register) {
           <input className="form-control marginB" type="password"  name="" id="password" aria-describedby="helpId" placeholder="Password"/>
         </div>
 
-        <MainButtons mainbutton={"Enviar"}/>
+        <button className='button-default'>{ isLoading ? 
+         <div class="lds-ellipsis">
+            <div></div><div></div><div></div><div></div>
+          </div> :
+          "Iniciar"
+           }
+
+        </button> 
+         
       
       </form>
       <button className='button-default' onClick={() => setRegister(true)} >Registrarse</button>

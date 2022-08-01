@@ -33,10 +33,11 @@ class usuarios extends conexion
         public function post($json)
         {
             $datos = json_decode($json,true);
-            if(isset($datos['nombre']) && isset($datos["contraseña"]) && isset($datos['email']))
+            print_r($datos);
+            if(isset($datos['user']) && isset($datos["password"]) && isset($datos['email']))
             {
-                $this->user_name = $datos['nombre'];
-                $this->user_password = $datos['contraseña'];
+                $this->user_name = $datos['user'];
+                $this->user_password = $datos['password'];
                 $this->user_email = $datos['email'];
                 $resp = $this->isertUser();
                 if($resp)
