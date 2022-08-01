@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import MainButtons from '../Buttons/MainButtons';
 import Login from './Login';
 import foro from '../../img/foro.JPG';
 
@@ -61,11 +60,11 @@ const Register = () => {
 
                     <div>
                         <label></label>
-                        <input className='marginInput' type="password"  name='confirmPassword' placeholder='Confirma contraseña'/>
+                        <input className='marginInput marginB' type="password"  name='confirmPassword' placeholder='Confirma contraseña'/>
                     </div>
-                    <MainButtons mainbutton='Regístrate'/>
+                    <button className='button-red'>Regístrate</button>
                 </form> 
-                <button id="volver"  className='button-default' onClick={() => setLogin(true)}>Volver</button>
+                <button id="volver"  className='button-white' onClick={() => setLogin(true)}>Volver</button>
             </div>
         </div>
     );

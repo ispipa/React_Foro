@@ -4,6 +4,10 @@
 /*Para usarla: font-family: 'Open Sans', sans-serif;
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+/*Para usarla: font-family: 'Bree Serif', serif; */
+
+
 *{
     box-sizing: border-box;
     overflow-wrap: break-word; 
@@ -32,9 +36,27 @@ body{
     margin-top: 25vh;
 }
 
-#formBox button{
+form{
+  line-height: 6vh;
+}
+
+#formBox .button-red, .button-white{
    border: none;
    cursor: pointer;
+   background-color: #ff1616;
+   color: white;
+   font-size: large;
+   border-radius: 6vh;
+   border-width: 1px;
+   font-family: 'Bree Serif', serif;    
+   height: 5vh;
+   width: 30vh;
+}
+
+.button-white{
+  background-color: white;
+  color: black;
+  border: 1px solid #ff1616;
 }
 
 input{
