@@ -1,24 +1,26 @@
 <?php 
-require_once 'clases/usuarios.class.php';
+require_once 'clases/hilos.class.php';
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-
 $method = $_SERVER['REQUEST_METHOD'];
 if($method == "OPTIONS") {
     die();
 }
 
-$_usuarios = new usuarios;
+$_hilos = new hilos;
 
-if($_SERVER["REQUEST_METHOD"] == "POST")
+if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-
-    $postBody = file_get_contents("php://input");
-    $resp = $_usuarios->login($postBody);
-    echo json_encode($resp);
+    if(isset($_GET["id"]))
+    {
+        $hilos_tema = $_GET["id"];
+        $listaTemas =  $_hilos->obtenerHilos($hilos_tema);
+        echo json_encode($listaTemas);
+    }
 }
+
 ?>

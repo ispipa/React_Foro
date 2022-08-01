@@ -1,20 +1,35 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from "react";
+import { useParams } from 'react-router-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import './messages.css';
+
+import globo from '../../img/globo.jfif'
 
 const Messages = () => {
+
+    {/*const { id } =  useParams()
+
+    useEffect(() => {
+        axios.get(`http://localhost/php/App_foro/foro/server/mensajes.php?id=${id}`)
+        .then(res =>console.log(res))
+        .catch(error =>console.log(error))
+    }, [])*/}
+
+
     return (
         <div>
             <section className='header2'>
-                <img src="" />
+                <img src={globo} alt="globo de conversación" />
                 <h1>Inicia tu hilo</h1>
             </section>
-            <section>
+            <section className='formulario'>
                 <form>
                     <label>Título:</label>
-                    <input></input>
+                    <input id='title'></input><br/>
                     <label>Tema:</label>
-                    <select name="tema_select">
+                    <select name="tema_select" id="temas">
                         <option value="value1">Empleo/Emprendimiento</option>
                         <option value="value2" selected>Finanzas</option>
                         <option value="value3">Salud y entrenamiento</option>
@@ -24,10 +39,10 @@ const Messages = () => {
                     </select>
                     <CKEditor
                     editor={ ClassicEditor }
-                    data="<p>Hello from CKEditor 5!</p>"
+                    data="<p>Escribe</p>"
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
-                        console.log( 'Editor is ready to use!', editor );
+                        console.log( 'Escribe', editor );
                     } }
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
@@ -40,9 +55,12 @@ const Messages = () => {
                         console.log( 'Focus.', editor );
                     } }
                     />
-                    <button>Enviar</button>
+                    <div id="btn_dir">
+                        <button className='button-mensaje'>ENVIAR</button>
+                    </div>
+                    
                 </form>
-                <p>Una vez que envíes el mensaje, no podrás editarlo o eliminarlo</p>
+                <p>Una vez que envíes el mensaje, no podrás editarlo o eliminarlo.</p>
             </section>
 
         </div>

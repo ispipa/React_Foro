@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import MainButtons from '../Buttons/MainButtons';
 import Login from './Login';
+import foro from '../../img/foro.JPG';
 
 const Register = () => {
 
@@ -23,7 +24,7 @@ const Register = () => {
             setAlert(true)
             return console.log("las contraseñas no coinciden");
         }
-        axios.post("http://localhost/php/Prueba_Api/usuarios.php",{nombre:username,
+        axios.post("http://localhost/php/App_foro/foro/server/usuarios.php",{nombre:username,
         contraseña:password,
         email:email})
         .then(res => console.log(res))
@@ -41,29 +42,33 @@ const Register = () => {
         <div>
             { alert && <h1>Las contraseñas no coinciden</h1> }
             { err && <h1>{ mesageError }</h1> }
-            <form onSubmit={data}>
-                <div>
-                    <label>Username</label>
-                    <input type="text"  name='username'/>
-                </div>
+        
+            <div id='formBox'>
+                <img className='foro' src={foro}/>
+                <form onSubmit={data}>
+                    <div>
+                        <label></label>
+                        <input className='marginInput marginT' type="text"  name='username' placeholder='Username'/>
+                    </div>
 
-                <div>
-                    <label>Email</label>
-                    <input type="email" name='email'/>
-                </div>
+                    <div>
+                        <label></label>
+                        <input className='marginInput' type="email" name='email' placeholder='Email'/>
+                    </div>
 
-                <div>
-                    <label>Contraseña</label>
-                    <input type="password"  name='password'/>
-                </div>
+                    <div>
+                        <label></label>
+                        <input className='marginInput' type="password"  name='password' placeholder='Contraseña'/>
+                    </div>
 
-                <div>
-                    <label>Confirma contraseña</label>
-                    <input type="password"  name='confirmPassword'/>
-                </div>
-                <MainButtons mainbutton='Regístrate'/>
-            </form> 
-            <button onClick={() => setLogin(true)}>Volver</button>
+                    <div>
+                        <label></label>
+                        <input className='marginInput' type="password"  name='confirmPassword' placeholder='Confirma contraseña'/>
+                    </div>
+                    <MainButtons mainbutton='Regístrate'/>
+                </form> 
+                <button id="volver"  className='button-default' onClick={() => setLogin(true)}>Volver</button>
+            </div>
         </div>
     );
 };

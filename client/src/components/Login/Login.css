@@ -1,7 +1,8 @@
 /* TIPOGRAFÍAS */
 
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-/*Para usarla: font-family: 'Russo One', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+/*Para usarla: font-family: 'Open Sans', sans-serif;
+*/
 
 *{
     box-sizing: border-box;
@@ -15,7 +16,11 @@ html{
 }
 
 body{
-    margin: 0px auto;
+    margin: 0 auto;
+}
+
+.foro{
+   width: 120px;
 }
 
 /* FORMULARIO */
@@ -23,21 +28,32 @@ body{
 #formBox{
     width: 80%;
     margin: 0 auto;
+    text-align: center;
+    margin-top: 25vh;
 }
 
 #formBox button{
-   background-color: transparent;
    border: none;
    cursor: pointer;
 }
 
-.form{
-    line-height: 29px;
-    text-align: center;
-}
-
-.input{
+input{
     background-color: #d9d9d9;
     border-radius: 10vh;
-    font-family: 'Russo One', sans-serif;
+    border-width: 1px;
+    font-family: 'Open Sans', sans-serif;    
+    height: 5vh;
+    width: 30vh;
+    padding-left: 2vh;
+}
+
+.mb-3{
+    line-height: 6.5vh;
+}
+
+.marginT{
+    margin-top: 6vh;
+}
+.marginB{
+    margin-bottom: 6vh;
 }

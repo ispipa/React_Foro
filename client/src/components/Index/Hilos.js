@@ -1,8 +1,21 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from "react";
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
+import maletin from '../../img/maletin.jfif'
 
 const Hilos = () => {
+    const { id } =  useParams()
+    const [ temas , setTemas ] = useState("Prueba")
+    useEffect(() => {
+        axios.get(`http://localhost/php/App_foro/foro/server/hilos.php?id=${id}`)
+        .then(res =>console.log(res))
+        .catch(error =>console.log(error))
+    }, [])
     return (
         <div>
+             <Link to = {`/mensajes/${id}`}><h2>Prueba para mensaje</h2></Link>
             <section className='header2'>
                 <img src=""/>
                 <h1>{/*[insertar tema con fórmula]*/}</h1>  
