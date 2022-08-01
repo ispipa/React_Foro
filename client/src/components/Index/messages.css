@@ -55,10 +55,16 @@ label{
     justify-content: center;
 }
 
-.button-mensaje{
-    border: 1px solid #ff5757;
+.button-white{
+    border: none;
+    cursor: pointer;
     background-color: var(--title-color);
     color: var(--principal-color);
-    margin-top: 4vw;
-    border-radius: 2.5vw;
-}
+    border: 1px solid #ff1616;
+    font-size: large;
+    border-radius: 6vh;
+    border-width: 1px;
+    font-family: var(--secundary-font);    
+    height: 5vh;
+    width: 30vh;
+ }

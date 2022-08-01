@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import MainButtons from '../Buttons/MainButtons';
 import './Login.css'
 import Register from './Register';
 import foro from '../../img/foro.JPG';
@@ -57,7 +56,7 @@ if (register) {
           <input className="form-control marginB" type="password"  name="" id="password" aria-describedby="helpId" placeholder="Password"/>
         </div>
 
-        <button className='button-default'>{ isLoading ? 
+        <button className='button-red'>{ isLoading ? 
          <div class="lds-ellipsis">
             <div></div><div></div><div></div><div></div>
           </div> :
@@ -68,7 +67,7 @@ if (register) {
          
       
       </form>
-      <button className='button-default' onClick={() => setRegister(true)} >Registrarse</button>
+      <button className='button-white' onClick={() => setRegister(true)} >Registrarse</button>
     </div>
 );
 

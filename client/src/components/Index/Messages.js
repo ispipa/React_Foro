@@ -56,7 +56,7 @@ const Messages = () =>
                     } }
                     />
                     <div id="btn_dir">
-                        <button className='button-mensaje'>ENVIAR</button>
+                        <button className='button-white'>ENVIAR</button>
                     </div>
                     
                 </form>
