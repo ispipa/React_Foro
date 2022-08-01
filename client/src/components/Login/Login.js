@@ -13,7 +13,7 @@ const Login = () => {
   
   let email = e.target.email.value
   let password = e.target.password.value
-  axios.post("http://localhost/php/Prueba_Api/login.php",{email,
+  axios.post("http://localhost/foro/server/login",{email,
   contraseña:password})
   .then(res => console.log(res))
   .catch(error =>console.log(error));
