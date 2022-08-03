@@ -7,12 +7,13 @@ import CheckRegister from './CheckRegister';
 
 const Register = () => {
 
+   
     const [ alert, setAlert ] = useState(false)
     const [ isLoading, setIsLoading] = useState(false)
     const [ msgErr, setMsgErr ] = useState(false)
     const [login, setLogin] = useState(false)
     const [ emailErr, setEmailErr ] = useState(false)
-    const [ check, setCheck ] = useState(true)
+    const [ check, setCheck ] = useState(false)
 
     const navigate = useNavigate();
 
