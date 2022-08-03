@@ -38,7 +38,7 @@ const Register = () => {
               }, 2000);    
               console.log(error)});
     }
-    
+
     //cuando se redireccione a login mostrar un mensaje de color verde que le diga que el registro a ido bien 
     //falta un if que compare si el correo o el nombre de usuario ya están registrados
 
