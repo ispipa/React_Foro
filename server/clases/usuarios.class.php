@@ -39,15 +39,23 @@ class usuarios extends conexion
                 $this->user_password = $datos['contraseña'];
                 $this->user_email = $datos['email'];
                 $resp = $this->isertUser();
-                if($resp)
+                if($resp > 0)
                 {
                     $respuesta['result'] = array("usuarioId" =>$resp);
                     return json_encode($respuesta);
                 }
                 else
                 {
-                    http_response_code(403);
-                    return json_encode(array("mesage" => "El email ya esta en uso"));
+                    if($resp == -1)
+                    {
+                        http_response_code(403);
+                        return json_encode(array("mesage" => "El nombre ya esta en uso"));
+                    }
+                    else
+                    {
+                        http_response_code(403);
+                        return json_encode(array("mesage" => "El email ya esta en uso"));
+                    }
                 }
             }
         }
@@ -92,15 +100,24 @@ class usuarios extends conexion
         //alta a un usuario
         private  function isertUser()
         {
-            $query ="INSERT INTO ".$this->table . "(nombre,contraseña,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";
-            $resp = parent::nonQueryId($query);
-            if($resp)
+            $query_username = "SELECT nombre FROM " . $this->table . " where nombre='$this->user_name'";
+            $resp = parent::nonQuery($query_username);
+            if($resp != 1)
             {
-                return $resp;
+                $query ="INSERT INTO ".$this->table . "(nombre,contraseña,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";
+                $resp = parent::nonQueryId($query);
+                if($resp)
+                {
+                    return $resp;
+                }
+                else
+                {
+                   return 0;
+                }
             }
-            else
+            else 
             {
-               return 0;
+                return -1;
             }
         }
 
