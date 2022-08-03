@@ -33,7 +33,6 @@ class usuarios extends conexion
         public function post($json)
         {
             $datos = json_decode($json,true);
-            print_r($datos);
             if(isset($datos['user']) && isset($datos["password"]) && isset($datos['email']))
             {
                 $this->user_name = $datos['user'];
@@ -94,7 +93,7 @@ class usuarios extends conexion
         //alta a un usuario
         private  function isertUser()
         {
-            
+            echo "estoy en isertUser";
             $query ="INSERT INTO ".$this->table . "(nombre,contraseña,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";
             $resp = parent::nonQueryId($query);
             if($resp)

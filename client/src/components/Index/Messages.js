@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
+import { CKEditor } from '@ckeditor/ckeditor5-react'
 import './messages.css';
 
 import globo from '../../img/globo.jfif'
@@ -17,7 +17,12 @@ const Messages = () =>
     //     .catch(error =>console.log(error))
     // }, [])
 
-
+    const data = e => {
+        e.preventDefault()
+        let titulo = e.target.title.value
+        let tema = e.target.tema_select.value
+        let description = e.target.password.value
+    }
     return (
         <div>
             <section className='header2'>
@@ -25,20 +30,20 @@ const Messages = () =>
                 <h1>Inicia tu hilo</h1>
             </section>
             <section className='formulario'>
-                <form>
+                <form onSubmit={data}>
                     <label>Título:</label>
-                    <input id='title'></input><br/>
+                    <input id='title' name="title"></input><br/>
                     <label>Tema:</label>
                     <select name="tema_select" id="temas">
-                        <option value="value1">Empleo/Emprendimiento</option>
-                        <option value="value2" selected>Finanzas</option>
-                        <option value="value3">Salud y entrenamiento</option>
-                        <option value="value4">Relaciones</option>
-                        <option value="value5">Viajes</option>
-                        <option value="value6">Ocio y videojuegos</option>
+                        <option value="Empleo/Emprendimiento">Empleo/Emprendimiento</option>
+                        <option value="Finanzas" selected>Finanzas</option>
+                        <option value="Salud y entrenamiento">Salud y entrenamiento</option>
+                        <option value="Relaciones">Relaciones</option>
+                        <option value="Viajes">Viajes</option>
+                        <option value="Ocio y videojuegos">Ocio y videojuegos</option>
                     </select>
                     <CKEditor
-                    editor={ ClassicEditor }
+                    editor={ Editor }
                     data="<p>Escribe</p>"
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
@@ -48,11 +53,13 @@ const Messages = () =>
                         const data = editor.getData();
                         console.log( { event, editor, data } );
                     } }
-                    onBlur={ ( event, editor ) => {
-                        console.log( 'Blur.', editor );
+                    onBlur={ ( event, editor ) => 
+                    {
+                        const data = editor.getData().length;
+                        console.log( 'Blur.', {editor, data });
                     } }
                     onFocus={ ( event, editor ) => {
-                        console.log( 'Focus.', editor );
+                        console.log( 'Focus.', editor);
                     } }
                     />
                     <div id="btn_dir">

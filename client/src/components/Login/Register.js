@@ -23,7 +23,7 @@ const Register = () => {
             setAlert(true)
             return console.log("las contraseñas no coinciden");
         }
-        axios.post("http://localhost/foro/server/usuarios.php",{user, password,email})
+        axios.post("http://localhost/php/App_foro/foro/server/usuarios.php",{user, password,email})
         .then(res => console.log(res))
         .catch(error =>{ 
             setMesageError(error.response.data.mesage)

@@ -17,14 +17,12 @@ import user from '../../img/user.png'
 const Home = () => {
 
     const [ temas , setTemas ] = useState("Prueba")
-
+    const main = document.getElementById('id');
     useEffect(() => {
         axios.get("http://localhost/php/App_foro/foro/server/temas.php")
         .then(res =>setTemas(res.data))
         .catch(error =>console.log(error))
     }, [])
-
-   
     return (
         <div>
             <section className='header'>             
@@ -34,30 +32,30 @@ const Home = () => {
                 <img src={user} alt="iniciar sesión"/>
                 </div>
             </section>
-            <section>
+            <section id="prueba">
                 <div className='topic' id={ temas[0].id }>
                     <img src={maletin} alt="maletin"/>
-                    <Link to = {`/hilos/${temas[0].id}`}><h2>{ temas[0].temas }</h2></Link>
+                    <Link to = {`/temas/${temas[0].id}`}><h2>{ temas[0].temas }</h2></Link>
                 </div>
                 <div className='topic' id={ temas[1].id }>
                     <img src={dolar} alt="dolar"/>
-                    <Link to = {`/hilos/${temas[1].id}`}><h2>{ temas[1].temas }</h2></Link>
+                    <Link to = {`/temas/${temas[1].id}`}><h2>{ temas[1].temas }</h2></Link>
                 </div>
                 <div className='topic' id={ temas[2].id }>
                     <img src={pesas} alt="pesas"/>
-                    <Link to = {`/hilos/${temas[2].id}`}><h2>{ temas[2].temas }</h2></Link>
+                    <Link to = {`/temas/${temas[2].id}`}><h2>{ temas[2].temas }</h2></Link>
                 </div>
                 <div className='topic'id={ temas[3].id }>
                     <img src={relaciones} alt="relaciones"/>
-                    <Link to = {`/hilos/${temas[3].id}`}><h2>{ temas[3].temas }</h2></Link>
+                    <Link to = {`/temas/${temas[3].id}`}><h2>{ temas[3].temas }</h2></Link>
                 </div>
                 <div className='topic' id={ temas[4].id }>
                     <img src={viajes} alt="viajes"/>
-                    <Link to = {`/hilos/${temas[4].id}`}><h2>{ temas[4].temas }</h2></Link>
+                    <Link to = {`/temas/${temas[4].id}`}><h2>{ temas[4].temas }</h2></Link>
                 </div>
                 <div className='topic' id={ temas[5].id }>
                     <img src={ocio} alt="ocio"/>
-                    <Link to = {`/hilos/${temas[5].id}`}><h2>{ temas[5].temas }</h2></Link>
+                    <Link to = {`/temas/${temas[5].id}`}><h2>{ temas[5].temas }</h2></Link>
                 </div>
             </section>
             <footer>
