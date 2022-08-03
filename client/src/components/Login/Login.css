@@ -24,6 +24,23 @@
   border-radius: 1vw;
 }
 
+.msg_ok {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 34vw;
+  background-color: #15ff0054;
+  width: 30vw;
+  font-family: 'Open Sans';
+  font-size: .75em;
+  margin: 0 auto;
+  color: #22ff16;
+  text-align: center;
+  padding: 1vw;
+  border: 1px solid #22ff16;
+  border-radius: 1vw;
+}
+
 
 * {
   box-sizing: border-box;
