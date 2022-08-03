@@ -93,7 +93,6 @@ class usuarios extends conexion
         //alta a un usuario
         private  function isertUser()
         {
-            echo "estoy en isertUser";
             $query ="INSERT INTO ".$this->table . "(nombre,contraseña,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";
             $resp = parent::nonQueryId($query);
             if($resp)
