@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Login from './Login';
 import foro from '../../img/foro.JPG';
 import { useNavigate } from 'react-router-dom';
+import CheckRegister from './CheckRegister';
 
 const Register = () => {
 
@@ -10,6 +11,8 @@ const Register = () => {
     const [ isLoading, setIsLoading] = useState(false)
     const [ msgErr, setMsgErr ] = useState(false)
     const [login, setLogin] = useState(false)
+    const [ emailErr, setEmailErr ] = useState(false)
+    const [ check, setCheck ] = useState(true)
 
     const navigate = useNavigate();
 
@@ -17,6 +20,8 @@ const Register = () => {
         e.preventDefault()
         setIsLoading(true)
         setMsgErr(false)
+        setEmailErr(false)
+        setAlert(false)
 
         let user = e.target.username.value
         let email = e.target.email.value
@@ -24,23 +29,35 @@ const Register = () => {
         let confirmPassword = e.target.confirmPassword.value
 
         if (password !== confirmPassword) {
-            setAlert(true)
+            setIsLoading(false)
+           return setAlert(true)
             // return console.log("las contraseñas no coinciden");
         }
+
         axios.post("http://localhost/foro/server/usuarios.php",{user, password,email})
         .then(res => {
             navigate('/login')
-            console.log(res)})
+            console.log('Registro exitoso')})
         .catch(error =>{ 
             setTimeout(() => {
                 setMsgErr(true)
                 setIsLoading(false)
+
+                if (error.response.data.mesage == 'El email ya esta en uso') {
+                    setEmailErr(true)
+                  }
               }, 2000);    
-              console.log(error)});
+
+             
+              console.log(error.response.data.mesage)});
     }
     
     //cuando se redireccione a login mostrar un mensaje de color verde que le diga que el registro a ido bien 
     //falta un if que compare si el correo o el nombre de usuario ya están registrados
+
+    if (check) {
+        return <CheckRegister />
+    }
 
     if(login){
         return (<Login />)
@@ -61,7 +78,12 @@ const Register = () => {
 
                     <div>
                         <label></label>
-                        <input className='marginInput' type="email" name='email' placeholder='Email'/>
+                        <input className={ emailErr ? 'marginInput error-email' : 'marginInput' }
+                               type="email" 
+                               name='email' 
+                               placeholder='Email'
+                        />
+                        { emailErr && <p className='msg-error'>Email ya esta en uso</p>}
                     </div>
 
                     <div>
@@ -73,12 +95,6 @@ const Register = () => {
                         <label></label>
                         <input className='marginInput marginB' type="password"  name='confirmPassword' placeholder='Confirma contraseña'/>
                     </div>
-<<<<<<< HEAD
-                    <div>
-                    <button className='button-default'>Registrarse</button>
-                    </div>
-                    
-=======
                     <button className='button-red'>{ isLoading ? 
                         <div class="lds-ellipsis">
                          <div></div><div></div><div></div><div></div>
@@ -87,7 +103,6 @@ const Register = () => {
                     }
                     </button> 
 
->>>>>>> 0b899b35bb91865d51e9da449c0b944430ab9833
                 </form> 
                 <button id="volver"  className='button-white' onClick={() => setLogin(true)}>Volver</button>
             </div>

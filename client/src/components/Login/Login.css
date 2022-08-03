@@ -183,3 +183,15 @@ input {
     transform: translate(24px, 0);
   }
 }
+
+.error-email{
+  border: 1px solid red;
+}
+
+.msg-error{
+  font-size: 11px;
+  margin-top: -19px;
+  margin-bottom: -19px;
+  font-weight: 500;
+  color: red;
+}

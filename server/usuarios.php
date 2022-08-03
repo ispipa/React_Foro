@@ -11,9 +11,6 @@ if($method == "OPTIONS") {
     die();
 }
 
-print_r($method);
-
-
 $_usuarios = new usuarios;
 
     if($_SERVER["REQUEST_METHOD"] == "GET")
