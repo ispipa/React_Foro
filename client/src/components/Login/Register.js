@@ -63,7 +63,10 @@ const Register = () => {
                         <label></label>
                         <input className='marginInput' type="password"  name='confirmPassword' placeholder='Confirma contraseña'/>
                     </div>
-                    <MainButtons mainbutton='Regístrate'/>
+                    <div>
+                    <button className='button-default'>Registrarse</button>
+                    </div>
+                    
                 </form> 
                 <button id="volver"  className='button-default' onClick={() => setLogin(true)}>Volver</button>
             </div>
