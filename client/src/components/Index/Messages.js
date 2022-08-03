@@ -32,7 +32,7 @@ const Messages = () =>
             <section className='formulario'>
                 <form onSubmit={data}>
                     <label>Título:</label>
-                    <input id='title' name="title"></input><br/>
+                    <input type="text" id='title'></input><br/>
                     <label>Tema:</label>
                     <select name="tema_select" id="temas">
                         <option value="Empleo/Emprendimiento">Empleo/Emprendimiento</option>
