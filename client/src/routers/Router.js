@@ -5,9 +5,11 @@ import Topics from '../components/Index/Topics';
 import Hilos from '../components/Index/Hilos';
 import Login from '../components/Login/Login';
 import Messages from '../components/Index/Messages';
+import Perfil from '../components/Index/Perfil';
 
 const Router = () => {
     return (
+
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Home/>} />
@@ -15,6 +17,7 @@ const Router = () => {
                 <Route path='/temas' element={<Topics/>} />
                 <Route path='/hilos/:id' element={<Hilos />} />
                 <Route path='/mensajes' element={<Messages />} />
+                <Route path='/perfil' element={<Perfil/>} />
                 <Route path='*' element={<h1>Error 404</h1>} />
             </Routes>
         </BrowserRouter>

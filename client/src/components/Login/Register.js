@@ -2,18 +2,22 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import Login from './Login';
 import foro from '../../img/foro.JPG';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
     const [ alert, setAlert ] = useState(false)
-    const [ err , setErr ] = useState(false)
-    const [ mesageError , setMesageError ] = useState("Prueba")
+    const [ isLoading, setIsLoading] = useState(false)
+    const [ msgErr, setMsgErr ] = useState(false)
     const [login, setLogin] = useState(false)
 
+    const navigate = useNavigate();
 
     const data = e => {
         e.preventDefault()
-        setErr(false)
+        setIsLoading(true)
+        setMsgErr(false)
+
         let user = e.target.username.value
         let email = e.target.email.value
         let password = e.target.password.value
@@ -21,15 +25,22 @@ const Register = () => {
 
         if (password !== confirmPassword) {
             setAlert(true)
-            return console.log("las contraseñas no coinciden");
+            // return console.log("las contraseñas no coinciden");
         }
         axios.post("http://localhost/foro/server/usuarios.php",{user, password,email})
-        .then(res => console.log(res))
+        .then(res => {
+            navigate('/login')
+            console.log(res)})
         .catch(error =>{ 
-            setMesageError(error.response.data.mesage)
-            setErr(true) 
-        });
+            setTimeout(() => {
+                setMsgErr(true)
+                setIsLoading(false)
+              }, 2000);    
+              console.log(error)});
     }
+    
+    //cuando se redireccione a login mostrar un mensaje de color verde que le diga que el registro a ido bien 
+    //falta un if que compare si el correo o el nombre de usuario ya están registrados
 
     if(login){
         return (<Login />)
@@ -37,8 +48,8 @@ const Register = () => {
 
     return (
         <div>
-            { alert && <h1>Las contraseñas no coinciden</h1> }
-            { err && <h1>{ mesageError }</h1> }
+            { alert && <h1 className='msg_error'>Las contraseñas no coinciden</h1> }
+            { msgErr && <div className='msg_error'>No se ha podido registrar este usuario </div> }
         
             <div id='formBox'>
                 <img className='foro' src={foro}/>
@@ -62,7 +73,14 @@ const Register = () => {
                         <label></label>
                         <input className='marginInput marginB' type="password"  name='confirmPassword' placeholder='Confirma contraseña'/>
                     </div>
-                    <button className='button-red'>Regístrate</button>
+                    <button className='button-red'>{ isLoading ? 
+                        <div class="lds-ellipsis">
+                         <div></div><div></div><div></div><div></div>
+                        </div> :
+                        "Regístrate"
+                    }
+                    </button> 
+
                 </form> 
                 <button id="volver"  className='button-white' onClick={() => setLogin(true)}>Volver</button>
             </div>

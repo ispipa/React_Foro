@@ -27,7 +27,7 @@ const Messages = () =>
             <section className='formulario'>
                 <form>
                     <label>Título:</label>
-                    <input id='title'></input><br/>
+                    <input type="text" id='title'></input><br/>
                     <label>Tema:</label>
                     <select name="tema_select" id="temas">
                         <option value="value1">Empleo/Emprendimiento</option>
