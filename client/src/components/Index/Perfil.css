@@ -12,47 +12,34 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    
 }
 
-.formulario{
+.header2 img{
+    width: 15vw;
+    height: 15vw;
+    margin-right: 5vw;
+}
+
+.img-perfil{
+    width: 25vw;
+    margin-top: 5vw;
+    margin-bottom: 1vw;
+}
+
+.cuerpo{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10vw;    
 }
 
-#title{
+.input_perfil{
     background-color: var(--title-color);
     border-radius: 0;
-    border-width: 10;
+    border: 1px solid black;
+    width: 43vw;
     font-family: var(--secundary-font);
-    height: auto;
-    width: 60vw;
-    padding-left: 2vh;
-    margin-left: 4vw;
+    text-align: center;
     margin-bottom: 2vw;
-}
-
-#temas{
-    margin-left: 4.5vw;
-    width: 60vw;
-    margin-bottom: 2vw;
-    font-family: var(--secundary-font);
-}
-
-label{
-    font-family: var(--secundary-font);
-}
-
-.formulario p{
-    font-family: var(--secundary-font);
-    margin-top: 4vw;
-}
-
-#btn_dir{
-    display: flex;
-    justify-content: center;
 }
 
 .button-white{
@@ -67,4 +54,24 @@ label{
     font-family: var(--secundary-font);    
     height: 5vh;
     width: 30vh;
+    margin-bottom: 3vw;
+ }
+
+ .button-red {
+    border: none;
+    cursor: pointer;
+    background-color: var(--red-color);
+    color: var(--title-color);
+    font-size: large;
+    border-radius: 6vh;
+    border-width: 1px;
+    font-family: var(--secundary-font);
+    height: 5vh;
+    width: 30vh;
+    margin-top: 3vw;
+ }
+
+ .btn_dir{
+    display: flex;
+    justify-content: center;
  }

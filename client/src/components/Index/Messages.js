@@ -7,15 +7,15 @@ import './messages.css';
 
 import globo from '../../img/globo.jfif'
 
-const Messages = () => {
-
-    {/*const { id } =  useParams()
-
-    useEffect(() => {
-        axios.get(`http://localhost/php/App_foro/foro/server/mensajes.php?id=${id}`)
-        .then(res =>console.log(res))
-        .catch(error =>console.log(error))
-    }, [])*/}
+const Messages = () => 
+{
+    // const { id } =  useParams()
+    // const [ temas , setTemas ] = useState("Prueba")
+    // useEffect(() => {
+    //     axios.get(`http://localhost/php/App_foro/foro/server/mensajes.php?id=${id}`)
+    //     .then(res =>console.log(res))
+    //     .catch(error =>console.log(error))
+    // }, [])
 
 
     return (
@@ -27,7 +27,7 @@ const Messages = () => {
             <section className='formulario'>
                 <form>
                     <label>Título:</label>
-                    <input id='title'></input><br/>
+                    <input type="text" id='title'></input><br/>
                     <label>Tema:</label>
                     <select name="tema_select" id="temas">
                         <option value="value1">Empleo/Emprendimiento</option>
@@ -56,7 +56,7 @@ const Messages = () => {
                     } }
                     />
                     <div id="btn_dir">
-                        <button className='button-mensaje'>ENVIAR</button>
+                        <button className='button-white'>ENVIAR</button>
                     </div>
                     
                 </form>
