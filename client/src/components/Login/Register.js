@@ -73,6 +73,12 @@ const Register = () => {
                         <label></label>
                         <input className='marginInput marginB' type="password"  name='confirmPassword' placeholder='Confirma contraseña'/>
                     </div>
+<<<<<<< HEAD
+                    <div>
+                    <button className='button-default'>Registrarse</button>
+                    </div>
+                    
+=======
                     <button className='button-red'>{ isLoading ? 
                         <div class="lds-ellipsis">
                          <div></div><div></div><div></div><div></div>
@@ -81,6 +87,7 @@ const Register = () => {
                     }
                     </button> 
 
+>>>>>>> 0b899b35bb91865d51e9da449c0b944430ab9833
                 </form> 
                 <button id="volver"  className='button-white' onClick={() => setLogin(true)}>Volver</button>
             </div>

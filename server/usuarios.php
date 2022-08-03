@@ -11,6 +11,7 @@ if($method == "OPTIONS") {
     die();
 }
 
+print_r($method);
 
 
 $_usuarios = new usuarios;
