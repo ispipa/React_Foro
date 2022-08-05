@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import './home.css'
-
+import { useSelector } from 'react-redux';
+import Loading from '../Loading';
 
 import maletin from '../../img/maletin.jfif'
 import dolar from '../../img/dolar.jfif'
@@ -14,7 +15,13 @@ import user from '../../img/user.png'
 
 
 
+
+
 const Home = () => {
+
+    const isUser = false
+
+    const isLoading = useSelector(state => state.isLoading)
 
     const [ temas , setTemas ] = useState("Prueba")
     const main = document.getElementById('id');
@@ -23,12 +30,17 @@ const Home = () => {
         .then(res =>setTemas(res.data))
         .catch(error =>console.log(error))
     }, [])
+
+    if(isLoading){
+        return <Loading />
+    }
+
     return (
         <div>
             <section className='header'>             
                 <h1>Encuentra un tema del que hablar</h1>
                 <div className='userSesion'>
-                <h4>Iniciar sesión/ Registrarse</h4>
+                {isUser ? <h4>Fernanda</h4> : <h4>Iniciar sesión/ Registrarse</h4>}
                 <img src={user} alt="iniciar sesión"/>
                 </div>
             </section>

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counter from './slices/counter.slice'
+import isLoading from './slices/isLoading.slice'
 
 export default configureStore({
     reducer:{
-        counter
+        isLoading
     }
 })

@@ -47,7 +47,8 @@
     font-family: var(--secundary-font);    
     height: 5vh;
     width: 30vh;
-    
+    text-decoration: none;
+    color: var(--box-color);
  }
 
  .button-white a{
