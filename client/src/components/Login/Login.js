@@ -59,12 +59,12 @@ if (register) {
   
         <div className="mb-3">
           <label htmlFor='email' className="form-label"></label>
-          <input className="form-control marginT" type="email"  name="" id="email" aria-describedby="helpId" placeholder="Email"/>
+          <input className="form-control marginT" type="email"  name="" id="email" aria-describedby="helpId" placeholder="Email" required/>
         </div>
 
         <div className="mb-3">
           <label htmlFor="password" className="form-label"></label>
-          <input className="form-control marginB" type="password"  name="" id="password" aria-describedby="helpId" placeholder="Password"/>
+          <input className="form-control marginB" type="password"  name="" id="password" aria-describedby="helpId" placeholder="Password" required/>
         </div>
 
         <button className='button-red'>{ isLoading ? 
