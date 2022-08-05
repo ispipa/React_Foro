@@ -20,7 +20,7 @@ const Login = () => {
   
   let email = e.target.email.value
   let password = e.target.password.value
-  axios.post("http://localhost/foro/server/login",{email,
+  axios.post("http://localhost/php/App_foro/foro/server/login.php",{email,
   contraseña:password})
   .then(res => {
     navigate('/')

@@ -28,7 +28,7 @@ $_usuarios = new usuarios;
             echo json_encode($user_data);
         }
     }
-    else if ($method == "POST") 
+    else if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         $postBody = file_get_contents("php://input");
         $resp = $_usuarios->post($postBody);
