@@ -68,16 +68,15 @@ const Register = () => {
 
     return (
         <div>
-            {alert && <h1 className='msg_error'>Las contraseñas no coinciden</h1>}
-            {msgErr && <div className='msg_error'>No se ha podido registrar este usuario </div>}
-
             <div id='formBox'>
                 <div className='container'>
+                    {alert && <h1 className='msg_error'>Las contraseñas no coinciden</h1>}
+                    {msgErr && <div className='msg_error'>No se ha podido registrar este usuario </div>}
                     <img className='foro' src={foro} />
                     <form onSubmit={data}>
                         <div>
                             <label></label>
-                            <input className='marginInput marginT' type="text" name='username' placeholder='Username' />
+                            <input className='marginInput marginT' type="text" name='username' placeholder='Username' required/>
                         </div>
 
                         <div>
@@ -86,18 +85,19 @@ const Register = () => {
                                 type="email"
                                 name='email'
                                 placeholder='Email'
+                                required
                             />
                             {emailErr && <p className='msg-error'>Email ya esta en uso</p>}
                         </div>
 
                         <div>
                             <label></label>
-                            <input className='marginInput' type="password" name='password' placeholder='Contraseña' />
+                            <input className='marginInput' type="password" name='password' placeholder='Contraseña' required/>
                         </div>
 
                         <div>
                             <label></label>
-                            <input className='marginInput marginB' type="password" name='confirmPassword' placeholder='Confirma contraseña' />
+                            <input className='marginInput marginB' type="password" name='confirmPassword' placeholder='Confirma contraseña' required />
                         </div>
                         <button className='button-red'>{isLoading ?
                             <div class="lds-ellipsis">
