@@ -12,47 +12,27 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    
 }
 
-.formulario{
+.box{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10vw;    
+    margin-top: 15vw;
 }
 
-#title{
-    background-color: var(--title-color);
-    border-radius: 0;
-    border-width: 10;
+.title-register{
     font-family: var(--secundary-font);
-    height: auto;
-    width: 60vw;
-    padding-left: 2vh;
-    margin-left: 4vw;
+    color: var(--box-color);
     margin-bottom: 2vw;
+    letter-spacing: 0.25vw;
 }
 
-#temas{
-    margin-left: 4.5vw;
-    width: 60vw;
+.txt-register{
+    font-family: var(--principal-color);
+    text-align: center;
     margin-bottom: 2vw;
-    font-family: var(--secundary-font);
-}
-
-label{
-    font-family: var(--secundary-font);
-}
-
-.formulario p{
-    font-family: var(--secundary-font);
-    margin-top: 4vw;
-}
-
-#btn_dir{
-    display: flex;
-    justify-content: center;
+    line-height: 2vw;
 }
 
 .button-white{
@@ -67,5 +47,10 @@ label{
     font-family: var(--secundary-font);    
     height: 5vh;
     width: 30vh;
-    margin-top: 3vw;
+    
+ }
+
+ .button-white a{
+    text-decoration: none;
+    color: var(--box-color);
  }

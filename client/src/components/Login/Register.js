@@ -12,7 +12,7 @@ const Register = () => {
     const [ msgErr, setMsgErr ] = useState(false)
     const [login, setLogin] = useState(false)
     const [ emailErr, setEmailErr ] = useState(false)
-    const [ check, setCheck ] = useState(true)
+    const [ check, setCheck ] = useState(false)
 
     const navigate = useNavigate();
 
@@ -34,9 +34,9 @@ const Register = () => {
             // return console.log("las contraseñas no coinciden");
         }
 
-        axios.post("http://localhost/foro/server/usuarios.php",{user, password,email})
+        axios.post("http://localhost/foro/foro/server/usuarios.php",{nombre:user, contraseña:password,email})
         .then(res => {
-            navigate('/login')
+            setCheck(true)
             console.log('Registro exitoso')})
         .catch(error =>{ 
             setTimeout(() => {
