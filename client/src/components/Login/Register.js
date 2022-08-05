@@ -7,6 +7,7 @@ import CheckRegister from './CheckRegister';
 
 const Register = () => {
 
+   
     const [ alert, setAlert ] = useState(false)
     const [ isLoading, setIsLoading] = useState(false)
     const [ msgErr, setMsgErr ] = useState(false)

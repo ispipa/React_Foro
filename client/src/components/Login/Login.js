@@ -34,7 +34,7 @@ const Login = () => {
 }
 
 if (register) {
-    return( <Register/> )
+    return( <Register /> )
 }
 
   return (
