@@ -37,12 +37,18 @@
 }
 
 .userSesion h4{
-    font-size: 0.7em;
+    font-size: 0.9em;  
 }
 
-.userSesion h4:hover{
+.userSesion a:link, .userSesion a:active, .userSesion a:visited{
+    text-decoration: none;
+    color: var(--title-color);
+}
+
+
+.userSesion h4:hover {
     text-decoration: underline;
-    opacity: 0.8;
+    opacity: 0.8;   
 }
 
 .header img{
@@ -65,6 +71,7 @@
     border-bottom: 1px solid black;
     padding: 2vw;
     font-family: var(--secundary-font);
+    align-items: center;
 }
 
 .topic img{
