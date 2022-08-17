@@ -6,6 +6,7 @@ class temas extends conexion
     private $table = "temas";
     private $temasId = "";
     private $temas_name ="";
+    private $img ="";
    
     //obtenemos la lista de temas
     public function listTemas()
@@ -25,12 +26,16 @@ class temas extends conexion
     public function post($json)
     {
         $datos = json_decode($json,true);
-        if(isset($datos['tema']) && isset($datos['img']['tmp_name']))
+        if(isset($datos['tema']))
         {
             $this->temas_name = $datos['tema'];
-            $imgContent = addslashes(file_get_contents($datos['img']['tmp_name']));
-            $this->img = $imgContent;
+            if(isset($datos['img']))
+            {
+                $resp = $this->procesarImg($datos['img']);
+                $this->img = $resp;
+            }
             $resp = $this->isertTema();
+            
             if($resp)
             {
                 $respuesta['result'] = array("usuarioId" =>$resp);
@@ -44,6 +49,15 @@ class temas extends conexion
         }
     }
 
+    private function procesarImg($img)
+    {
+       $target_dir = dirname(__DIR__) . "\public\img\\";
+       $target_file =str_replace('\\','/' ,$target_dir . basename($img["name"]));
+       if (move_uploaded_file($img["tmp_name"], $target_file)) 
+       {
+           return $target_file;
+       }
+    }
     //alta a un tema con img
     private  function isertTema()
     {
