@@ -25,20 +25,14 @@ class temas extends conexion
     public function post($json)
     {
         $datos = json_decode($json,true);
-        print_r($datos);
         if(isset($datos['tema']) && isset($datos['img']['tmp_name']))
         {
             $this->temas_name = $datos['tema'];
-            $this->img = $datos['img']['tmp_name'];
-            $imgContent = addslashes(file_get_contents( $this->img));
-            print_r($this->temas_name);
-            echo "\n";
-            print_r($this->img);
-            echo "\n";
+            $imgContent = addslashes(file_get_contents($datos['img']['tmp_name']));
+            $this->img = $imgContent;
             $resp = $this->isertTema();
             if($resp)
             {
-                //$respuesta = $respuesta->response;
                 $respuesta['result'] = array("usuarioId" =>$resp);
                 return json_encode($respuesta);
             }
