@@ -20,7 +20,7 @@
     font-family: var(--principal-font);
     text-align: center;
     margin: 0;
-    height: 35vw;
+    height: 350px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -38,6 +38,11 @@
 
 .userSesion h4{
     font-size: 0.7em;
+}
+
+.userSesion h4:hover{
+    text-decoration: underline;
+    opacity: 0.8;
 }
 
 .header img{
@@ -63,8 +68,8 @@
 }
 
 .topic img{
-    width: 15vw;
-    height: 15vw;
+    width: 100px;
+    height: 100px;
     margin-right: 5vw;
     margin-left: 15vw;
 }
@@ -95,7 +100,7 @@ footer a:hover{
 
 @media screen and (min-width: 600px){
    .header{
-    font-size: 2.5em;
+    font-size: 2em;
    } 
 
    .topic{
