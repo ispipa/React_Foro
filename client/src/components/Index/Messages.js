@@ -57,7 +57,7 @@ const Messages = () =>
                     } }
                     />
                     <div id="btn_dir">
-                        <button className='button-white'>ENVIAR</button>
+                        <button className='button-blanco'>ENVIAR</button>
                     </div>
                     
                 </form>

@@ -99,7 +99,7 @@ const Register = () => {
                             <label></label>
                             <input className='marginInput marginB' type="password" name='confirmPassword' placeholder='Confirma contraseña' required />
                         </div>
-                        <button className='button-red'>{isLoading ?
+                        <button className='button-rojo'>{isLoading ?
                             <div class="lds-ellipsis">
                                 <div></div><div></div><div></div><div></div>
                             </div> :

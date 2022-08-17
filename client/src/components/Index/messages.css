@@ -55,7 +55,7 @@ label{
     justify-content: center;
 }
 
-.button-white{
+.button-blanco{
     border: none;
     cursor: pointer;
     background-color: var(--title-color);

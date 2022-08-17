@@ -15,8 +15,8 @@
 }
 
 .header2 img{
-    width: 15vw;
-    height: 15vw;
+    width: 12vw;
+    height: 9vw;
     margin-right: 5vw;
 }
 
@@ -69,6 +69,7 @@
     height: 5vh;
     width: 30vh;
     margin-top: 3vw;
+    margin-bottom: 5vw;
  }
 
  .btn_dir{

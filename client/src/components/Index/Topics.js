@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './temas.css'
-import ceroMessages from './ceroMessages';
 
 import globo from '../../img/globo.jfif'
 import cuadroTexto from '../../img/cuadroTexto.png'
+import ceroMensajes from '../../img/sinMensajes.jpg'
 import { NavLink, useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -17,13 +17,14 @@ const Topics = () => {
 
  useEffect(() => {
     axios.get(`http://localhost/foro/foro/server/hilos.php?id=${id}`)
-    .then(res => setIsTema(res.data))
-    
+    .then(res => {
+        setIsTema(res.data)
+        
+        if(isTema.length == 0)
+            setCeroMessages(true)
+    })   
  })
 
- if (ceroMessages) {
-    return <ceroMessages />
-}
 
  console.log(isTema.length)
 
@@ -43,7 +44,7 @@ const Topics = () => {
                     </NavLink>
                 </div>
                 
-                {isTema.length != 0 ?
+                {isTema.length != 0 &&
                     <div className='comments'>
                     <div className='caja'>
                         <div className='date'>
@@ -63,7 +64,8 @@ const Topics = () => {
                             </div>
                         </div>
                     </div> 
-                </div> : <h4>No hay mensajes</h4> /*setCeroMessages(true)*/ }
+                </div> }
+                {ceroMessages && <div className='ceroMessagesBox'><img className='sinMensajes' src={ceroMensajes}/> <br/> <h4 className='noMessages'>Aún no hay mensajes. Prueba a escribir un mensaje para iniciar el hilo.</h4></div> /*setCeroMessages(true)*/ }
             </section>
         </div>
     );

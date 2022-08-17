@@ -14,6 +14,11 @@
     margin: 0;
 }
 
+#prueba a:link, #prueba a:visited, #prueba a:active{
+    color: var(--box-color);
+    text-decoration: none;
+}
+
 .header {
     background-color: var(--main-color);
     color: var(--title-color);
