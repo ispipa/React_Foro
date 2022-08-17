@@ -69,7 +69,7 @@ if (register) {
           <input className="form-control marginB" type="password"  name="" id="password" aria-describedby="helpId" placeholder="Password" required/>
         </div>
 
-        <button className='button-red'>{ isLoading ? 
+        <button className='button-rojo'>{ isLoading ? 
          <div class="lds-ellipsis">
             <div></div><div></div><div></div><div></div>
           </div> :

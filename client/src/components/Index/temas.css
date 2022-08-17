@@ -52,7 +52,7 @@
     border-width: 1px;
     font-family: var(--secundary-font);    
     height: 5vh;
-    width: 30vh;
+    width: 45vh !important;
  }
 
 .comments{

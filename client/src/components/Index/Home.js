@@ -5,12 +5,6 @@ import './home.css'
 import { useSelector } from 'react-redux';
 import Loading from '../Loading';
 
-import maletin from '../../img/maletin.jfif'
-import dolar from '../../img/dolar.jfif'
-import ocio from '../../img/ocio.jfif'
-import relaciones from '../../img/person.jfif'
-import pesas from '../../img/pesas.jfif'
-import viajes from '../../img/viajes.jfif'
 import user from '../../img/user.png'
 
 
@@ -42,7 +36,7 @@ const Home = () => {
             <section className='header'>             
                 <h1>Encuentra un tema del que hablar</h1>
                 <div className='userSesion'>
-                {isUser ? <h4>{userName}</h4> : <h4><Link to = "/login">Iniciar sesión/ Registrarse</Link></h4>}
+                {isUser ? <h4><Link to = "/perfil">{userName}</Link></h4> : <h4><Link to = "/login">Iniciar sesión/ Registrarse</Link></h4>}
                 <img src={user} alt="iniciar sesión"/>
                 </div>
             </section>
