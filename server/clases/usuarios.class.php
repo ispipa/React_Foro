@@ -27,7 +27,7 @@ class usuarios extends conexion
         public function obtenerUsuario($id)
         {
             $query = "SELECT * FROM " . $this->table . " where id='$id'";
-            return parent::obtenerDatos($query);;
+            return parent::obtenerDatos($query);
         }
 
         public function post($json)

@@ -15,7 +15,7 @@ class hilos extends conexion
     //obtenemos los hilos de un tema a traves de su id
     public function obtenerHilos($id)
     {
-        $query = "SELECT titulo_hilo FROM hilos join temas on hilos.id_temas = temas.id  where temas.id = '$id'";
+        $query = "SELECT temas,titulo_hilo,fecha_creacion,nombre FROM hilos inner join temas on hilos.id_temas = temas.id inner join usuarios  on usuarios.id = hilos.id_usuario where temas.id = '$id'";
         return parent::obtenerDatos($query);
     }
 

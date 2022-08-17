@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
+import { CKEditor } from '@ckeditor/ckeditor5-react'
 import './messages.css';
 
 import globo from '../../img/globo.jfif'
@@ -39,7 +39,7 @@ const Messages = () =>
                         <option value="value6">Ocio y videojuegos</option>
                     </select>
                     <CKEditor
-                    editor={ ClassicEditor }
+                    editor={ Editor }
                     data="<p>Escribe</p>"
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
