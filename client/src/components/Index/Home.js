@@ -19,15 +19,17 @@ import user from '../../img/user.png'
 
 const Home = () => {
 
-    const isUser = false
+    const isUser = localStorage.getItem("id")
+    const userName =  localStorage.getItem("nombre")
+
 
     const isLoading = useSelector(state => state.isLoading)
 
-    const [ temas , setTemas ] = useState("Prueba")
+    const [ temas , setTemas ] = useState([])
     const main = document.getElementById('id');
     useEffect(() => {
-        axios.get("http://localhost/php/App_foro/foro/server/temas.php")
-        .then(res =>setTemas(res.data))
+        axios.get("http://localhost/foro/foro/server/temas.php")
+        .then(res => setTemas(res.data))
         .catch(error =>console.log(error))
     }, [])
 
@@ -40,35 +42,17 @@ const Home = () => {
             <section className='header'>             
                 <h1>Encuentra un tema del que hablar</h1>
                 <div className='userSesion'>
-                {isUser ? <h4>Fernanda</h4> : <h4>Iniciar sesión/ Registrarse</h4>}
+                {isUser ? <h4>{userName}</h4> : <h4><Link to = "/login">Iniciar sesión/ Registrarse</Link></h4>}
                 <img src={user} alt="iniciar sesión"/>
                 </div>
             </section>
             <section id="prueba">
-                <div className='topic' id={ temas[0].id }>
-                    <img src={maletin} alt="maletin"/>
-                    <Link to = {`/temas/${temas[0].id}`}><h2>{ temas[0].temas }</h2></Link>
-                </div>
-                <div className='topic' id={ temas[1].id }>
-                    <img src={dolar} alt="dolar"/>
-                    <Link to = {`/temas/${temas[1].id}`}><h2>{ temas[1].temas }</h2></Link>
-                </div>
-                <div className='topic' id={ temas[2].id }>
-                    <img src={pesas} alt="pesas"/>
-                    <Link to = {`/temas/${temas[2].id}`}><h2>{ temas[2].temas }</h2></Link>
-                </div>
-                <div className='topic'id={ temas[3].id }>
-                    <img src={relaciones} alt="relaciones"/>
-                    <Link to = {`/temas/${temas[3].id}`}><h2>{ temas[3].temas }</h2></Link>
-                </div>
-                <div className='topic' id={ temas[4].id }>
-                    <img src={viajes} alt="viajes"/>
-                    <Link to = {`/temas/${temas[4].id}`}><h2>{ temas[4].temas }</h2></Link>
-                </div>
-                <div className='topic' id={ temas[5].id }>
-                    <img src={ocio} alt="ocio"/>
-                    <Link to = {`/temas/${temas[5].id}`}><h2>{ temas[5].temas }</h2></Link>
-                </div>
+                {temas.map(data => {
+                    return (<div className='topic' key={data.id}>
+                        <img src={ data.URL } alt="maletin"/>
+                        <h2>{ data.temas }</h2>
+                    </div>)
+                })}
             </section>
             <footer>
                 <p>¿No encuentras tu tema? <a href="">Escríbenos</a></p>

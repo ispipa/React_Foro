@@ -20,7 +20,7 @@
     font-family: var(--principal-font);
     text-align: center;
     margin: 0;
-    height: 350px;
+    height: 200px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -100,7 +100,7 @@ footer a:hover{
 
 @media screen and (min-width: 600px){
    .header{
-    font-size: 2em;
+    font-size: 20px;
    } 
 
    .topic{

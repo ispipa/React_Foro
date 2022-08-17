@@ -28,6 +28,8 @@ const Login = () => {
   axios.post("http://localhost/foro/foro/server/login.php",{email,
   contraseña:password})
   .then(res => {
+    localStorage.setItem("id", res.data.id)
+    localStorage.setItem("nombre", res.data.nombre)
     navigate('/')
     setLoadGlobal(true)
     setTimeout(() => {
