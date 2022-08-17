@@ -7,10 +7,6 @@ import Loading from '../Loading';
 
 import user from '../../img/user.png'
 
-
-
-
-
 const Home = () => {
 
     const isUser = localStorage.getItem("id")
@@ -42,10 +38,11 @@ const Home = () => {
             </section>
             <section id="prueba">
                 {temas.map(data => {
-                    return (<div className='topic' key={data.id}>
+                    return (<Link to = {`/temas/${data.temas}/${data.id}`} key={data.id}><div className='topic' >
                         <img src={ data.URL } alt="maletin"/>
                         <h2>{ data.temas }</h2>
-                    </div>)
+                        
+                    </div></Link>)
                 })}
             </section>
             <footer>
