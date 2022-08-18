@@ -58,7 +58,6 @@ class hilos extends conexion
         {
            return 0;
         }
-       echo "estoy insertando un hilo";
     }
 
 }
