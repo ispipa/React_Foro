@@ -10,20 +10,17 @@ import axios from 'axios';
 const Topics = () => {
 
 
- const {tema, id} = useParams()
- const [isTema, setIsTema] = useState([])
- const [ceroMessages, setCeroMessages] = useState(false)
- 
+    const { tema, id } = useParams()
+    const [isTema, setIsTema] = useState([])
 
- useEffect(() => {
-    axios.get(`http://localhost/foro/foro/server/hilos.php?id=${id}`)
-    .then(res => {
-        setIsTema(res.data)
-        console.log(res.data)
-        if(isTema.length == 0)
-            setCeroMessages(true)
-    })   
- }, [])
+
+    useEffect(() => {
+        axios.get(`http://localhost/foro/foro/server/hilos.php?id=${id}`)
+            .then(res => {
+                setIsTema(res.data)
+                console.log(res.data)
+            })
+    }, [])
 
     return (
         <div>
@@ -40,29 +37,33 @@ const Topics = () => {
                         <button className='button-red'>Empieza un nuevo tema</button>
                     </NavLink>
                 </div>
-                
-                {isTema.length != 0 &&
-                    <div className='comments'>
-                    <div className='caja'>
-                        <div className='date'>
-                            <p>27/07/2022</p>
-                            <p>9:54</p>
-                        </div>
-                        <div className='totalComments'>
-                            <img className='num_com' src={cuadroTexto} alt="Cuadro de dialogo"/>
-                            <p>3</p>
-                        </div>
-                        <div>
-                            <div className='title'>
-                                <p>¿Cómo darme de alta como autónomo?</p>
+
+                {isTema.length != 0 ?
+                    isTema.map(data => {
+                        console.log(data)
+
+                        return (<div className='comments'>
+                            <div className='caja'>
+                                <div className='date'>
+                                    <p>{data.fecha_creacion}</p>
+                                </div>
+                                <div className='totalComments'>
+                                    <img className='num_com' src={cuadroTexto} alt="Cuadro de dialogo" />
+                                    <p>{data['Count(id_hilo)']}</p>
+                                </div>
+                                <div>
+                                <div className='title'>
+                                    <p>{data.titulo_hilo}</p>
+                                </div>
+                                <div className='userName'>
+                                    <p>{data.nombre}</p>
+                                </div>
+                             </div>
                             </div>
-                            <div className='userName'>
-                                <p>Pau48</p>
-                            </div>
-                        </div>
-                    </div> 
-                </div> }
-                {ceroMessages && <div className='ceroMessagesBox'><img className='sinMensajes' src={ceroMensajes}/> <br/> <h4 className='noMessages'>Aún no hay mensajes. Prueba a escribir un mensaje para iniciar el hilo.</h4></div>}
+                        </div>)
+                    })
+                    :
+                    <div className='ceroMessagesBox'><img className='sinMensajes' src={ceroMensajes} /> <br /> <h4 className='noMessages'>Aún no hay mensajes. Prueba a escribir un mensaje para iniciar el hilo.</h4></div>}
             </section>
         </div>
     );
