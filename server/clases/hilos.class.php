@@ -7,7 +7,6 @@ class hilos extends conexion
     private $hilosId = "";
     private $titulo_name ="";
     private $descripcion_hilo ="";
-    private $estatus_hilo ="";
     private $fecha_creacion_hilo ="";
     private $id_usuario ="";
     private $id_temas ="";
@@ -25,12 +24,40 @@ class hilos extends conexion
     public function post($json)
     {
         $datos = json_decode($json,true);
-        print_r($datos);
+        if(isset($datos['titulo_hilo']) && isset($datos['descripcion_hilo']) && isset($datos['fecha_creacion'])
+         && isset($datos['id_usuario']) && isset($datos['id_temas']))
+        {
+            $this->titulo_name = $datos['titulo_hilo'];
+            $this->descripcion_hilo = $datos['descripcion_hilo'];
+            $this->fecha_creacion_hilo = $datos['fecha_creacion'];
+            $this->id_usuario = $datos['id_usuario'];
+            $this->id_temas = $datos['id_temas'];
+            $resp = $this->isertHilo();
+            if($resp)
+            {
+                $respuesta['result'] = array("usuarioId" =>$resp);
+                return json_encode($respuesta);
+            }
+            else
+            {
+                http_response_code(403);
+                return json_encode(array("mesage" => "Todo mal"));
+            }
+        }
     }
 
     private  function isertHilo()
     {
-        
+        $query ="INSERT INTO ".$this->table . "(titulo_hilo,descripcion_hilo,fecha_creacion,id_usuario,id_temas) values('" . $this->titulo_name . "','" . $this->descripcion_hilo . "','" . $this->fecha_creacion_hilo ."','" . $this->id_usuario . "','" . $this->id_temas . "')";
+        $resp = parent::nonQueryId($query);
+        if($resp)
+        {
+            return $resp;
+        }
+        else
+        {
+           return 0;
+        }
        echo "estoy insertando un hilo";
     }
 
