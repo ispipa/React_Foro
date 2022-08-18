@@ -15,5 +15,6 @@ class mensajes_hilos extends conexion
         $query = "SELECT nombre,email,texto_mensaje FROM mensajes join hilos on mensajes.id_hilo = hilos.id join usuarios on mensajes.id_usuario = usuarios.id where hilos.id = '$id'";
         return parent::obtenerDatos($query);
     }
+    
 }
 ?>
