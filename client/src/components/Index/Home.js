@@ -18,8 +18,10 @@ const Home = () => {
     const [ temas , setTemas ] = useState([])
     const main = document.getElementById('id');
     useEffect(() => {
-        axios.get("http://localhost/foro/foro/server/temas.php")
-        .then(res => setTemas(res.data))
+        axios.get("http://localhost/php/App_foro/foro/server/temas.php")
+        .then(res => {
+            setTemas(res.data)
+            console.log(res.data)})
         .catch(error =>console.log(error))
     }, [])
 
@@ -39,7 +41,7 @@ const Home = () => {
             <section id="prueba">
                 {temas.map(data => {
                     return (<Link to = {`/temas/${data.temas}/${data.id}`} key={data.id}><div className='topic' >
-                        <img src={ data.URL } alt="maletin"/>
+                        <img src="C:/xampp/htdocs/php/App_foro/foro/server/public/img/Firma.PNG" alt="maletin"/>
                         <h2>{ data.temas }</h2>
                         
                     </div></Link>)
