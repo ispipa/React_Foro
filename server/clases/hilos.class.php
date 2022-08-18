@@ -15,12 +15,19 @@ class hilos extends conexion
     //obtenemos los hilos de un tema a traves de su id
     public function obtenerHilos($id)
     {
-        $query = "SELECT hilos.id,temas,titulo_hilo,fecha_creacion,nombre,Count(id_hilo) FROM hilos 
+        $query = "SELECT hilos.id,temas,titulo_hilo,fecha_creacion,nombre,Count(id_hilo) as mensajes FROM hilos 
         join temas on hilos.id_temas = temas.id 
         left join usuarios on usuarios.id = hilos.id_usuario
         left join mensajes on hilos.id = mensajes.id_hilo where hilos.id_temas = '$id' group by hilos.id";
         return parent::obtenerDatos($query);
     }
+
+    public function post($json)
+    {
+        $datos = json_decode($json,true);
+        print_r($datos);
+    }
+
     private  function isertHilo()
     {
         

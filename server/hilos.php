@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $postBody = file_get_contents("php://input");
-    $resp = $_usuarios->isertHilo($postBody);
+    $resp = $_hilos->post($postBody);
     print_r($resp);
 }
 
