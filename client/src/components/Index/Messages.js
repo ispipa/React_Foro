@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from "react";
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import Editor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import './messages.css';
@@ -18,6 +18,12 @@ const Messages = () =>
     //     .catch(error =>console.log(error))
     // }, [])
 
+    const isUser = localStorage.getItem("id")
+
+    if(!isUser){
+        return <Navigate to = "/login"></Navigate>
+        
+    }
 
     return (
         <div>
