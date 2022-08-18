@@ -7,6 +7,7 @@ import Loading from '../Loading';
 
 import user from '../../img/user.png'
 
+
 const Home = () => {
 
     const isUser = localStorage.getItem("id")
@@ -48,7 +49,7 @@ const Home = () => {
                 })}
             </section>
             <footer>
-                <p>¿No encuentras tu tema? <a href="">Escríbenos</a></p>
+                <p>¿No encuentras tu tema? <Link to = "/contacto">Escríbenos</Link></p>
             </footer>
         </div>
     );

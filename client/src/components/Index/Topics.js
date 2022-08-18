@@ -19,14 +19,11 @@ const Topics = () => {
     axios.get(`http://localhost/foro/foro/server/hilos.php?id=${id}`)
     .then(res => {
         setIsTema(res.data)
-        
+        console.log(res.data)
         if(isTema.length == 0)
             setCeroMessages(true)
     })   
- })
-
-
- console.log(isTema.length)
+ }, [])
 
     return (
         <div>
