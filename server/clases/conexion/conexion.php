@@ -61,6 +61,7 @@ class conexion
         try 
         {
             $results = $this->conexion->query($sqlstr);
+            print($results);
             $filas = $this->conexion->affected_rows;
             if($filas >= 1)
             {
