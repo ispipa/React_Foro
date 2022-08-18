@@ -65,7 +65,7 @@ const Topics = () => {
                         </div>
                     </div> 
                 </div> }
-                {ceroMessages && <div className='ceroMessagesBox'><img className='sinMensajes' src={ceroMensajes}/> <br/> <h4 className='noMessages'>Aún no hay mensajes. Prueba a escribir un mensaje para iniciar el hilo.</h4></div> /*setCeroMessages(true)*/ }
+                {ceroMessages && <div className='ceroMessagesBox'><img className='sinMensajes' src={ceroMensajes}/> <br/> <h4 className='noMessages'>Aún no hay mensajes. Prueba a escribir un mensaje para iniciar el hilo.</h4></div>}
             </section>
         </div>
     );
