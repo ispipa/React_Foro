@@ -18,6 +18,8 @@
 .bajoHeader{
     margin: 0 auto;
     width: 85%;
+    margin-bottom: 2vh;
+    text-align: center;
 }
 
 .formList{
@@ -76,4 +78,13 @@ label{
     height: 5vh;
     width: 30vh;
     margin-top: 3vw;
+ }
+
+
+ @media (min-width: 600px) {
+
+input{
+    width: 58vw;
+}
+
  }
