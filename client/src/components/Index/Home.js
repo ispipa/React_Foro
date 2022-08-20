@@ -34,10 +34,7 @@ const Home = () => {
         <div>
             <section className='header'>             
                 <h1>Encuentra un tema del que hablar</h1>
-                <div className='userSesion'>
-                {isUser ? <h4><Link to = "/perfil">{userName}</Link></h4> : <h4><Link to = "/login">Iniciar sesión/ Registrarse</Link></h4>}
-                <img src={user} alt="iniciar sesión"/>
-                </div>
+                
             </section>
             <section id="prueba">
                 {temas.map(data => {

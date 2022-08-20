@@ -33,28 +33,6 @@
     justify-content: center;
 }
 
-.userSesion{
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 2vw;
-    top: 4vw;
-}
-
-.userSesion h4{
-    font-size: 0.9em;  
-}
-
-.userSesion a:link, .userSesion a:active, .userSesion a:visited{
-    text-decoration: none;
-    color: var(--title-color);
-}
-
-
-.userSesion h4:hover {
-    text-decoration: underline;
-    opacity: 0.8;   
-}
 
 .header img{
     width: 4vw;
