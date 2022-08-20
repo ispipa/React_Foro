@@ -19,7 +19,7 @@ const Hilos = () => {
              <Link to = {`/mensajes/${id}`}><h2>Prueba para mensaje</h2></Link>
             <section className='header2'>
                 <img src={globo} alt="globo de conversación" />
-                <h1>{/*[insertar tema con fórmula]*/}</h1>  
+                <h1>{}</h1>  
             </section>
             <section className='preguntaUsuario'>
                 <div className='cajaPregunta'>
@@ -41,6 +41,7 @@ const Hilos = () => {
 
                             <div className='userName'>
                                 <p>Pau48</p>
+                                
                             </div>
                         </div>
                 </div>
@@ -52,21 +53,17 @@ const Hilos = () => {
            
             <section className='responder'>
                    
-                        <button className='button-red'>Responde a este hilo</button>
+                        <button className='button-rojo'>Responde a este hilo</button>
           
             </section>
             
-            <section className='answers'>
+            <section className='respuestas' >
                 
                 <div className='newComment'>
 
-                    <div className='date'>
-                        <p>27/07/2022</p><br/>
-                        <p>9:54</p>
-                    </div>
-
-                    <div className='cajaMensaje'>
+                    <div className='cajaMensaje answers'>
                         <div className='title'>
+                            <p id='fecha'>27/07/2022</p>
                             <p>Suerte con el papeleo</p>
                         </div>
 
@@ -78,13 +75,9 @@ const Hilos = () => {
 
                 <div className='newComment'>
 
-                    <div className='date'>
-                        <p>27/07/2022</p>
-                        <p>9:54</p>
-                    </div>
-
-                    <div className='cajaMensaje'>
+                    <div className='cajaMensaje answers'>
                         <div className='title'>
+                            <p id='fecha'>27/07/2022</p>
                             <p>¿Y sii preguntas en una gestora?</p>
                         </div>
 
@@ -96,13 +89,9 @@ const Hilos = () => {
 
                 <div className='newComment'>
 
-                    <div className='date'>
-                        <p>27/07/2022</p>
-                        <p>9:54</p>
-                    </div>
-
-                    <div className='cajaMensaje'>
+                    <div className='cajaMensaje answers'>
                         <div className='title'>
+                            <p id='fecha'>27/07/2022</p>    
                             <p>Mejor no lo hagas</p>
                         </div>
 
@@ -113,14 +102,10 @@ const Hilos = () => {
                 </div>
 
                 <div className='newComment'>
-                    
-                    <div className='date'>
-                        <p>27/07/2022</p>
-                        <p>9:54</p>
-                    </div>
 
-                    <div className='cajaMensaje'>
+                    <div className='cajaMensaje answers'>
                         <div className='title'>
+                            <p id='fecha'>27/07/2022</p>
                             <p>debes ir a la Tesorería General de la Seguridad Social. Allí debe obtener el número de afiliación a la Seguridad Social si no lo tiene y darse de alta en el Régimen Especial de Trabajadores Autónomos</p>
                         </div>
 

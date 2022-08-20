@@ -43,7 +43,7 @@ input{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10vw;    
+    margin-top: 0vw;    
 }
 
 .formularioCaja{
@@ -78,6 +78,7 @@ label{
     height: 5vh;
     width: 30vh;
     margin-top: 3vw;
+    margin-bottom: 5vw;
  }
 
 
