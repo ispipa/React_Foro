@@ -3,9 +3,8 @@ import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import './Hilos.css'
-import cuadroTexto from '../../img/cuadroTexto.png'
-
-import maletin from '../../img/maletin.jfif'
+import cuadroTexto from '../../img/cuadroTexto.png';
+import globo from '../../img/globo.jfif';
 
 const Hilos = () => {
     const { id } =  useParams()
@@ -19,7 +18,7 @@ const Hilos = () => {
         <div>
              <Link to = {`/mensajes/${id}`}><h2>Prueba para mensaje</h2></Link>
             <section className='header2'>
-                <img src=""/>
+                <img src={globo} alt="globo de conversación" />
                 <h1>{/*[insertar tema con fórmula]*/}</h1>  
             </section>
             <section className='preguntaUsuario'>
@@ -51,6 +50,12 @@ const Hilos = () => {
                 <p>Ya tengo cierta cartera de clientes y quiero hacer ya legal mis actividades</p>
             </section>
            
+            <section className='responder'>
+                   
+                        <button className='button-red'>Responde a este hilo</button>
+          
+            </section>
+            
             <section className='answers'>
                 
                 <div className='newComment'>

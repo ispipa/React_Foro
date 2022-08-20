@@ -30,6 +30,23 @@
     justify-content: center;
 }
 
+.responder{
+    text-align: center;
+}
+
+.button-red{
+    border: none;
+    cursor: pointer;
+    background-color: var(--red-color);
+    color: var(--title-color);
+    font-size: large;
+    border-radius: 6vh;
+    border-width: 1px;
+    font-family: var(--secundary-font);    
+    height: 5vh;
+    width: 40vh !important;
+ }
+
 .date, .cajaMensaje{
     display: flex;
     flex-direction: column;
