@@ -19,21 +19,6 @@
     text-decoration: none;
 }
 
-.header {
-    background-color: var(--main-color);
-    color: var(--title-color);
-    font-family: var(--principal-font);
-    text-align: center;
-    margin: 0;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    align-content: center;
-    justify-content: center;
-}
-
-
 .header img{
     width: 4vw;
     margin: 1vw;

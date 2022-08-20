@@ -1,34 +1,36 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import Nav from './Nav';
 import './pruebasStyles.css'
+import empleo from '../img/empleo.png'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const PruebasStyles = () => {
-    const isUser = localStorage.getItem("id")
-    const userName = localStorage.getItem("nombre")
+
+    const [temas, setTemas] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost/foro/foro/server/temas.php")
+            .then(res => {
+                setTemas(res.data)
+            })
+            .catch(error => console.log(error))
+    }, [])
+    console.log(temas);
 
     return (
-
-        <div>
-            <div className='nav'>
-                <div className='logo'>
-                    <h1><span className='welcome'>Soziali</span></h1>
-                </div>
-                <div className='containMU'>
-                    <div className='menu'>
-                        <ul>
-                            <li>Inicio</li>
-                            <li>Contacto</li>
-                        </ul>
-                    </div>
-                    <div className='user'>
-                        <div className='userSesion'>
-                            {isUser ? <h4><Link to="/perfil">{userName}</Link></h4> : <div><button><Link to="/login">Iniciar sesión</Link></button></div>}
-
-                        </div>
-                    </div>
-                </div>
+        <div className='general-content'>
+            <div className='containerCards'>
+                {temas.map(data => {
+                    return (<Link to={`/temas/${data.temas}/${data.id}`} key={data.id}>
+                        <div className='card'>
+                            <div>
+                                <img src={data.URL} />
+                            </div>
+                            <h2>{data.temas}</h2>
+                        </div></Link>)
+                })}
             </div>
-            {/* <Outlet></Outlet> */}
         </div>
     );
 };

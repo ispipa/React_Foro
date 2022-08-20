@@ -9,6 +9,7 @@ import Perfil from '../components/Index/Perfil';
 import Contacto from '../components/Index/Contacto.js';
 import LoginNew from '../components/PruebasStyles';
 import PruebasStyles from '../components/PruebasStyles';
+import Nav from '../components/Nav';
 
 const Router = () => {
     return (
@@ -22,8 +23,8 @@ const Router = () => {
                 <Route path='/mensajes' element={<Messages />} />
                 <Route path='/perfil' element={<Perfil/>} />
                 <Route path='/contacto' element={<Contacto/>} />
-                <Route element={<PruebasStyles/>}>
-                    <Route path='/' element={<Home/>}></Route>
+                <Route element={<Nav/>}>
+                    <Route path='/' element={<PruebasStyles/>}></Route>
                     <Route path='/temas/:tema/:id' element={<Topics />}/>
                 </Route>
                 {/* <Route path='*' element={<h1>Error 404</h1>} /> */}

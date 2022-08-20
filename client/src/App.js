@@ -2,7 +2,6 @@ import './App.css';
 import Counter from './components/Counter';
 import Login from './components/Login/Login'
 import LoginNew from './components/PruebasStyles';
-import Prueba from './components/Prueba';
 import Router from './routers/Router';
 import PruebasStyles from './components/PruebasStyles';
 
