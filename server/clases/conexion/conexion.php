@@ -37,6 +37,7 @@ class conexion
      }
      return $resultArray;
      }
+
     private function datosConexion()
     {
         $direccion = dirname(__FILE__);
@@ -61,11 +62,13 @@ class conexion
         try 
         {
             $results = $this->conexion->query($sqlstr);
-            print($results);
             $filas = $this->conexion->affected_rows;
+            $idRegister = $this->conexion->insert_id;   
+            $dataResult = $this ->getDataInsert($idRegister);
+
             if($filas >= 1)
             {
-              return $this->conexion->insert_id;
+              return $dataResult;
             }
             else
             {
@@ -75,6 +78,17 @@ class conexion
         catch (Exception $e) 
         {
             $e->getMessage();
+        }
+    }
+
+    private function getDataInsert($data){
+        $query = "SELECT hilos.id, temas.temas, temas.id as id_tema FROM hilos INNER JOIN temas ON hilos.id = '$data' AND temas.id= hilos.id_temas;";
+        try {
+            $results = $this->conexion->query($query);
+            $dataResult = mysqli_fetch_assoc($results);   
+            return $dataResult;
+        } catch (\Throwable $th) {
+            //throw $th;
         }
     }
 

@@ -1,29 +1,75 @@
 import axios from 'axios';
-import React, {useState, useEffect} from "react";
-import { Navigate, useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import Editor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import './messages.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLoadingGlobal } from '../../store/slices/isLoading.slice';
 
 import globo from '../../img/globo.jfif'
+import TextEditor from '../TextEditor';
+import Loading from '../Loading';
 
 
-const Messages = () => 
-{
+const Messages = () => {
+    const isUser = localStorage.getItem("id")
+    const [description, setDescription] = useState("")
+    const dispatch = useDispatch()
+    const setLoadGlobal = (state) => dispatch(setLoadingGlobal(state))
+    const isLoading = useSelector(state => state.isLoading)
+    const navigate = useNavigate();
+
+
     // const { id } =  useParams()
     // const [ temas , setTemas ] = useState("Prueba")
     // useEffect(() => {
-    //     axios.get(`http://localhost/php/App_foro/foro/server/mensajes.php?id=${id}`)
+    //     axios.post(`http://localhost/foro/foro/server/hilos.php`, {})
     //     .then(res =>console.log(res))
     //     .catch(error =>console.log(error))
     // }, [])
 
-    const isUser = localStorage.getItem("id")
+    const [temas, setTemas] = useState([])
 
-    if(!isUser){
-        return <Navigate to = "/login"></Navigate>
-        
+    useEffect(() => {
+        axios.get("http://localhost/foro/foro/server/temas.php")
+            .then(res => {
+                setTemas(res.data)
+            })
+            .catch(error => console.log(error))
+    }, [])
+
+    const dataForm = (e) => {
+        e.preventDefault()
+
+        const { titulo_hilo, descripcion_hilo, fecha_creacion, id_usuario, id_temas } = {
+            titulo_hilo: e.target.title.value,
+            descripcion_hilo: description,
+            fecha_creacion: new Date().toLocaleDateString("en-CA"),
+            id_usuario: isUser,
+            id_temas: e.target.tema_select.value
+        }
+        console.log(titulo_hilo)
+
+        axios.post(`http://localhost/foro/foro/server/hilos.php`, { titulo_hilo, descripcion_hilo, fecha_creacion, id_usuario, id_temas })
+            .then(res => {
+                const { id_tema, temas } = res.data.result.usuarioId;
+                setLoadGlobal(true)
+                setTimeout(() => {                    
+                    navigate(`/temas/${temas}/${id_tema}`)
+                }, 2000);
+            })
+            .catch(error => console.log(error))
     }
+
+    if (isLoading) {
+        return <Loading />
+    }
+
+    if (!isUser) {
+        return <Navigate to="/login"></Navigate>
+
+    }   
 
     return (
         <div>
@@ -32,40 +78,47 @@ const Messages = () =>
                 <h1>Inicia tu hilo</h1>
             </section>
             <section className='formulario'>
-                <form>
+                <form onSubmit={dataForm}>
                     <label>Título:</label>
-                    <input type="text" id='title'></input><br/>
+                    <input type="text" name='title' id='title'></input><br />
                     <label>Tema:</label>
                     <select name="tema_select" id="temas">
-                        <option value="value1">Empleo/Emprendimiento</option>
-                        <option value="value2" selected>Finanzas</option>
-                        <option value="value3">Salud y entrenamiento</option>
-                        <option value="value4">Relaciones</option>
-                        <option value="value5">Viajes</option>
-                        <option value="value6">Ocio y videojuegos</option>
+                        {temas.map(data => {
+                            return (
+                                <option value={data.id}>{data.temas}</option>
+                            )
+                        })}
+
                     </select>
-                    <CKEditor
-                    editor={ Editor }
-                    data="<p>Escribe</p>"
-                    onReady={ editor => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log( 'Escribe', editor );
-                    } }
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        console.log( { event, editor, data } );
-                    } }
-                    onBlur={ ( event, editor ) => {
-                        console.log( 'Blur.', editor );
-                    } }
-                    onFocus={ ( event, editor ) => {
-                        console.log( 'Focus.', editor );
-                    } }
-                    />
+                    <div>
+                        <div className='editor'><TextEditor /></div>
+                        <CKEditor
+                            editor={Editor}
+                            data="<p>Escribe aquí tu mensaje</p>"
+                            onReady={editor => {
+                                // You can store the "editor" and use when it is needed.
+                                // console.log('Escribe', editor);
+                            }}
+                            onChange={(event, editor) => {
+                                const data = editor.getData();
+                                // console.log({ event, editor, data });
+                                // console.log(editor.getData())
+                            }}
+                            onBlur={(event, editor) => {
+                                // console.log('Blur.', editor);
+                                setDescription(editor.getData());
+                            }}
+                            onFocus={(event, editor) => {
+                                // console.log('Focus.', editor);
+                                // console.log(editor.getData())
+                            }}
+                        />
+                    </div>
+
                     <div id="btn_dir">
                         <button className='button-blanco'>ENVIAR</button>
                     </div>
-                    
+
                 </form>
                 <p>Una vez que envíes el mensaje, no podrás editarlo o eliminarlo.</p>
             </section>

@@ -75,14 +75,14 @@
  }
 
 .comments{
-    margin-top: 6vw;
+    width: 100%;
+    
 }
 
 .caja{
     display: flex;
     align-items: center;
-    margin-bottom: 8vw;
-    height: 12vw;
+    padding: 10px 30px;
 }
 
 .date{
