@@ -192,7 +192,7 @@ form {
 
 .inicio h1{
   margin-top: 20px;
-  
+  text-align: center;
 }
 
 .content-form{
@@ -255,3 +255,59 @@ background-clip: text;
 
 }
 
+/* @media screen and (max-width: 600px) {
+  .minicontain > img {
+    display: none;
+}
+
+.contain {
+  margin: 20px;
+}
+
+.inicio {
+  width: 70%;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.minicontain {
+  width: 40%;
+}
+} */
+
+/* @media screen and (min-width: 550px) {
+  .minicontain {
+    display: none;
+  }
+} */
+
+@media screen and (min-width: 300px){
+  .contain {
+    width: 600px;
+    margin: 20px;
+}
+
+  .minicontain {
+    display: none;
+  }
+
+  .inicio {
+    width: 95%;
+}
+}
+
+@media screen and (min-width: 600px){
+  .minicontain{
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(180deg, #E54C91 0%, #F48B7B 49.6%, #F7AD50 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .inicio {
+    width: 70%;
+}
+}

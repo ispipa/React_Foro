@@ -70,12 +70,12 @@ const Register = () => {
 
     return (
         <div className='background'>
-            <div className='contain'>
-                <div className='contain2'>
-                    <div className='minicontain'>
+            <div className='contain-register'>
+                <div className='contain2-register'>
+                    <div className='minicontain2'>
                         <img src={userLogin} />
                     </div>
-                    <div className='inicio'>
+                    <div className='inicio2'>
 
                         {isLoading ? <Loading /> : <>{msgErr && <div className='msg_error'>Datos incorrectos</div>}
 

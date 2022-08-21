@@ -29,9 +29,7 @@
 
 #title{
     background-color: var(--title-color);
-    border-radius: 0;
-    border-width: 10;
-    font-family: var(--secundary-font);
+    border: 1px solid gray;
     height: auto;
     width: 60vw;
     padding-left: 2vh;
@@ -39,20 +37,19 @@
     margin-bottom: 2vw;
 }
 
+#title:focus{
+    outline: none;
+    border: 1px solid black;
+}
+
 #temas{
     margin-left: 4.5vw;
     width: 60vw;
     margin-bottom: 2vw;
-    font-family: var(--secundary-font);
-}
-
-label{
-    font-family: var(--secundary-font);
 }
 
 .formulario p{
-    font-family: var(--secundary-font);
-    margin-top: 4vw;
+    margin: 4vw 0;
 }
 
 #btn_dir{
