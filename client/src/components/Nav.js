@@ -22,7 +22,7 @@ const Nav = () => {
                     </div>
                     <div className='user'>
                         <div className='userSesion'>
-                            {isUser ? <h4><Link to="/perfil">{userName}</Link></h4> : <div><button><Link to="/login">Iniciar sesión</Link></button></div>}
+                            {isUser ? <h4><a id='usuario-link' href="/perfil">{userName}</a></h4> : <div><button><Link to="/login">Iniciar sesión</Link></button></div>}
 
                         </div>
                     </div>

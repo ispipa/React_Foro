@@ -1,84 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans:wght@300&display=swap');
-
-:root {
-    --principal-color: black;
-    --main-color: #ff5757;
-    --box-color: #000000d9;
-    --title-color: white;
-    --secundary-font: 'Bree Serif', serif;
-    --principal-font: 'Open Sans', sans-serif;
-}  
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
-
-#prueba a:link, #prueba a:visited, #prueba a:active{
-    color: var(--box-color);
+a{
     text-decoration: none;
 }
 
-.header img{
-    width: 4vw;
-    margin: 1vw;
-}
-
-.header h1 {
-    margin: 10vw 0 5vw 0;
-    font-size: 1.5em;
-}
-
-.topics{
-    overflow-y: auto;
-    height: 171vw;
-}
-
-.topic{
+.general-content {
+    height: 100%;
     display: flex;
-    border-bottom: 1px solid black;
-    padding: 2vw;
-    font-family: var(--secundary-font);
+    justify-content: center;
     align-items: center;
+    background-color: #e8e4e44f;;
 }
 
-.topic img{
-    width: 100px;
-    height: 100px;
-    margin-right: 5vw;
-    margin-left: 15vw;
+.containerCards {
+    width: 700px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.topic h2 {
-    margin: 5vw 0;
-    font-size: 1em;
+.card {
+    width: 175px;
+    height: 215px;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:linear-gradient(359deg, #ff5757 0%, #F48B7B 49.6%);
 }
 
-footer{
-    bottom: 0%;
-    padding: 2vw;
-    width: 100%;
-    background-color: var(--main-color);
-    color: var(--title-color);
-    font-family: var(--principal-font);
+.card > div img{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.card div{
+    height: 100%;
+}
+
+.card h2{
+    height: 100%;
     text-align: center;
+    color: white;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin-top: -15px;
 }
 
-footer a{
-    color: var(--title-color);
-    text-decoration: none;
-}
-
-footer a:hover{
-    text-decoration: underline;
-}
-
-@media screen and (min-width: 600px){
-   .header{
-    font-size: 20px;
-   } 
-
-   .topic{
-    font-size: 2em;
-   }
-}

@@ -10,6 +10,7 @@ import Contacto from '../components/Index/Contacto.js';
 import LoginNew from '../components/PruebasStyles';
 import PruebasStyles from '../components/PruebasStyles';
 import Nav from '../components/Nav';
+import Register from '../components/Login/Register';
 
 const Router = () => {
     return (
@@ -20,11 +21,12 @@ const Router = () => {
                 <Route path='/login' element={<Login/>} />
                 {/* <Route path='/temas/:tema/:id' element={<Topics />} /> */}
                 <Route path='/hilos/:id' element={<Hilos/>} />
+                <Route path='/registro' element={<Register/>} />
                 <Route path='/mensajes' element={<Messages />} />
                 <Route path='/perfil' element={<Perfil/>} />
                 <Route path='/contacto' element={<Contacto/>} />
                 <Route element={<Nav/>}>
-                    <Route path='/' element={<PruebasStyles/>}></Route>
+                    <Route path='/' element={<Home/>}></Route>
                     <Route path='/temas/:tema/:id' element={<Topics />}/>
                 </Route>
                 {/* <Route path='*' element={<h1>Error 404</h1>} /> */}

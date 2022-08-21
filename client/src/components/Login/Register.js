@@ -1,13 +1,18 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import './Register.css';
+// import { Navigate, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+
+import userLogin from '../../img/Saly-13.png';
+import BtnLoad from '../BtnLoad';
+import { setLoadingGlobal } from '../../store/slices/isLoading.slice';
 import Login from './Login';
-import foro from '../../img/foro.JPG';
-import { useNavigate } from 'react-router-dom';
 import CheckRegister from './CheckRegister';
+import Loading from '../Loading';
 
 const Register = () => {
-
-
     const [alert, setAlert] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [msgErr, setMsgErr] = useState(false)
@@ -15,7 +20,7 @@ const Register = () => {
     const [emailErr, setEmailErr] = useState(false)
     const [check, setCheck] = useState(false)
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const data = e => {
         e.preventDefault()
@@ -28,35 +33,32 @@ const Register = () => {
         let email = e.target.email.value
         let password = e.target.password.value
         let confirmPassword = e.target.confirmPassword.value
+        console.log(user, email, password);
 
         if (password !== confirmPassword) {
             setIsLoading(false)
             return setAlert(true)
-            // return console.log("las contraseñas no coinciden");
         }
 
         axios.post("http://localhost/foro/foro/server/usuarios.php", { nombre: user, contraseña: password, email })
+            
             .then(res => {
                 setCheck(true)
                 console.log('Registro exitoso')
             })
             .catch(error => {
+                console.log(error);
                 setTimeout(() => {
-                    setMsgErr(true)
+                    
                     setIsLoading(false)
-
-                    if (error.response.data.mesage == 'El email ya esta en uso') {
-                        setEmailErr(true)
-                    }
+                    // if (error.response.data.mesage == 'El email ya esta en uso') {
+                    //     setEmailErr(true)
+                    //     console.log(error.response.data);
+                    // }
                 }, 2000);
-
-
-                console.log(error.response.data.mesage)
+                
             });
     }
-
-    //cuando se redireccione a login mostrar un mensaje de color verde que le diga que el registro a ido bien 
-    //falta un if que compare si el correo o el nombre de usuario ya están registrados
 
     if (check) {
         return <CheckRegister />
@@ -67,48 +69,67 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <div id='formBox'>
-                <div className='container'>
-                    {alert && <h1 className='msg_error'>Las contraseñas no coinciden</h1>}
-                    {msgErr && <div className='msg_error'>No se ha podido registrar este usuario </div>}
-                    <img className='foro' src={foro} />
-                    <form onSubmit={data}>
-                        <div>
-                            <label></label>
-                            <input className='marginInput marginT' type="text" name='username' placeholder='Username' required/>
-                        </div>
+        <div className='background'>
+            <div className='contain'>
+                <div className='contain2'>
+                    <div className='minicontain'>
+                        <img src={userLogin} />
+                    </div>
+                    <div className='inicio'>
 
-                        <div>
-                            <label></label>
-                            <input className={emailErr ? 'marginInput error-email' : 'marginInput'}
-                                type="email"
-                                name='email'
-                                placeholder='Email'
-                                required
-                            />
-                            {emailErr && <p className='msg-error'>Email ya esta en uso</p>}
-                        </div>
+                        {isLoading ? <Loading /> : <>{msgErr && <div className='msg_error'>Datos incorrectos</div>}
 
-                        <div>
-                            <label></label>
-                            <input className='marginInput' type="password" name='password' placeholder='Contraseña' required/>
-                        </div>
-
-                        <div>
-                            <label></label>
-                            <input className='marginInput marginB' type="password" name='confirmPassword' placeholder='Confirma contraseña' required />
-                        </div>
-                        <button className='button-rojo'>{isLoading ?
-                            <div class="lds-ellipsis">
-                                <div></div><div></div><div></div><div></div>
-                            </div> :
-                            "Regístrate"
-                        }
-                        </button>
-
-                    </form>
-                    <button id="volver" className='button-white' onClick={() => setLogin(true)}>Volver</button>
+                            <h1>Sé parte de la comunidad <span className='welcome'>Soziali</span></h1>
+                            <div className='content-form'>
+                                <form onSubmit={data} >
+                                    <h3>Registrate</h3>
+                                    <div>
+                                        <input className='inputInicio' type="text" name="username" placeholder='Nombre de usuario' required></input>
+                                    </div>
+                                    <div>
+                                        <input 
+                                            className={emailErr ? 'marginInput error-email' : 'inputInicio'} 
+                                            type="email" 
+                                            name="email" 
+                                            placeholder='Email' 
+                                            required>
+                                        </input>
+                                        {emailErr && <p className='msg-error'>Email ya esta en uso</p>}
+                                    </div>
+                                    <div>
+                                        <input
+                                            className={alert ? 'inputInicio error' : 'inputInicio'}
+                                            type="password"
+                                            name="password"
+                                            placeholder='Contraseña'
+                                            required>
+                                        </input>
+                                        {alert && <p className='msg-error'>Las contraseñas no coinciden</p>}
+                                    </div>
+                                    <div>
+                                        <label></label>
+                                        <input 
+                                            className={alert ? 'inputInicio error' : 'inputInicio'} 
+                                            type="password" 
+                                            name='confirmPassword' 
+                                            placeholder='Confirma contraseña' 
+                                            required />
+                                        {alert && <p className='msg-error'>Las contraseñas no coinciden</p>}
+                                    </div>
+                                    <div className='registrate'>
+                                        <p>¿Ya estás registrado?<a className='registrar' href='/registro'> Inicia sesión</a></p>
+                                    </div>
+                                    <div className='form-button'>
+                                        <button>{isLoading ?
+                                            <BtnLoad />
+                                            :
+                                            "Regístrate"
+                                        }
+                                        </button>
+                                    </div>
+                                </form>                               
+                            </div></>}
+                    </div>
                 </div>
             </div>
         </div>
