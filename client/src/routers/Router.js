@@ -18,13 +18,13 @@ const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/login' element={<Login/>} />
-                <Route path='/hilos/:id' element={<Hilos/>} />
                 <Route path='/registro' element={<Register/>} />
                 
                 
                 <Route element={<Nav/>}>
                     <Route path='/' element={<Home/>}></Route>
                     <Route path='/temas/:tema/:id' element={<Topics/>}/>
+                    <Route path='/hilos/:id' element={<Hilos/>} />
                     <Route path='/temas' element={<PruebasStyles/>}/>
                     <Route path='/contacto' element={<Contacto/>} />
                     <Route path='/mensajes' element={<Messages />} />
