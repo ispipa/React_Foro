@@ -2,7 +2,7 @@
     "conexion":{
         "server" : "localhost",
         "user" : "root",
-        "password" : "",
+        "password" : "root",
         "database" : "foro",
         "port": "3306"
     }
