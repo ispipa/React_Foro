@@ -52,10 +52,11 @@ class temas extends conexion
     private function procesarImg($img)
     {
        $target_dir = dirname(__DIR__) . "\public\img\\";
-       $target_file =str_replace('\\','/' ,$target_dir . basename($img["name"]));
+       $target_file = str_replace('\\','/' ,$target_dir . basename($img["name"]));
+       $target = "http://" . $_SERVER["HTTP_HOST"]. "server/public/img/" . basename($img["name"]);
        if (move_uploaded_file($img["tmp_name"], $target_file)) 
        {
-           return $target_file;
+           return $target;
        }
     }
     //alta a un tema con img
