@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
         echo json_encode($listaMensajes);
     }
 }
-if($_SERVER["REQUEST_METHOD"] == "POST")
+else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $postBody = file_get_contents("php://input");
     $resp = $_mensajes->post($postBody);

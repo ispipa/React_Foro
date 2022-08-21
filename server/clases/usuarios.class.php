@@ -74,7 +74,6 @@ class usuarios extends conexion
                 $resp = $this->modifyUser();
                 if($resp)
                 {
-                    //$respuesta = $respuesta->response;
                     $respuesta['result'] = array("usuarioId" =>$this->usuarioId);
                     return $respuesta;
                 }
