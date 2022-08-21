@@ -22,6 +22,7 @@
 
 .preguntaUsuario{
     margin-bottom: 1vh;
+    margin-top: 50px;
 }
 
 .cajaPregunta{
@@ -30,16 +31,56 @@
     justify-content: center;
 }
 
+.responder{
+    text-align: center;
+}
+
+.button-rojo{
+    border: none;
+    cursor: pointer;
+    background-color: var(--red-color);
+    color: var(--title-color);
+    font-size: large;
+    border-radius: 6vh;
+    border-width: 1px;
+    font-family: var(--secundary-font);    
+    height: 5vh;
+    margin-top: 3vw;
+    margin-bottom: 2vw;
+    width: 40vh;
+ }
+
 .date, .cajaMensaje{
     display: flex;
     flex-direction: column;
+    
 }
+
+.userName{
+    display: flex;
+    justify-content: space-between;
+}
+
+#fecha{
+    font-size: 0.5em;
+    color: black;
+}
+
+.description p{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.respuestas{
+    margin-bottom: 5vw;
+}
+
 
 /* globo mensajes */
 
 .num_com{
-    width: 10vw;
-    height: 10vw;
+    width: 7vw;
+    height: 7vw;
     margin-right: 5vw;
     margin-left: 15vw;
     margin: 2vw 3vw 0 2vw;
@@ -53,10 +94,10 @@
 
 .totalComments p{
     position: absolute;
-    top: 40%;
-    left: 50%;
+    top: 35%;
+    left: 47%;
     transform: translate(-50%, -50%);
-    font-size: 1.5em;
+    font-size: 1.25em;
     font-family: var(--secundary-font);
     color: var(--title-color);
 }
@@ -70,7 +111,8 @@
 
 .answers{
     background-color: var(--back-color);
-    margin-top: 2vh;
+    padding: 1.5vw;
+    margin-bottom: 1.5vw;
 }
 
 .newComment{

@@ -1,11 +1,11 @@
 import './App.css';
 import Counter from './components/Counter';
 import Login from './components/Login/Login'
-import Prueba from './components/Prueba';
+import LoginNew from './components/PruebasStyles';
 import Router from './routers/Router';
+import PruebasStyles from './components/PruebasStyles';
 
 function App() {
-
   return ( 
     /*<>
       <Counter /><br/>
@@ -13,6 +13,7 @@ function App() {
       <Prueba />
     </>*/    
     <Router />
+    // <PruebasStyles />
   );
 }
 

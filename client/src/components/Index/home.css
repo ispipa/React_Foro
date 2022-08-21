@@ -19,43 +19,6 @@
     text-decoration: none;
 }
 
-.header {
-    background-color: var(--main-color);
-    color: var(--title-color);
-    font-family: var(--principal-font);
-    text-align: center;
-    margin: 0;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    align-content: center;
-    justify-content: center;
-}
-
-.userSesion{
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 2vw;
-    top: 4vw;
-}
-
-.userSesion h4{
-    font-size: 0.9em;  
-}
-
-.userSesion a:link, .userSesion a:active, .userSesion a:visited{
-    text-decoration: none;
-    color: var(--title-color);
-}
-
-
-.userSesion h4:hover {
-    text-decoration: underline;
-    opacity: 0.8;   
-}
-
 .header img{
     width: 4vw;
     margin: 1vw;

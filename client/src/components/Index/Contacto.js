@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import './messages.css'
+import './contacto.css'
 import email from '../../img/email.JPG'
 
 
@@ -13,22 +13,26 @@ const contacto = () => {
             <section className='header2'>
                     <img src={email} alt="icono email" />
                     <h1>CONTACTO</h1>
-        </section>
-
+            </section>
+               
         <section className='formulario'>
     
-                <p>¡Junt@s hacemos que este espacio crezca! ¿Te gustaría añadir un nuevo tema? Nuestro equipo revisará tu sugerencia.</p>
-                <form>
+                <div className='bajoHeader'>
+                    <p>¡Junt@s hacemos que este espacio crezca! </p>
+                    <p>¿Te gustaría añadir un nuevo tema? Nuestro equipo revisará tu sugerencia.</p>
+                </div>
+
+                <form className='formularioCaja'>
                     <ul>
-                        <li>
+                        <li className='formList'>
                             <label for="nombre">Nombre:</label>
                             <input type="text" id="nombre" name="nombre"></input>
                         </li>
-                        <li>
+                        <li className='formList'>
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email"></input>
                         </li>
-                        <li>
+                        <li className='formList'>
                             <label for="mensaje">Escribe aquí tu mensaje:</label>
                             <input type="text" id="mensaje" name="mensaje"></input>
                         </li>
