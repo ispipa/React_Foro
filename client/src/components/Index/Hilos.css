@@ -40,10 +40,10 @@
     text-align: center;
 }
 
-.date, .cajaMensaje{
+.cajaMensaje{
     display: flex;
     flex-direction: column;
-    
+    margin: 20px;
 }
 
 .userName-hilos{
@@ -107,5 +107,20 @@
     display: flex;
     gap: 0.5vh;
     margin: 1vh;
+}
+
+@media screen and (min-width: 550px) {
+    .menu ul {
+        padding: 0px
+    }
+    .logo {
+        width: 115px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #date-table{
+        display: block;
+    }
 }
 

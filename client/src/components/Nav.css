@@ -74,4 +74,12 @@
     color: black;
 }
 
+@media screen and (max-width: 550px) {
+    .menu ul {
+        padding: 0px;
+    }
+    .logo {
+        width: 115px;
+    }
+}
 

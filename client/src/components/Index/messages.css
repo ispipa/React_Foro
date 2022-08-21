@@ -61,17 +61,3 @@
     display: none;
 }
 
-.button-blanco{
-    border: none;
-    cursor: pointer;
-    background-color: var(--title-color);
-    color: var(--principal-color);
-    border: 1px solid #ff1616;
-    font-size: large;
-    border-radius: 6vh;
-    border-width: 1px;
-    font-family: var(--secundary-font);    
-    height: 5vh;
-    width: 30vh;
-    margin-top: 3vw;
- }

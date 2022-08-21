@@ -64,12 +64,12 @@ const Hilos = () => {
                         <tr className='titles-data'>
                             <td className='topics-table'>No se sobre el tema, tenía la misma pregunta</td>
                             <td className='data users-table-data'><span className='user-iconA'>F</span></td>
-                            <td className='data'><div className='comments-table-data-hidden'><span>66</span><br></br></div>21/08/2022</td>
+                            <td className='data'>21/08/2022</td>
                         </tr>
                         <tr className='titles-data'>
                             <td className='topics-table'>Suerte con el papeleo jaja</td>
                             <td className='data users-table-data'><span className='user-icon'>A</span></td>
-                            <td className='data'><div className='comments-table-data-hidden'><span>66</span><br></br></div>21/08/2022</td>
+                            <td className='data'>21/08/2022</td>
                         </tr>
                     </tbody>
                 </table>

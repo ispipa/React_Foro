@@ -16,19 +16,12 @@
 }
 
 .bajoHeader{
-    margin: 0 auto;
-    width: 85%;
-    margin-bottom: 2vh;
     text-align: center;
 }
 
 .formList{
     display: flex;
     flex-direction: column;
-}
-
-.formularioCaja > input{
-    
 }
 
 #mensaje{
