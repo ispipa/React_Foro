@@ -33,7 +33,6 @@ class usuarios extends conexion
         public function post($json)
         {
             $datos = json_decode($json,true);
-            print_r($datos);
             if(isset($datos['nombre']) && isset($datos["contraseña"]) && isset($datos['email']))
             {
                 $this->user_name = $datos['nombre'];

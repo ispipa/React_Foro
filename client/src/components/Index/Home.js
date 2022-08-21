@@ -19,7 +19,7 @@ const Home = () => {
 
     useEffect(() => {
         setLoadGlobal(true)
-        axios.get("http://localhost/foro/foro/server/temas.php")
+        axios.get("http://localhost/foro/server/temas.php")
             .then(res => {
                 setTemas(res.data)
                 setTimeout(() => {

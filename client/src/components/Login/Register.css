@@ -1,8 +1,8 @@
 .msg-error {
     font-size: 11px;
-    margin-top: -24px;
-    margin-bottom: -8px;
-    font-weight: 500;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    font-weight: 700;
     color: red;
 }
 
@@ -61,6 +61,7 @@
   .minicontain2 > img{
     margin-top: 35px;
     width: 315px;
+    margin-left: -20px;
     position: absolute;
   }
   
@@ -93,6 +94,10 @@
   .registrate{
     font-size: 0.75em;
   }
+
+  .registrate p {
+    font-weight: 700;
+  }
   
   .form-button{
     display: flex;
@@ -110,14 +115,22 @@
     letter-spacing: 0.1em;
     text-align: center;
     margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .form-button button:hover{
+    background-color: rgba(0, 0, 0, 0.89);
   }
   
+  form > h3{
+    margin-bottom: 10px;
+  }
   
   .inputInicio{
     width: 250px;;
     border: none;
     border-radius: 5px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
     height: 35px;
     margin-bottom:  7px;
