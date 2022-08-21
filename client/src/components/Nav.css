@@ -74,3 +74,16 @@
     color: black;
 }
 
+@media screen and (max-width: 500px) {
+    .menu ul {
+       padding: 0px;
+    }
+
+    .logo {
+        width: 115px;
+        text-align: none;
+    }
+
+   
+}
+

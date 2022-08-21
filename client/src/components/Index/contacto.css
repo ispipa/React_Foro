@@ -27,35 +27,26 @@
     flex-direction: column;
 }
 
-input{
-    border-radius: 2vh;
-    background-color: var(--title-color);
-    height: 5vh;
-    width: 30vh;
+.formularioCaja > input{
+    
 }
 
 #mensaje{
-    height: 13vh;
-    border-radius: 2vh;
+    height: 100px;
 }
 
-.formulario{
+.formulario-Contacto{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0vw;    
+    margin-top: 5vw;    
 }
 
 .formularioCaja{
     margin-top: 2vh;
 }
 
-label{
-    font-family: var(--secundary-font);
-}
-
-.formulario p{
-    font-family: var(--secundary-font);
+.formularioCaja > p{  
     margin-top: 4vw;    
 }
 
@@ -65,21 +56,14 @@ label{
     margin-top: 2vh;
 }
 
-.button-blanco{
+#btn_dir>button {
+    border-radius: 8px;
+    padding: 10px;
     border: none;
-    cursor: pointer;
-    background-color: var(--title-color);
-    color: var(--principal-color);
-    border: 1px solid #ff1616;
-    font-size: large;
-    border-radius: 6vh;
-    border-width: 1px;
-    font-family: var(--secundary-font);    
-    height: 5vh;
-    width: 30vh;
-    margin-top: 3vw;
-    margin-bottom: 5vw;
- }
+    background-color: #80808057;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+}
 
 
  @media (min-width: 600px) {

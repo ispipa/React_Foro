@@ -20,6 +20,17 @@
     margin-right: 5vw;
 }
 
+.user-icon-perfil{
+    border: 1px solid #84caff;
+    border-radius: 200%;
+    padding: 40px 50px;
+    background-color: #84caff;
+    color: white;
+    margin-right: 4px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
 .img-perfil{
     width: 25vw;
     margin-top: 5vw;
@@ -30,47 +41,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 
 .input_perfil{
-    background-color: var(--title-color);
-    border-radius: 0;
-    border: 1px solid black;
+    border-radius: 5px;
+    height: 35px;
+    border: 1px solid #bfbfbf;
     width: 43vw;
-    font-family: var(--secundary-font);
     text-align: center;
     margin-bottom: 2vw;
 }
 
-.button-white{
-    border: none;
-    cursor: pointer;
-    background-color: var(--title-color);
-    color: var(--principal-color);
-    border: 1px solid #ff1616;
-    font-size: large;
-    border-radius: 6vh;
-    border-width: 1px;
-    font-family: var(--secundary-font);    
-    height: 5vh;
-    width: 30vh;
-    margin-bottom: 3vw;
- }
+.input_perfil:focus{
+    outline: none;
+    border: 1px solid black;
+}
 
- .button-red {
+.cuerpo>button, .btn_dir>button{
+    border-radius: 8px;
+    padding: 10px;
     border: none;
-    cursor: pointer;
-    background-color: var(--red-color);
-    color: var(--title-color);
-    font-size: large;
-    border-radius: 6vh;
-    border-width: 1px;
-    font-family: var(--secundary-font);
-    height: 5vh;
-    width: 30vh;
-    margin-top: 3vw;
-    margin-bottom: 5vw;
- }
+    background-color: #80808057;
+    letter-spacing: 0.1em;
+    margin-top: 20px;
+    margin-bottom: 18px;
+}
 
  .btn_dir{
     display: flex;

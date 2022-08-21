@@ -55,7 +55,7 @@ const Messages = () => {
             .then(res => {
                 const { id_tema, temas } = res.data.result.usuarioId;
                 setLoadGlobal(true)
-                setTimeout(() => {                    
+                setTimeout(() => {
                     navigate(`/temas/${temas}/${id_tema}`)
                 }, 2000);
             })
@@ -69,14 +69,13 @@ const Messages = () => {
     if (!isUser) {
         return <Navigate to="/login"></Navigate>
 
-    }   
+    }
 
     return (
-        <div>
-            <section className='header2'>
-                <img src={globo} alt="globo de conversación" />
-                <h1>Inicia tu hilo</h1>
-            </section>
+        <div className='general-content2'>
+            <div className='topic'>
+                <h1>Deja tu mensaje</h1>
+            </div>
             <section className='formulario'>
                 <form onSubmit={dataForm}>
                     <label>Título:</label>
@@ -116,7 +115,7 @@ const Messages = () => {
                     </div>
 
                     <div id="btn_dir">
-                        <button className='button-blanco'>ENVIAR</button>
+                        <button>ENVIAR</button>
                     </div>
 
                 </form>

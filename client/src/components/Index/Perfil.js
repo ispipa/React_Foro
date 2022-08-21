@@ -6,23 +6,22 @@ import globo from '../../img/globo.jfif'
 
 const Perfil = () => {
     return (
-        <div>
-            <section className='header2'>
-                <img src={globo} alt="globo de conversación"/>
+        <div className='general-content2'>
+            <div className='topic'>
                 <h1>Editar perfil</h1>
-            </section>
+            </div>
             <section className='cuerpo'>
-                <img className='img-perfil' src={imgPerfil} alt="imagen de perfil"/>
-                <button className='button-white'>CAMBIAR FOTO</button>
+                <span className='user-icon-perfil'><img></img>f</span>
+                <button>Nueva foto</button>
                 <form >
-                    <input type="text" name="username" className='input_perfil'></input><br/>
-                    <input type="text" name="email" className='input_perfil'></input><br/>
-                    <input type="password" name="password" className='input_perfil'></input><br/>
+                    <input type="text" name="username" className='input_perfil' placeholder='fer4'></input><br />
+                    <input type="text" name="email" className='input_perfil' placeholder='4@gmail.com'></input><br />
+                    <input type="password" name="password" className='input_perfil' placeholder='*****'></input><br />
 
                     <div className='btn_dir'>
-                        <button className='button-red'>GUARDAR</button>
+                        <button>Guardar</button>
                     </div>
-                    
+
                 </form>
             </section>
         </div>

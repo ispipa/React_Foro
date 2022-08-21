@@ -9,14 +9,13 @@ import React from 'react';
 
 const contacto = () => {
     return (
-        <div>
-            <section className='header2'>
-                    <img src={email} alt="icono email" />
-                    <h1>CONTACTO</h1>
-            </section>
-               
-        <section className='formulario'>
-    
+        <div className='general-content2'>
+            <div className='topic'>
+                <h1>Contacto</h1>
+            </div>
+
+            <section className='formulario-Contacto'>
+
                 <div className='bajoHeader'>
                     <p>¡Junt@s hacemos que este espacio crezca! </p>
                     <p>¿Te gustaría añadir un nuevo tema? Nuestro equipo revisará tu sugerencia.</p>
@@ -37,11 +36,11 @@ const contacto = () => {
                             <input type="text" id="mensaje" name="mensaje"></input>
                         </li>
                         <div id="btn_dir">
-                            <button className='button-blanco'>ENVIAR</button>
+                            <button>ENVIAR</button>
                         </div>
                     </ul>
                 </form>
-        </section>
+            </section>
         </div>
     );
 };
