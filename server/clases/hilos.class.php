@@ -28,7 +28,6 @@ class hilos extends conexion
         if(isset($datos['titulo_hilo']) && isset($datos['descripcion_hilo']) && isset($datos['fecha_creacion'])
          && isset($datos['id_usuario']) && isset($datos['id_temas']))
         {
-            // print_r($datos);
             $this->titulo_name = $datos['titulo_hilo'];
             $this->descripcion_hilo = $datos['descripcion_hilo'];
             $this->fecha_creacion_hilo = $datos['fecha_creacion'];
