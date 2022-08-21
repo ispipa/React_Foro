@@ -13,7 +13,7 @@ class mensajes_hilos extends conexion
     //obtenemos los mensajes de un hilo a traves de su id
     public function obtenerMensajes($id)
     {
-        $query = "SELECT *  FROM mensajes join hilos on mensajes.id_hilo = hilos.id join usuarios on mensajes.id_usuario = usuarios.id where hilos.id = '$id'";
+        $query = "SELECT *  FROM mensajes join hilos on mensajes.id_hilo = hilos.id join usuarios on mensajes.id_usuario = usuarios.id inner join temas on hilos.id_temas = temas.id  where hilos.id = '$id'";
         return parent::obtenerDatos($query);
     }
 
