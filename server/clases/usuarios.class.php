@@ -50,12 +50,12 @@ class usuarios extends conexion
                     if($resp == -1)
                     {
                         http_response_code(403);
-                        return json_encode(array("mesage" => "El nombre ya esta en uso"));
+                        return json_encode(array("code" => "5"));//El nombre ya esta en uso
                     }
                     else
                     {
                         http_response_code(403);
-                        return json_encode(array("mesage" => "El email ya esta en uso"));
+                        return json_encode(array("code" => "10"));//El email ya esta en uso
                     }
                 }
             }
@@ -133,14 +133,14 @@ class usuarios extends conexion
                 if($datos["contraseña"] != $resp["contraseña"])
                 {
                     http_response_code(404);
-                    return json_encode(array("mesage" => "Credenciales invalidas"));
+                    return json_encode(array("code" => "15"));//Credenciales invalidas
                 }
                 return $resp;
             }
             else
             {
                 http_response_code(404);
-                return json_encode(array("mesage" => "Usuario no registrado"));
+                return json_encode(array("code" => "20"));//Usuario no registrado"
             }
         }
 }
