@@ -78,8 +78,7 @@ if (isUser) {
                                     <input className='inputInicio' type="password" id="password" placeholder='Contraseña' required></input>
                                 </div>
                                 <div className='registrate'>
-                                    <p>¿No tienes cuenta?<a className='registrar' onClick={() => setRegister(true)}> Registrate</a></p>
-
+                                    <p>¿No tienes cuenta?<a className='registrar' href='/registro'> Registrate</a></p>
                                 </div>
                                 <div className='form-button'>
                                     <button>{isLoading ?

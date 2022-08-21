@@ -1,53 +1,52 @@
-import axios from 'axios';
-import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import './home.css'
-import { useSelector } from 'react-redux';
-import Loading from '../Loading';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import user from '../../img/user.png'
+
+import Loading from '../Loading';
+import { setLoadingGlobal } from '../../store/slices/isLoading.slice';
 
 
 const Home = () => {
+    
+    const dispatch = useDispatch()
 
-    const isUser = localStorage.getItem("id")
-    const userName = localStorage.getItem("nombre")
+    const isLoading = useSelector(state => (state.isLoading));
+    const [temas, setTemas] = useState([]);
+    const setLoadGlobal = (state) => dispatch(setLoadingGlobal(state))
+    const [prueba, setPrueba] = useState(true) 
 
-
-    const isLoading = useSelector(state => state.isLoading)
-
-    const [temas, setTemas] = useState([])
-    const main = document.getElementById('id');
     useEffect(() => {
+        setLoadGlobal(true)
         axios.get("http://localhost/foro/foro/server/temas.php")
             .then(res => {
                 setTemas(res.data)
-                console.log(res.data)
+                setTimeout(() => {
+                    setLoadGlobal(false)
+                }, 2000);
             })
             .catch(error => console.log(error))
     }, [])
 
-    if (isLoading) {
-        return <Loading />
-    }
+    
 
     return (
-        <div>
-            <section>
-                <h1>Encuentra un tema del que hablar</h1>
-            </section>
-            <section id="prueba">
+        isLoading ? <Loading/>
+        :
+        <div className='general-content'>
+            <div className='containerCards'>
                 {temas.map(data => {
-                    return (<Link to={`/temas/${data.temas}/${data.id}`} key={data.id}><div className='topic' >
-                        <img src={data.URL} alt="maletin" />
-                        <h2>{data.temas}</h2>
-
-                    </div></Link>)
+                    return (<Link to={`/temas/${data.temas}/${data.id}`} key={data.id}>
+                        <div className='card'>
+                            <div>
+                                <img src={data.URL} />
+                            </div>
+                            <h2>{data.temas}</h2>
+                        </div></Link>)
                 })}
-            </section>
-            <footer>
-                <p>¿No encuentras tu tema? <Link to="/contacto">Escríbenos</Link></p>
-            </footer>
+            </div>
         </div>
     );
 };

@@ -47,7 +47,7 @@
     gap: 20px;
 }
 .userSesion{
-    padding: 10px;
+    padding: 10px; 
 }
 
 .menu ul a{
@@ -67,5 +67,10 @@
 .userSesion a{
     text-decoration: none;
     color: white;
+}
+
+#usuario-link{
+    text-decoration: none;
+    color: black;
 }
 
