@@ -65,7 +65,6 @@ class conexion
             $filas = $this->conexion->affected_rows;
             $idRegister = $this->conexion->insert_id;   
             $dataResult = $this ->getDataInsert($idRegister);
-
             if($filas >= 1)
             {
               return $dataResult;
@@ -88,7 +87,7 @@ class conexion
             $dataResult = mysqli_fetch_assoc($results);   
             return $dataResult;
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
         }
     }
 

@@ -40,7 +40,7 @@ class usuarios extends conexion
                 $this->user_password = $datos['contraseña'];
                 $this->user_email = $datos['email'];
                 $resp = $this->isertUser();
-                if($resp > 0)
+                if($resp >= 0)
                 {
                     $respuesta['result'] = array("usuarioId" =>$resp);
                     return json_encode($respuesta);
