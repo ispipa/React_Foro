@@ -69,7 +69,7 @@ const Hilos = () => {
                         <tr className='titles-data'>
                             <td className='topics-table'>Suerte con el papeleo jaja</td>
                             <td className='data users-table-data'><span className='user-icon'>A</span></td>
-                            <td className='data'>21/08/2022</td>
+                            <td className='data'>20/08/2022</td>
                         </tr>
                     </tbody>
                 </table>

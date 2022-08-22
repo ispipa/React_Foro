@@ -38,49 +38,43 @@ const Topics = () => {
     }
 
     return (
-        <div>
-            <section className='header2'>
-                <img src={globo} alt="globo de conversación" />
-                <div>
-                    <h1>Hilos en...</h1>
-                    <h2>{tema}</h2>
-                </div>
-            </section>
+        <div className='general-content2'>
+            <div className='topic'>
+                <h1>{tema}</h1>
+                <NavLink to="/mensajes">
+                    <button>Comenta</button>
+                </NavLink>
+            </div>
             <section className='hilos'>
-                <div>
-                    <NavLink to="/mensajes">
-                        <button className='button-red'>Empieza un nuevo tema</button>
-                    </NavLink>
-                </div>
+                <table className="table" >
+                    <thead>
+                        <tr className='titles'>
+                            <th className='topics-table'>Hilos</th>
+                            <th className='title-table' id="users-table">Usuarios</th>
+                            <th className='title-table' id="comments-table">Respuestas</th>
+                            <th className='title-table' id="date-table">Fecha</th>
+                        </tr>
+                    </thead>
+                    {existTema ?
+                        isTema.map(data => {
 
-                {existTema ?
-                    isTema.map(data => {
+                            return (
+                                <Link to={`/hilos/${data.id}`}>
 
-                        return (
-                            <Link to = {`/hilos/${data.id}`}>
-                                <div className='comments' key={data.id}>
-                                    <div className='caja'>
-                                        <div className='date'>
-                                            <p>{data.fecha_creacion}</p>
-                                        </div>
-                                        <div className='totalComments'>
-                                            <img className='num_com' src={cuadroTexto} alt="Cuadro de dialogo" />
-                                            <p>{data.mensajes}</p>
-                                        </div>
-                                        <div>
-                                            <div className='title'>
-                                                <p>{data.titulo_hilo}</p>
-                                            </div>
-                                            <div className='userName'>
-                                                <p>{data.nombre}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <tbody key={data.id}>
+                                        <tr className='titles-data'>
+                                            <td className='topics-table'>{data.titulo_hilo}</td>
+                                            <td className='data users-table-data'><span className='user-icon'>B</span><span className='user-iconA'>F</span><span className='user-iconB'>C</span></td>
+                                            <td className='data comments-table-data'>{data.mensajes}</td>
+                                            <td className='data'><div className='comments-table-data-hidden'><span>66</span><br></br></div>{data.fecha_creacion}</td>
+                                        </tr>
+                                    </tbody>
+                                
                             </Link>)
                     })
-                    :
-                    <div className='ceroMessagesBox'><img className='sinMensajes' src={ceroMensajes} /> <br /> <h4 className='noMessages'>Aún no hay mensajes. Prueba a escribir un mensaje para iniciar el hilo.</h4></div>}
+                :
+                <div className='ceroMessagesBox'><img className='sinMensajes' src={ceroMensajes} /> <br /> <h4 className='noMessages'>Aún no hay mensajes. Prueba a escribir un mensaje para iniciar el hilo.</h4></div>}
+            </table>
             </section>
         </div>
     );
