@@ -22,23 +22,21 @@ const contacto = () => {
                 </div>
 
                 <form className='formularioCaja'>
-                    <ul>
-                        <li className='formList'>
+                        <div className='formList'>
                             <label for="nombre">Nombre:</label>
                             <input type="text" id="nombre" name="nombre"></input>
-                        </li>
-                        <li className='formList'>
+                        </div>
+                        <div className='formList'>
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email"></input>
-                        </li>
-                        <li className='formList'>
+                        </div>
+                        <div className='formList'>
                             <label for="mensaje">Escribe aquí tu mensaje:</label>
                             <input type="text" id="mensaje" name="mensaje"></input>
-                        </li>
+                        </div>
                         <div id="btn_dir">
                             <button>ENVIAR</button>
                         </div>
-                    </ul>
                 </form>
             </section>
         </div>

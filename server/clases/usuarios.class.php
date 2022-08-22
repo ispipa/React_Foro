@@ -33,14 +33,18 @@ class usuarios extends conexion
         public function post($json)
         {
             $datos = json_decode($json,true);
-            print_r($datos);
             if(isset($datos['nombre']) && isset($datos["contraseña"]) && isset($datos['email']))
             {
                 $this->user_name = $datos['nombre'];
                 $this->user_password = $datos['contraseña'];
                 $this->user_email = $datos['email'];
                 $resp = $this->isertUser();
+<<<<<<< HEAD
                 if($resp >= 0)
+=======
+                var_dump($resp);
+                if($resp > 0)
+>>>>>>> 624d03ccc4dccf3bfa2e18041a254d2c605ea184
                 {
                     $respuesta['result'] = array("usuarioId" =>$resp);
                     return json_encode($respuesta);
@@ -102,6 +106,8 @@ class usuarios extends conexion
         {
             $query_username = "SELECT nombre FROM " . $this->table . " where nombre='$this->user_name'";
             $resp = parent::nonQuery($query_username);
+       
+
             if($resp != 1)
             {
                 $query ="INSERT INTO ".$this->table . "(nombre,contraseña,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";

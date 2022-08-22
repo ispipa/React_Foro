@@ -22,7 +22,7 @@
 
 .preguntaUsuario{
     margin-bottom: 1vh;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .cajaPregunta{
@@ -31,34 +31,26 @@
     justify-content: center;
 }
 
+.title-hilos>p{
+    font-size: 2em;
+    font-weight: bold;
+}
+
 .responder{
     text-align: center;
 }
 
-.button-rojo{
-    border: none;
-    cursor: pointer;
-    background-color: var(--red-color);
-    color: var(--title-color);
-    font-size: large;
-    border-radius: 6vh;
-    border-width: 1px;
-    font-family: var(--secundary-font);    
-    height: 5vh;
-    margin-top: 3vw;
-    margin-bottom: 2vw;
-    width: 40vh;
- }
-
-.date, .cajaMensaje{
+.cajaMensaje{
     display: flex;
     flex-direction: column;
-    
+    margin: 20px;
 }
 
-.userName{
+.userName-hilos{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
 #fecha{
@@ -104,10 +96,6 @@
 
 /*caja respuestas*/
 
-.cajaPregunta, .description, .answers{
-    margin: 0 auto;
-    width: 80%;
-}
 
 .answers{
     background-color: var(--back-color);
@@ -119,5 +107,20 @@
     display: flex;
     gap: 0.5vh;
     margin: 1vh;
+}
+
+@media screen and (min-width: 550px) {
+    .menu ul {
+        padding: 0px
+    }
+    .logo {
+        width: 115px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #date-table{
+        display: block;
+    }
 }
 

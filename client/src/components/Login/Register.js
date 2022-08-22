@@ -19,6 +19,9 @@ const Register = () => {
     const [login, setLogin] = useState(false)
     const [emailErr, setEmailErr] = useState(false)
     const [check, setCheck] = useState(false)
+    const [ userReg, setUserReg ] = useState("")
+    const [ email, setEmail ] = useState("")
+    const [ userErr, setUserErr ] = useState(false);
 
     // const navigate = useNavigate();
 
@@ -28,26 +31,35 @@ const Register = () => {
         setMsgErr(false)
         setEmailErr(false)
         setAlert(false)
+        setUserErr(false)
 
-        let user = e.target.username.value
-        let email = e.target.email.value
+       
         let password = e.target.password.value
         let confirmPassword = e.target.confirmPassword.value
-        console.log(user, email, password);
+        console.log(password);
 
         if (password !== confirmPassword) {
             setIsLoading(false)
             return setAlert(true)
         }
 
-        axios.post("http://localhost/foro/foro/server/usuarios.php", { nombre: user, contraseña: password, email })
-            
+        axios.post("http://localhost/foro/foro/server/usuarios.php", { nombre: userReg, contraseña: password, email })
             .then(res => {
                 setCheck(true)
                 console.log('Registro exitoso')
             })
             .catch(error => {
                 console.log(error);
+                const { code } = error.response.data
+
+                if (code == 5) {
+                    setUserErr( true )
+                }
+
+                if (code == 10) {
+                    setEmailErr( true )
+                }
+
                 setTimeout(() => {
                     
                     setIsLoading(false)
@@ -84,14 +96,26 @@ const Register = () => {
                                 <form onSubmit={data} >
                                     <h3>Registrate</h3>
                                     <div>
-                                        <input className='inputInicio' type="text" name="username" placeholder='Nombre de usuario' required></input>
+                                        <input 
+                                            className={userErr ? 'inputInicio error' : 'inputInicio'} 
+                                            type="text" 
+                                            name="username" 
+                                            placeholder='Nombre de usuario' 
+                                            onChange={e => setUserReg(e.target.value)}
+                                            required
+                                            value={userReg}
+                                            >
+                                        </input>
+                                        {userErr && <p className='msg-error'>El usuario ya esta en uso</p>}
                                     </div>
                                     <div>
                                         <input 
-                                            className={emailErr ? 'marginInput error-email' : 'inputInicio'} 
+                                            className={emailErr ? 'inputInicio error' : 'inputInicio'} 
                                             type="email" 
                                             name="email" 
+                                            onChange={e => setEmail(e.target.value)}
                                             placeholder='Email' 
+                                            value={email}
                                             required>
                                         </input>
                                         {emailErr && <p className='msg-error'>Email ya esta en uso</p>}
@@ -117,7 +141,7 @@ const Register = () => {
                                         {alert && <p className='msg-error'>Las contraseñas no coinciden</p>}
                                     </div>
                                     <div className='registrate'>
-                                        <p>¿Ya estás registrado?<a className='registrar' href='/registro'> Inicia sesión</a></p>
+                                        <p>¿Ya estás registrado?<a className='registrar' href='/login'> Inicia sesión</a></p>
                                     </div>
                                     <div className='form-button'>
                                         <button>{isLoading ?

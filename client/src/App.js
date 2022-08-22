@@ -13,7 +13,7 @@ function App() {
       <Prueba />
     </>*/    
     <Router />
-    // <PruebasStyles />
+    //<PruebasStyles />
   );
 }
 

@@ -84,9 +84,6 @@ body {
   align-items: center;
 }
 
-form {
-  line-height: 6vh;
-}
 
 #formBox .button-rojo,
 .button-white {
@@ -181,6 +178,7 @@ form {
 .minicontain > img{
   width: 315px;
   position: absolute;
+  margin-left: -20px;
 }
 
 .inicio{
