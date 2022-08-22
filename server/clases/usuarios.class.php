@@ -39,6 +39,7 @@ class usuarios extends conexion
                 $this->user_password = $datos['contraseña'];
                 $this->user_email = $datos['email'];
                 $resp = $this->isertUser();
+                var_dump($resp);
                 if($resp > 0)
                 {
                     $respuesta['result'] = array("usuarioId" =>$resp);
@@ -101,6 +102,8 @@ class usuarios extends conexion
         {
             $query_username = "SELECT nombre FROM " . $this->table . " where nombre='$this->user_name'";
             $resp = parent::nonQuery($query_username);
+       
+
             if($resp != 1)
             {
                 $query ="INSERT INTO ".$this->table . "(nombre,contraseña,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";

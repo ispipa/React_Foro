@@ -21,6 +21,7 @@ const Register = () => {
     const [check, setCheck] = useState(false)
     const [ userReg, setUserReg ] = useState("")
     const [ email, setEmail ] = useState("")
+    const [ userErr, setUserErr ] = useState(false);
 
     // const navigate = useNavigate();
 
@@ -30,6 +31,7 @@ const Register = () => {
         setMsgErr(false)
         setEmailErr(false)
         setAlert(false)
+        setUserErr(false)
 
        
         let password = e.target.password.value
@@ -41,7 +43,7 @@ const Register = () => {
             return setAlert(true)
         }
 
-        axios.post("http://localhost/foro/server/usuarios.php", { nombre: userReg, contraseña: password, email })
+        axios.post("http://localhost/foro/foro/server/usuarios.php", { nombre: userReg, contraseña: password, email })
             .then(res => {
                 setCheck(true)
                 console.log('Registro exitoso')
@@ -49,6 +51,11 @@ const Register = () => {
             .catch(error => {
                 console.log(error);
                 const { code } = error.response.data
+
+                if (code == 5) {
+                    setUserErr( true )
+                }
+
                 if (code == 10) {
                     setEmailErr( true )
                 }
@@ -90,7 +97,7 @@ const Register = () => {
                                     <h3>Registrate</h3>
                                     <div>
                                         <input 
-                                            className='inputInicio' 
+                                            className={userErr ? 'inputInicio error' : 'inputInicio'} 
                                             type="text" 
                                             name="username" 
                                             placeholder='Nombre de usuario' 
@@ -99,6 +106,7 @@ const Register = () => {
                                             value={userReg}
                                             >
                                         </input>
+                                        {userErr && <p className='msg-error'>El usuario ya esta en uso</p>}
                                     </div>
                                     <div>
                                         <input 
@@ -133,7 +141,7 @@ const Register = () => {
                                         {alert && <p className='msg-error'>Las contraseñas no coinciden</p>}
                                     </div>
                                     <div className='registrate'>
-                                        <p>¿Ya estás registrado?<a className='registrar' href='/registro'> Inicia sesión</a></p>
+                                        <p>¿Ya estás registrado?<a className='registrar' href='/login'> Inicia sesión</a></p>
                                     </div>
                                     <div className='form-button'>
                                         <button>{isLoading ?
