@@ -19,9 +19,10 @@ const Register = () => {
     const [login, setLogin] = useState(false)
     const [emailErr, setEmailErr] = useState(false)
     const [check, setCheck] = useState(false)
-    const [ userReg, setUserReg ] = useState("")
-    const [ email, setEmail ] = useState("")
-    const [ userErr, setUserErr ] = useState(false);
+    const [userReg, setUserReg] = useState("")
+    const [email, setEmail] = useState("")
+    const [userErr, setUserErr] = useState(false);
+    const [password, setPassword] = useState("")
 
     // const navigate = useNavigate();
 
@@ -33,10 +34,8 @@ const Register = () => {
         setAlert(false)
         setUserErr(false)
 
-       
-        let password = e.target.password.value
         let confirmPassword = e.target.confirmPassword.value
-        console.log(password);
+
 
         if (password !== confirmPassword) {
             setIsLoading(false)
@@ -46,6 +45,9 @@ const Register = () => {
         axios.post("http://localhost/foro/foro/server/usuarios.php", { nombre: userReg, contraseña: password, email })
             .then(res => {
                 setCheck(true)
+                setTimeout(() => {
+                    setIsLoading(false)
+                }, 2000);
                 console.log('Registro exitoso')
             })
             .catch(error => {
@@ -53,31 +55,23 @@ const Register = () => {
                 const { code } = error.response.data
 
                 if (code == 5) {
-                    setUserErr( true )
+                    setUserErr(true)
                 }
 
                 if (code == 10) {
-                    setEmailErr( true )
+                    setEmailErr(true)
                 }
 
                 setTimeout(() => {
-                    
+
                     setIsLoading(false)
                     // if (error.response.data.mesage == 'El email ya esta en uso') {
                     //     setEmailErr(true)
                     //     console.log(error.response.data);
                     // }
                 }, 2000);
-                
+
             });
-    }
-
-    if (check) {
-        return <CheckRegister />
-    }
-
-    if (login) {
-        return (<Login />)
     }
 
     return (
@@ -89,9 +83,8 @@ const Register = () => {
                     </div>
                     <div className='inicio2'>
 
-                        {isLoading ? <Loading /> : <>{msgErr && <div className='msg_error'>Datos incorrectos</div>}
-
-                            <h1>Sé parte de la comunidad <span className='welcome'>Soziali</span></h1>
+                        {isLoading ? <Loading /> : <>
+                            {check ? <CheckRegister/> : <><h1>Sé parte de la comunidad <span className='welcome'>Soziali</span></h1>
                             <div className='content-form'>
                                 <form onSubmit={data} >
                                     <h3>Registrate</h3>
@@ -125,7 +118,9 @@ const Register = () => {
                                             className={alert ? 'inputInicio error' : 'inputInicio'}
                                             type="password"
                                             name="password"
+                                            onChange={e => setPassword(e.target.value)}
                                             placeholder='Contraseña'
+                                            value={password}
                                             required>
                                         </input>
                                         {alert && <p className='msg-error'>Las contraseñas no coinciden</p>}
@@ -135,7 +130,7 @@ const Register = () => {
                                         <input 
                                             className={alert ? 'inputInicio error' : 'inputInicio'} 
                                             type="password" 
-                                            name='confirmPassword' 
+                                            name='confirmPassword'
                                             placeholder='Confirma contraseña' 
                                             required />
                                         {alert && <p className='msg-error'>Las contraseñas no coinciden</p>}
@@ -151,8 +146,11 @@ const Register = () => {
                                         }
                                         </button>
                                     </div>
+                                    
                                 </form>                               
                             </div></>}
+                            </>}
+
                     </div>
                 </div>
             </div>

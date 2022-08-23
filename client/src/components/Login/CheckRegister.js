@@ -8,15 +8,23 @@ const CheckRegister = () => {
 
     const [login, setLogin] = useState(false)
 
-    if(login){
+    if (login) {
         return <Login />
     }
-       return (
+    return (
         <div>
+            <div class="success-checkmark">
+                <div class="check-icon">
+                    <span class="icon-line line-tip"></span>
+                    <span class="icon-line line-long"></span>
+                    <div class="icon-circle"></div>
+                    <div class="icon-fix"></div>
+                </div>
+            </div>
             <div className='box'>
-                <h1 className='title-register'>GRACIAS POR REGISTRARTE</h1>
-                <p className='txt-register'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br/> sed do eiusmod tempor incididunt ut <br/> labore et dolore magna aliqua.</p>
-                <button className='button-white' onClick={() => setLogin(true)}>Iniciar sesión</button>
+                <h1 id="h1box">GRACIAS POR REGISTRARTE</h1>
+                <p className='txt-register'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut <br /> labore et dolore magna aliqua.</p>
+                <button className='form-button' onClick={() => setLogin(true)}>Iniciar sesión</button>
             </div>
         </div>
     );

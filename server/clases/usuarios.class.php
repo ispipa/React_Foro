@@ -101,8 +101,6 @@ class usuarios extends conexion
         {
             $query_username = "SELECT nombre FROM " . $this->table . " where nombre='$this->user_name'";
             $resp = parent::nonQuery($query_username);
-            print_r($resp);
-            echo "\n";
             if($resp != 1)
             {
                 $query ="INSERT INTO ".$this->table . "(nombre,contraseña,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";
