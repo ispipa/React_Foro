@@ -39,8 +39,7 @@ class usuarios extends conexion
                 $this->user_password = $datos['contraseña'];
                 $this->user_email = $datos['email'];
                 $resp = $this->isertUser();
-                var_dump($resp);
-                if($resp > 0)
+                if($resp >= 0)
                 {
                     $respuesta['result'] = array("usuarioId" =>$resp);
                     return json_encode($respuesta);
@@ -52,7 +51,7 @@ class usuarios extends conexion
                         http_response_code(403);
                         return json_encode(array("code" => "5"));//El nombre ya esta en uso
                     }
-                    else
+                    else if($resp == -3)
                     {
                         http_response_code(403);
                         return json_encode(array("code" => "10"));//El email ya esta en uso
@@ -102,8 +101,8 @@ class usuarios extends conexion
         {
             $query_username = "SELECT nombre FROM " . $this->table . " where nombre='$this->user_name'";
             $resp = parent::nonQuery($query_username);
-       
-
+            print_r($resp);
+            echo "\n";
             if($resp != 1)
             {
                 $query ="INSERT INTO ".$this->table . "(nombre,contraseña,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";

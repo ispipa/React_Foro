@@ -63,22 +63,24 @@ class conexion
         {
             $results = $this->conexion->query($sqlstr);
             $filas = $this->conexion->affected_rows;
-            $idRegister = $this->conexion->insert_id;   
+            $idRegister = $this->conexion->insert_id;
             $dataResult = $this ->getDataInsert($idRegister);
-
-            if($filas >= 1)
+        } 
+        catch (Exception $e) 
+        {
+            if($e->getMessage())
             {
-              return $dataResult;
+                return -3;
+            }
+        }
+        if($filas >= 1)
+            {
+              return $idRegister;
             }
             else
             {
               return 0;
             }
-        } 
-        catch (Exception $e) 
-        {
-            $e->getMessage();
-        }
     }
 
     private function getDataInsert($data){
