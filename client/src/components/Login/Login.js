@@ -65,17 +65,22 @@ if (isUser) {
                     </div>
                     <div className='inicio'>
 
-                        {msgErr && <div className='msg_error'>Datos incorrectos</div>}
-
                         <h1>Bienvenido a <span className='welcome'>Soziali</span></h1>
+                        
                         <div className='content-form'>
                             <form onSubmit={data} >
                                 <h3>Inicia sesión</h3>
+
+                                {msgErr && <div className='msg_error'>Datos inválidos. Revisa tu correo o contraseña.</div>}
+
                                 <div>
-                                    <input className='inputInicio' type="email" id="email" placeholder='Email' required></input>
+                                    <input className={msgErr ? "inputInicio msg-error-input" : "inputInicio"}  
+                                    type="email" id="email" placeholder='Email' required></input>
+                                    
                                 </div>
                                 <div>
-                                    <input className='inputInicio' type="password" id="password" placeholder='Contraseña' required></input>
+                                    
+                                    <input className={msgErr ? "inputInicio msg-error-input" : "inputInicio"} type="password" id="password" placeholder='Contraseña' required></input>
                                 </div>
                                 <div className='registrate'>
                                     <p>¿No tienes cuenta?<a className='registrar' href='/registro'> Registrate</a></p>

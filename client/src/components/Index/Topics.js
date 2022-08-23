@@ -42,7 +42,7 @@ const Topics = () => {
             <div className='topic'>
                 <h1>{tema}</h1>
                 <NavLink to="/mensajes">
-                    <button>Comenta</button>
+                    <button>Crea nuevo tema</button>
                 </NavLink>
             </div>
             <section className='hilos'>

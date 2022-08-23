@@ -9,20 +9,21 @@
 
 .msg_error {
   display: block;
-  /* position: absolute; */
-  /* top: 15px; */
-  /* left: 34vw; */
-  background-color: #ff000054;
-  width: 23vw;
+  background-color: #e8578e;
+  width: 250px;
   font-family: 'Open Sans';
-  font-size: .75em;
+  font-size: 0.80em;
   margin: 0 auto;
-  margin-bottom: 3vw;
-  color: #ff1616;
+  margin-bottom: 10px;
+  color: #f1f1f1;
   text-align: center;
   padding: 1vw;
-  border: 1px solid #ff1616;
   border-radius: 1vw;
+  font-weight: bold;
+}
+
+.msg-error-input{
+  border: 1px solid #e8578e !important;
 }
 
 .msg_ok {
@@ -97,7 +98,7 @@ body {
   font-family: 'Bree Serif', serif;
   height: 5vh;
   width: 30vh;
-  margin-top: 0 !important; 
+  margin-top: 0 !important;
 }
 
 .button-white {
@@ -124,19 +125,19 @@ body {
 
 
 /**********************NUEVO LOGIN**************************/
-.background{
+.background {
   background: linear-gradient(300deg, #e54c91ba 0%, #f48b7bd1 49.6%, #f7ad5082 100%);
   width: 100vw;
   height: 100vh;
-  background-size: 100%;  
+  background-size: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  
+
 }
 
-.background > img{
+.background>img {
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -144,7 +145,7 @@ body {
   opacity: 0.65;
 }
 
-.contain{
+.contain {
   background-color: white;
   width: 650px;
   height: 400px;
@@ -156,7 +157,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.contain2{
+.contain2 {
   background: radial-gradient(900% 67.32% at 55.15% 32.68%, rgba(229, 76, 145, 0.39) 0%, rgba(244, 139, 123, 0.24) 100%, #F48B7B 100%);
   width: 100%;
   height: 100%;
@@ -165,7 +166,7 @@ body {
   border-radius: 20px;
 }
 
-.minicontain{
+.minicontain {
   width: 30%;
   height: 100%;
   background: linear-gradient(180deg, #E54C91 0%, #F48B7B 49.6%, #F7AD50 100%);
@@ -175,25 +176,25 @@ body {
   align-items: center;
 }
 
-.minicontain > img{
+.minicontain>img {
   width: 315px;
   position: absolute;
   margin-left: -20px;
 }
 
-.inicio{
+.inicio {
   width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.inicio h1{
+.inicio h1 {
   margin-top: 20px;
   text-align: center;
 }
 
-.content-form{
+.content-form {
   margin-top: -60px;
   height: 100%;
   display: flex;
@@ -202,20 +203,20 @@ body {
   margin-left: 36px;
 }
 
-.registrar{
+.registrar {
   color: #E54C91;
 }
 
-.registrate{
+.registrate {
   font-size: 0.75em;
 }
 
-.form-button{
+.form-button {
   display: flex;
   justify-content: center;
 }
 
-.form-button button{
+.form-button button {
   min-width: 150px;
   height: 40px;
   padding: 5px;
@@ -229,8 +230,8 @@ body {
 }
 
 
-.inputInicio{
-  width: 250px;;
+.inputInicio {
+  width: 250px;
   border: none;
   border-radius: 5px;
   letter-spacing: 0.2em;
@@ -240,16 +241,16 @@ body {
   padding: 0 7px;
 }
 
-.inputInicio:focus{
+.inputInicio:focus {
   outline: none;
   border: 1px solid black;
 }
 
-.welcome{
-  background: linear-gradient(220deg, #e050f7, #EB4335, #f750a9,#f7e050);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
+.welcome {
+  background: linear-gradient(220deg, #e050f7, #EB4335, #f750a9, #f7e050);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 
 }
 
@@ -279,11 +280,11 @@ background-clip: text;
   }
 } */
 
-@media screen and (min-width: 300px){
+@media screen and (min-width: 300px) {
   .contain {
     width: 600px;
     margin: 20px;
-}
+  }
 
   .minicontain {
     display: none;
@@ -291,11 +292,11 @@ background-clip: text;
 
   .inicio {
     width: 95%;
-}
+  }
 }
 
-@media screen and (min-width: 600px){
-  .minicontain{
+@media screen and (min-width: 600px) {
+  .minicontain {
     width: 30%;
     height: 100%;
     background: linear-gradient(180deg, #E54C91 0%, #F48B7B 49.6%, #F7AD50 100%);
@@ -307,5 +308,5 @@ background-clip: text;
 
   .inicio {
     width: 70%;
-}
+  }
 }
