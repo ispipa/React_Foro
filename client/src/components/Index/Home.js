@@ -8,7 +8,7 @@ import Loading from '../Loading';
 import { setLoadingGlobal } from '../../store/slices/isLoading.slice';
 
 
-const Home = () => {
+const Home = () => { 
 
     const dispatch = useDispatch()
 
@@ -16,10 +16,12 @@ const Home = () => {
     const [temas, setTemas] = useState([]);
     const setLoadGlobal = (state) => dispatch(setLoadingGlobal(state))
     const [prueba, setPrueba] = useState(true)
+    const URL = process.env.REACT_APP_URL_API
+   
 
     useEffect(() => {
         setLoadGlobal(true)
-        axios.get("http://localhost/foro/foro/server/temas.php")
+        axios.get(`${URL}/temas.php`)
             .then(res => {
                 setTemas(res.data)
                 setTimeout(() => {

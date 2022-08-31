@@ -23,7 +23,7 @@ const Topics = () => {
 
     useEffect(() => {
         setLoadGlobal(true)
-        axios.get(`http://localhost/foro/foro/server/hilos.php?id=${id}`)
+        axios.get(`http://localhost/foro/server/hilos.php?id=${id}`)
             .then(res => {
                 setIsTema(res.data)
                 setTimeout(() => {

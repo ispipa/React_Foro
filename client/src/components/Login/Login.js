@@ -18,6 +18,7 @@ const Login = () => {
    const [ isLoading, setIsLoading] = useState(false)
    const [ msgErr, setMsgErr ] = useState(false)
    const setLoadGlobal = (state) => dispatch(setLoadingGlobal(state))
+   const URL = process.env.REACT_APP_URL_API
 
    const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ const Login = () => {
   
   let email = e.target.email.value
   let password = e.target.password.value
-  axios.post("http://localhost/foro/foro/server/login.php",{email,
+  axios.post(`${URL}/login.php`,{email,
   contraseña:password})
   .then(res => {
     localStorage.setItem("id", res.data.id)
@@ -44,7 +45,7 @@ const Login = () => {
       setMsgErr(true)
       setIsLoading(false)
     }, 2000);    
-    console.log(error)});
+    });
 }
 
 if (register) {
