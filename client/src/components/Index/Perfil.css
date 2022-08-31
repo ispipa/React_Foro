@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans:wght@300&display=swap');
+
+:root {
+    --principal-color: black;
+    --main-color: #ff5757;
+    --box-color: #000000d9;
+    --title-color: white;
+    --secundary-font: 'Bree Serif', serif;
+    --principal-font: 'Open Sans', sans-serif;
+}  
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.header2 img{
+    width: 12vw;
+    height: 9vw;
+    margin-right: 5vw;
+}
+
+.user-icon-perfil{
+    border: 1px solid #84caff;
+    border-radius: 200%;
+    padding: 40px 50px;
+    background-color: #84caff;
+    color: white;
+    margin-right: 4px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.img-perfil{
+    width: 25vw;
+    margin-top: 5vw;
+    margin-bottom: 1vw;
+}
+
+.cuerpo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.input_perfil{
+    border-radius: 5px;
+    height: 35px;
+    border: 1px solid #bfbfbf;
+    width: 43vw;
+    text-align: center;
+    margin-bottom: 2vw;
+}
+
+.input_perfil:focus{
+    outline: none;
+    border: 1px solid black;
+}
+
+.cuerpo>button, .btn_dir>button{
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    background-color: #80808057;
+    letter-spacing: 0.1em;
+    margin-top: 20px;
+    margin-bottom: 18px;
+}
+
+ .btn_dir{
+    display: flex;
+    justify-content: center;
+ }

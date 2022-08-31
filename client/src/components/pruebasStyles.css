@@ -1,0 +1,133 @@
+.general-content2 {
+    height: 100%;
+    width: 100vw;
+    background-color: #e8e4e44f;
+}
+
+.topic {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 2px solid #80808026;
+}
+
+.topic>h1 {
+    margin-left: 40px;
+    color: #5a5757;
+}
+
+.topic>button {
+    border-radius: 10px;
+    border: none;
+    background-color: #80808057;
+    letter-spacing: 0.1em;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 15px;
+}
+
+.table > thead{
+    border-bottom: 1px solid #80808038;
+    padding: 10px
+} 
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-table{
+    width: 100px;
+}
+
+.titles-data {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.topics-table{
+    width: 400px;
+    align-content: flex-start;
+    display: flex;
+}
+
+.data{
+    width: 100px;
+    text-align: center;
+}
+
+tr:nth-child(even) {background-color: #e8e8e8;}
+
+.user-icon{
+    border: 1px solid #ff8484;
+    border-radius: 200%;
+    padding: 0px 6px;
+    background-color: #ff8484;
+    color: white;
+    margin-right: 4px;
+    font-weight: bold;
+}
+
+.user-iconA{
+    border: 1px solid #84caff;
+    border-radius: 200%;
+    padding: 0px 6px;
+    background-color: #84caff;
+    color: white;
+    margin-right: 4px;
+    font-weight: bold;
+}
+
+.user-iconB{
+    border: 1px solid #eb84ff;
+    border-radius: 200%;
+    padding: 0px 6px;
+    background-color: #eb84ff;
+    color: white;
+    margin-right: 4px;
+    font-weight: bold;
+}
+
+.user-iconC{
+    border: 1px solid #f7ad50;
+    border-radius: 200%;
+    padding: 0px 6px;
+    background-color: #f7ad50;
+    color: white;
+    margin-right: 4px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 750px) {
+    #date-table, #users-table{
+        display: none;
+    }
+
+    .users-table-data, .comments-table-data{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 751px) {
+    .comments-table-data-hidden{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .topic>h1 {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .topic>h1 {
+        font-size: 1em;
+    }
+}
+
+

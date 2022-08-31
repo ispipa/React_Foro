@@ -1,0 +1,203 @@
+.msg-error {
+    font-size: 11px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: red;
+}
+
+.background{
+    background: linear-gradient(300deg, #e54c91ba 0%, #f48b7bd1 49.6%, #f7ad5082 100%);
+    width: 100vw;
+    height: 100vh;
+    background-size: 100%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+  }
+  
+  .background > img{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    opacity: 0.65;
+  }
+  
+  .contain-register{
+    background-color: white;
+    width: 650px;
+    height: 400px;
+    padding: 7px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+    border-radius: 14px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  .contain2-register{
+    background: radial-gradient(900% 67.32% at 55.15% 32.68%, rgba(229, 76, 145, 0.39) 0%, rgba(244, 139, 123, 0.24) 100%, #F48B7B 100%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 3;
+    border-radius: 20px;
+    justify-content: center;
+  }
+  
+  .minicontain2{
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(180deg, #E54C91 0%, #F48B7B 49.6%, #F7AD50 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .minicontain2 > img{
+    margin-top: 35px;
+    width: 315px;
+    margin-left: -20px;
+    position: absolute;
+  }
+  
+  .inicio2{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .inicio2 h1{
+    margin-top: 20px;
+    font-size: 1.65em;
+    text-align: center;
+  }
+  
+  .content-form{
+    margin-top: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 36px;
+  }
+  
+  .registrar{
+    color: #E54C91;
+  }
+  
+  .registrate{
+    font-size: 0.75em;
+  }
+
+  .registrate p {
+    font-weight: 700;
+  }
+  
+  .form-button{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form-button button{
+    min-width: 150px;
+    height: 40px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .form-button button:hover{
+    background-color: rgba(0, 0, 0, 0.89);
+  }
+  
+  form > h3{
+    margin-bottom: 10px;
+  }
+  
+  .inputInicio{
+    width: 250px;;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 0.1em;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    height: 35px;
+    margin-bottom:  7px;
+    padding: 0 7px;
+  }
+
+  .error{
+    border: 1px solid red;
+  }
+  
+  .inputInicio:focus{
+    outline: none;
+    border: 1px solid black;
+  }
+  
+  .welcome{
+    background: linear-gradient(220deg, #e050f7, #EB4335, #f750a9,#f7e050);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  }
+
+  .volver{
+    color: #E54C91;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 300px){
+    .contain-register {
+      width: 600px;
+      margin: 20px;
+  }
+  
+    .minicontain2 {
+      display: none;
+    }
+  
+    .inicio2 {
+      width: 95%;
+  }
+
+  .contain2-register {
+    justify-content: flex-start;
+}
+  }
+  
+  @media screen and (min-width: 650px){
+    .minicontain2{
+      width: 30%;
+      height: 100%;
+      background: linear-gradient(180deg, #E54C91 0%, #F48B7B 49.6%, #F7AD50 100%);
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+    }
+  
+    .inicio2 {
+      width: 70%;
+  }
+  }
+
+  @media screen and (max-width: 400px){
+    .inicio2 h1{
+      margin-top: 20px;
+      font-size: 1.5em;
+      text-align: center;
+    }
+  }

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans:wght@300&display=swap');
+
+:root {
+    --principal-color: black;
+    --main-color: #ff5757;
+    --box-color: #000000d9;
+    --title-color: white;
+    --secundary-font: 'Bree Serif', serif;
+    --principal-font: 'Open Sans', sans-serif;
+}  
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+
+.bajoHeader{
+    text-align: center;
+}
+
+.formList{
+    display: flex;
+    flex-direction: column;
+}
+
+#mensaje{
+    height: 100px;
+}
+
+.formulario-Contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vw;    
+}
+
+.formularioCaja{
+    margin-top: 2vh;
+}
+
+.formularioCaja > p{  
+    margin-top: 4vw;    
+}
+
+#btn_dir{
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+#btn_dir>button {
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    background-color: #80808057;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+}
+
+
+ @media (min-width: 600px) {
+
+input{
+    width: 58vw;
+}
+
+ }

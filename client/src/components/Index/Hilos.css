@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans:wght@300&display=swap');
+
+:root {
+    --principal-color: black;
+    --main-color: #ff5757;
+    --box-color: #000000d9;
+    --back-color:#d9d9d9;
+    --title-color: white;
+    --secundary-font: 'Bree Serif', serif;
+    --principal-font: 'Open Sans', sans-serif;
+}  
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+
+.header2{
+    margin-bottom: 2.5vh;
+}
+
+.preguntaUsuario{
+    margin-bottom: 1vh;
+    margin-top: 20px;
+}
+
+.cajaPregunta{
+    display: flex;
+    gap: 0.5vh;
+    justify-content: center;
+}
+
+.title-hilos>p{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.responder{
+    text-align: center;
+}
+
+.cajaMensaje{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.userName-hilos{
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#fecha{
+    font-size: 0.5em;
+    color: black;
+}
+
+.description p{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.respuestas{
+    margin-bottom: 5vw;
+}
+
+
+/* globo mensajes */
+
+.num_com{
+    width: 7vw;
+    height: 7vw;
+    margin-right: 5vw;
+    margin-left: 15vw;
+    margin: 2vw 3vw 0 2vw;
+}
+
+.totalComments{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.totalComments p{
+    position: absolute;
+    top: 35%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25em;
+    font-family: var(--secundary-font);
+    color: var(--title-color);
+}
+
+/*caja respuestas*/
+
+
+.answers{
+    background-color: var(--back-color);
+    padding: 1.5vw;
+    margin-bottom: 1.5vw;
+}
+
+.newComment{
+    display: flex;
+    gap: 0.5vh;
+    margin: 1vh;
+}
+
+@media screen and (min-width: 550px) {
+    .menu ul {
+        padding: 0px
+    }
+    .logo {
+        width: 115px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #date-table{
+        display: block;
+    }
+}
+
