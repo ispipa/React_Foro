@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import './Nav.css'
 
@@ -22,8 +22,7 @@ const Nav = () => {
                     </div>
                     <div className='user'>
                         <div className='userSesion'>
-                            {isUser ? <h4><span className='user-iconA'>F</span><a id='usuario-link' href="/perfil">{userName}</a></h4> : <div><button><Link to="/login">Iniciar sesión</Link></button></div>}
-
+                            {isUser   ? <h4><span className='user-iconA'>{userName[0]}</span><a id='usuario-link' href="/perfil"><p>{userName}</p></a></h4> : <div><button><Link to="/login">Iniciar sesión</Link></button></div>}
                         </div>
                     </div>
                 </div>

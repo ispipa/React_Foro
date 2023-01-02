@@ -29,8 +29,14 @@
     margin-right: 4px;
     font-weight: bold;
     font-size: 2em;
+    width: 250px;
 }
-
+.user-icon-perfil>img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20%;
+}
 .img-perfil{
     width: 25vw;
     margin-top: 5vw;
@@ -66,6 +72,39 @@
     letter-spacing: 0.1em;
     margin-top: 20px;
     margin-bottom: 18px;
+}
+.cuerpo>form> #image {
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    background-color: #80808057;
+    letter-spacing: 0.1em;
+    margin-top: 20px;
+    margin-bottom: 18px;
+    width: 43vw;
+    font-size: 16px;
+    font-family: cursive;
+    float:left;
+}
+input::file-selector-button {
+    font-weight: bold;
+    color: dodgerblue;
+    padding: 0.5em ;
+    border: none;
+    border-radius: 3px;
+}
+@media only screen and (max-width: 584px){
+    input::file-selector-button{
+        transform: translate3d(-11px, 0px, 0px);
+
+    }
+}
+.cuerpo>form{
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;*/
 }
 
  .btn_dir{

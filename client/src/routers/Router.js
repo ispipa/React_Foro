@@ -11,6 +11,9 @@ import LoginNew from '../components/PruebasStyles';
 import PruebasStyles from '../components/PruebasStyles';
 import Nav from '../components/Nav';
 import Register from '../components/Login/Register';
+import MessagesHilos from "../components/Index/MessagesHilos";
+import TemasHilosMessages from "../components/Index/TemasHilosMessages";
+
 
 const Router = () => {
     return (
@@ -23,10 +26,12 @@ const Router = () => {
                 <Route element={<Nav/>}>
                     <Route path='/' element={<Home/>}></Route>
                     <Route path='/temas/:tema/:id' element={<Topics/>}/>
-                    <Route path='/hilos/:id' element={<Hilos/>} />
+                    <Route path='/hilos/:id/:name' element={<Hilos/>} />
+                    <Route path='/mensajes-hilos/:id' element={<TemasHilosMessages/>} />
                     <Route path='/contacto' element={<Contacto/>} />
                     <Route path='/mensajes' element={<Messages />} />
                     <Route path='/perfil' element={<Perfil/>} />
+                    <Route path='/comentar/:hilo' element={<MessagesHilos/>} />
                 </Route>
                 {/* <Route path='*' element={<h1>Error 404</h1>} /> */}
             </Routes>

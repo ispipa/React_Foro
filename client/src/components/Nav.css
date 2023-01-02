@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    background-color: #ffd6d64f;
 }
 
 .logo{
@@ -53,6 +53,7 @@
 .menu ul a{
     text-decoration: none;
     color: black;
+    font-weight: bold;
 }
 
 .userSesion button{
@@ -73,7 +74,10 @@
     text-decoration: none;
     color: black;
 }
-
+#usuario-link>p{
+    font-weight: bold;
+    display: contents;
+}
 @media screen and (max-width: 550px) {
     .menu ul {
         padding: 0px;

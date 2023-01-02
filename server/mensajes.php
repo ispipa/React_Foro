@@ -21,12 +21,18 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
         $listaMensajes =  $_mensajes->obtenerMensajes($mesajes_hilos);
         echo json_encode($listaMensajes);
     }
+    else if(isset($_GET["id-mensaje"]))
+    {
+        $mesaje_hilo = $_GET["id-mensaje"];
+        $listaMensajes =  $_mensajes->obtenerMensaje($mesaje_hilo);
+        echo json_encode($listaMensajes);
+    }
 }
 else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $postBody = file_get_contents("php://input");
     $resp = $_mensajes->post($postBody);
-    print_r($resp);
+    echo json_encode($resp);
 }
 
 ?>

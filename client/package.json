@@ -13,6 +13,7 @@
     "ckeditor5": "^35.0.1",
     "ckeditor5-custom-build": "file:ckeditor5",
     "draft-js": "^0.11.7",
+    "from": "^0.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.15.0",

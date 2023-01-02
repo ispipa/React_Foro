@@ -23,7 +23,8 @@ const Register = () => {
     const [email, setEmail] = useState("")
     const [userErr, setUserErr] = useState(false);
     const [password, setPassword] = useState("")
-
+    const [nombre, setNombre] = useState("")
+    const URL = process.env.REACT_APP_URL_API
     // const navigate = useNavigate();
 
     const data = e => {
@@ -42,26 +43,31 @@ const Register = () => {
             return setAlert(true)
         }
 
-        axios.post("http://localhost/foro/foro/server/usuarios.php", { nombre: userReg, contraseña: password, email })
+        axios.post(`${URL}/usuarios.php`, { nombre: userReg, password, email })
             .then(res => {
                 setCheck(true)
                 setTimeout(() => {
                     setIsLoading(false)
                 }, 2000);
                 console.log('Registro exitoso')
+                console.log(res.data)
+                setNombre(res.data.nombre)
             })
             .catch(error => {
                 console.log(error);
                 const { code } = error.response.data
-
-                if (code == 5) {
-                    setUserErr(true)
+                switch (code) {
+                    case  "5":
+                        setUserErr(true)
+                        break;
+                    case  "10":
+                        setEmailErr(true)
+                        break;
+                    case  "15":
+                        setUserErr(true)
+                        setEmailErr(true)
+                        break;
                 }
-
-                if (code == 10) {
-                    setEmailErr(true)
-                }
-
                 setTimeout(() => {
 
                     setIsLoading(false)
@@ -84,7 +90,7 @@ const Register = () => {
                     <div className='inicio2'>
 
                         {isLoading ? <Loading /> : <>
-                            {check ? <CheckRegister/> : <><h1>Sé parte de la comunidad <span className='welcome'>Soziali</span></h1>
+                            {check ? <CheckRegister nombre={nombre}/> : <><h1>Sé parte de la comunidad <span className='welcome'>Soziali</span></h1>
                             <div className='content-form'>
                                 <form onSubmit={data} >
                                     <h3>Registrate</h3>

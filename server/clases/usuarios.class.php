@@ -1,5 +1,6 @@
 <?php
 require_once "conexion/conexion.php";
+require_once "img.class.php";
 
 class usuarios extends conexion
 {
@@ -26,36 +27,35 @@ class usuarios extends conexion
         //obtenemos un usuario a traves de su id
         public function obtenerUsuario($id)
         {
-            $query = "SELECT * FROM " . $this->table . " where id='$id'";
+            $query = "SELECT nombre,email,imagenes.img FROM usuarios 
+                      left join imagenes on usuarios.id = imagenes.usuarios_id where usuarios.id='$id'";
             return parent::obtenerDatos($query);
         }
 
         public function post($json)
         {
             $datos = json_decode($json,true);
-            if(isset($datos['nombre']) && isset($datos["contraseña"]) && isset($datos['email']))
+            if(isset($datos['nombre']) && isset($datos["password"]) && isset($datos['email']))
             {
                 $this->user_name = $datos['nombre'];
-                $this->user_password = $datos['contraseña'];
+                $this->user_password = $datos['password'];
                 $this->user_email = $datos['email'];
                 $resp = $this->isertUser();
-                if($resp >= 0)
-                {
-                    $respuesta['result'] = array("usuarioId" =>$resp);
-                    return json_encode($respuesta);
-                }
-                else
-                {
-                    if($resp == -1)
-                    {
-                        http_response_code(403);
-                        return json_encode(array("code" => "5"));//El nombre ya esta en uso
-                    }
-                    else if($resp == -3)
-                    {
-                        http_response_code(403);
-                        return json_encode(array("code" => "10"));//El email ya esta en uso
-                    }
+                switch ($resp) {
+                    case $resp["code_name"] == 1 && $resp["code_email"] == 1:
+                            http_response_code(403);
+                            return json_encode(array("code" => "15"));//El nombre y correo  ya estan en uso
+                    case $resp["code_name"] == 0 && $resp["code_email"] == 1:
+                            http_response_code(403);
+                            return json_encode(array("code" => "10"));//El correo ya esta en uso
+                    case $resp["code_name"] == 1 && $resp["code_email"] == 0:
+                            http_response_code(403);
+                            return json_encode(array("code" => "5"));//El nombre ya esta en uso
+                    case $resp["code_register"] != "":
+                            http_response_code(200);
+                            return json_encode(array("code" => "0","nombre" => $this->user_name));//El usuario se registro correctamente
+                    default:
+                        return json_encode(array("code" => "25"));//problema al registar al usuario
                 }
             }
         }
@@ -68,55 +68,58 @@ class usuarios extends conexion
             {
                 $this->usuarioId = $datos['id'];
                 $this->user_name = $datos['nombre'];
-                $this->user_password = $datos['contraseña'];
+                $this->user_password = $datos['password'];
                 $this->user_email = $datos['email'];
-                $resp = $this->modifyUser();
-                if($resp)
-                {
-                    $respuesta['result'] = array("usuarioId" =>$this->usuarioId);
-                    return $respuesta;
+                $query_username = "SELECT nombre FROM " . $this->table . " where nombre='$this->user_name'";
+                $resp_name = parent::nonQuery($query_username);
+                if($resp_name == 0){
+                    $resp = $this->modifyUser($datos['img']);
+                    if(isset($resp)){
+                        $response['result'] = $this->obtenerUsuario($this->usuarioId);
+                        return  $response;
+                    }
+                    else{
+                        return array("code" => "25");//problema al modificar al usuario
+                    }
                 }
-                else
-                {
-                    return "todo mal";
+                else{
+                    http_response_code(403);
+                    return array("code" => "5");//El nombre ya esta en uso
                 }
             }
         }
         //modificacion del usuario
-        private  function modifyUser()
+        private  function modifyUser($img)
         {
-            $query ="UPDATE ".$this->table . " SET nombre='" . $this->user_name . "',contraseña='" . $this->user_password . "',email='" . $this->user_email ."' where id='" . $this->usuarioId ."'";
+            $response = ["user"=>"" , "img" => ""];
+            $query ="UPDATE ".$this->table . " SET nombre='" . $this->user_name . "',password='" . $this->user_password . "',email='" . $this->user_email ."' where id='" . $this->usuarioId ."'";
             $resp = parent::nonQuery($query);
-            if($resp >= 1)
-            {
-                return $resp;
-            }
-            else
-            {
-               return 0;
-            }
+            $resp_img = (new img())->insertImage($img,$this->usuarioId);
+            $response["user"] = $resp;
+            $response["img"] = $resp_img;
+            return $response;
+
         }
         //alta a un usuario
         private  function isertUser()
         {
+            $response = ["code_name"=>0,"code_email"=>0,"code_register"=>""];
             $query_username = "SELECT nombre FROM " . $this->table . " where nombre='$this->user_name'";
-            $resp = parent::nonQuery($query_username);
-            if($resp != 1)
+            $query_email = "SELECT email FROM " . $this->table . " where email='$this->user_email'";
+            $resp_name = parent::nonQuery($query_username);
+            $resp_email = parent::nonQuery($query_email);
+            $response["code_name"] = $resp_name;
+            $response["code_email"] = $resp_email;
+            if($resp_name == 0 && $resp_email == 0)
             {
-                $query ="INSERT INTO ".$this->table . "(nombre,contraseña,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";
-                $resp = parent::nonQueryId($query);
-                if($resp)
-                {
-                    return $resp;
-                }
-                else
-                {
-                   return 0;
-                }
+                $query ="INSERT INTO ".$this->table . "(nombre,password,email) values('" . $this->user_name . "','" . $this->user_password . "','" . $this->user_email . "')";
+                $resp = parent::nonQueryId($query,0);
+                $response["code_register"] = $resp;
+                return $response;
             }
             else 
             {
-                return -1;
+                return $response;
             }
         }
 
@@ -124,16 +127,19 @@ class usuarios extends conexion
         public function login($json)
         {
             $datos = json_decode($json,true);
-            $query = "SELECT * FROM usuarios WHERE email ='$datos[email]'";
+            $query = "SELECT id,nombre,password FROM usuarios WHERE email ='$datos[email]'";
             $resp = parent::nonQueryEmail($query);
+            $response = ["id"=>"","nombre"=>""];
             if($resp)
             {
-                if($datos["contraseña"] != $resp["contraseña"])
+                if($datos["password"] != $resp["password"])
                 {
                     http_response_code(404);
                     return json_encode(array("code" => "15"));//Credenciales invalidas
                 }
-                return $resp;
+                $response["id"] = $resp["id"];
+                $response["nombre"] = $resp["nombre"];
+                return $response;
             }
             else
             {

@@ -30,7 +30,7 @@ const Login = () => {
   let email = e.target.email.value
   let password = e.target.password.value
   axios.post(`${URL}/login.php`,{email,
-  contraseña:password})
+      password})
   .then(res => {
     localStorage.setItem("id", res.data.id)
     localStorage.setItem("nombre", res.data.nombre)
@@ -41,6 +41,8 @@ const Login = () => {
     }, 2000);    
     console.log(res)})
   .catch(error =>{
+      console.log(error)
+      console.log(password)
     setTimeout(() => {
       setMsgErr(true)
       setIsLoading(false)

@@ -24,6 +24,7 @@ const Home = () => {
         axios.get(`${URL}/temas.php`)
             .then(res => {
                 setTemas(res.data)
+                console.log(res.data)
                 setTimeout(() => {
                     setLoadGlobal(false)
                 }, 2000);
@@ -42,7 +43,7 @@ const Home = () => {
                         return (<Link to={`/temas/${data.temas}/${data.id}`} key={data.id}>
                             <div className='card'>
                                 <div>
-                                    <img src={data.URL} />
+                                    <img src={data.img} />
                                 </div>
                                 <h2>{data.temas}</h2>
                             </div></Link>)

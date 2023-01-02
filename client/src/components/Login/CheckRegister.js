@@ -4,7 +4,7 @@ import './checkRegister.css'
 import Login from './Login';
 
 
-const CheckRegister = () => {
+const CheckRegister = (props) => {
 
     const [login, setLogin] = useState(false)
 
@@ -22,8 +22,8 @@ const CheckRegister = () => {
                 </div>
             </div>
             <div className='box'>
-                <h1 id="h1box">GRACIAS POR REGISTRARTE</h1>
-                <p className='txt-register'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut <br /> labore et dolore magna aliqua.</p>
+                <h1 id="h1box">GRACIAS POR REGISTRARTE {props.nombre}</h1>
+                <p className='txt-register'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                 <button className='form-button' onClick={() => setLogin(true)}>Iniciar sesión</button>
             </div>
         </div>

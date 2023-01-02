@@ -21,12 +21,18 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
         $listaTemas =  $_hilos->obtenerHilos($hilos_tema);
         echo json_encode($listaTemas);
     }
+    else if(isset($_GET["hilo"]))
+    {
+        $hilo = $_GET["hilo"];
+        $listaHilo =  $_hilos->obtenerHilo($hilo);
+        echo json_encode($listaHilo);
+    }
 }
 else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $postBody = file_get_contents("php://input");
     $resp = $_hilos->post($postBody);
-    print_r($resp);
+    echo json_encode($resp);
 }
 
 ?>

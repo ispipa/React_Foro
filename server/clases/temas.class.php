@@ -1,5 +1,6 @@
 <?php
 require_once "conexion/conexion.php";
+require_once "img.class.php";
 
 class temas extends conexion
 {
@@ -31,7 +32,7 @@ class temas extends conexion
             $this->temas_name = $datos['tema'];
             if(isset($datos['img']))
             {
-                $resp = $this->procesarImg($datos['img']);
+                $resp = (new img())->insertImage($datos['img'],null,true);
                 $this->img = $resp;
             }
             $resp = $this->isertTema();
@@ -59,12 +60,13 @@ class temas extends conexion
            return $target;
        }
     }
+
     //alta a un tema con img
     private  function isertTema()
     {
         
         $query ="INSERT INTO ".$this->table . "(temas,img) values('" . $this->temas_name . "','" . $this->img . "')";
-        $resp = parent::nonQueryId($query);
+        $resp = parent::nonQueryId($query,0);
         if($resp)
         {
             return $resp;

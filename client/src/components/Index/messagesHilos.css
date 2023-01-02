@@ -1,0 +1,10 @@
+.form-comentar{
+    width: 80%;
+}
+.form-comentar-p{
+    width: 80%;
+    text-align: -webkit-center;
+}
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused){
+    min-height: 200px;
+}

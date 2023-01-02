@@ -31,15 +31,18 @@ $_usuarios = new usuarios;
     }
     else if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $postBody = file_get_contents("php://input");//capturar datos que se envian en formato JSON por URL
-        $resp = $_usuarios->post($postBody);
-        print_r($resp);
-    }
-    else if ($_SERVER["REQUEST_METHOD"] == "PUT") 
-    {
-        $postBody = file_get_contents("php://input");
-        $resp = $_usuarios->put($postBody);
-        print_r($resp);
+        if(isset($_POST["modify"])){
+            //$postBody = file_get_contents("php://input");
+            $postBody = $_POST + $_FILES;
+            $resp = $_usuarios->put(json_encode($postBody));
+            //print_r($resp);
+            echo json_encode($resp,JSON_PRETTY_PRINT, 3);
+        }
+        else{
+            $postBody = file_get_contents("php://input");//capturar datos que se envian en formato JSON por URL
+            $resp = $_usuarios->post($postBody);
+            print_r($resp);
+        }
     }
     else if ($_SERVER["REQUEST_METHOD"] == "DELETE") 
     {

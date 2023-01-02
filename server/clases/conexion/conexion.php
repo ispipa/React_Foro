@@ -29,13 +29,14 @@ class conexion
     //obetenmos una lista de usuarios de la tabla de usuarios
     public function obtenerDatos($sqlstr)
     {
-     $results = $this->conexion->query($sqlstr);
-     $resultArray = array();
-     foreach ($results as $key)
-     {
-         $resultArray[] = $key;
-     }
-     return $resultArray;
+        $results = $this->conexion->query($sqlstr);
+        $resultArray = array();
+         foreach ($results as $key)
+         {
+             //$resultArray[] = array_map('strip_tags',$key);
+             $resultArray[] = array_map('htmlspecialchars_decode', $key);
+         }
+         return $resultArray;
      }
 
     private function datosConexion()
@@ -50,44 +51,49 @@ class conexion
         $results = $this->conexion->query($sqlstr);
         return $this->conexion->affected_rows;
     }
+
     public function nonQueryEmail($sqlstr)
     {
         $results = $this->conexion->query($sqlstr);
         return mysqli_fetch_assoc($results);
+        return $results;
     }
 
     //insertar datos
-     public function nonQueryId($sqlstr)
+     public function nonQueryId($sqlstr,$hilosFuction)
     {
         try 
         {
             $results = $this->conexion->query($sqlstr);
             $filas = $this->conexion->affected_rows;
             $idRegister = $this->conexion->insert_id;
-            $dataResult = $this ->getDataInsert($idRegister);
         } 
         catch (Exception $e) 
         {
             if($e->getMessage())
             {
-                return -3;
+                return $e->getMessage();
             }
         }
         if($filas >= 1)
             {
-              return $idRegister;
+                if($hilosFuction == 2){
+                    return $this ->getDataInsert($idRegister);
+                }
+                else {
+                    return $idRegister;
+                }
             }
             else
             {
               return 0;
             }
     }
-
     private function getDataInsert($data){
         $query = "SELECT hilos.id, temas.temas, temas.id as id_tema FROM hilos INNER JOIN temas ON hilos.id = '$data' AND temas.id= hilos.id_temas;";
         try {
             $results = $this->conexion->query($query);
-            $dataResult = mysqli_fetch_assoc($results);   
+            $dataResult = mysqli_fetch_assoc($results);
             return $dataResult;
         } catch (\Throwable $th) {
             //throw $th;

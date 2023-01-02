@@ -18,13 +18,14 @@ const Topics = () => {
     const setLoadGlobal = (state) => dispatch(setLoadingGlobal(state))
     const isLoading = useSelector(state => state.isLoading)
     const [existTema, setExistTema] = useState(true)
-
+    const URL = process.env.REACT_APP_URL_API
 
 
     useEffect(() => {
         setLoadGlobal(true)
-        axios.get(`http://localhost/foro/server/hilos.php?id=${id}`)
+        axios.get(`${URL}/hilos.php?id=${id}`)
             .then(res => {
+                console.log(res.data)
                 setIsTema(res.data)
                 setTimeout(() => {
                     setLoadGlobal(false)
@@ -33,12 +34,13 @@ const Topics = () => {
             })
     }, [])
 
+
     if (isLoading) {
         return <Loading />
     }
 
     return (
-        <div className='general-content2'>
+        <div className='general-content2 cuerpo-temas'>
             <div className='topic'>
                 <h1>{tema}</h1>
                 <NavLink to="/mensajes">
@@ -50,26 +52,23 @@ const Topics = () => {
                     <thead>
                         <tr className='titles'>
                             <th className='topics-table'>Hilos</th>
-                            <th className='title-table' id="users-table">Usuarios</th>
+                            <th className='title-table' id="users-table">Usuario</th>
                             <th className='title-table' id="comments-table">Respuestas</th>
                             <th className='title-table' id="date-table">Fecha</th>
                         </tr>
                     </thead>
                     {existTema ?
                         isTema.map(data => {
-
                             return (
-                                <Link to={`/hilos/${data.id}`}>
-
+                                <Link to={`/hilos/${data.id}/${data.nombre}`}>
                                     <tbody key={data.id}>
                                         <tr className='titles-data'>
-                                            <td className='topics-table'>{data.titulo_hilo}</td>
-                                            <td className='data users-table-data'><span className='user-icon'>B</span><span className='user-iconA'>F</span><span className='user-iconB'>C</span></td>
+                                            <td className='topics-table'><p>{data.titulo_hilo}</p></td>
+                                            <td className='data users-table-data'><span className='user-icon'>{data.nombre[0]}</span></td>
                                             <td className='data comments-table-data'>{data.mensajes}</td>
-                                            <td className='data'><div className='comments-table-data-hidden'><span>66</span><br></br></div>{data.fecha_creacion}</td>
+                                            <td className='data'><div className='comments-table-data-hidden'></div>{data.fecha_creacion}</td>
                                         </tr>
                                     </tbody>
-                                
                             </Link>)
                     })
                 :

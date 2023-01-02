@@ -20,7 +20,17 @@ class hilos extends conexion
         left join mensajes on hilos.id = mensajes.id_hilo where hilos.id_temas = '$id' group by hilos.id";
         return parent::obtenerDatos($query);
     }
-
+    //obtenemos un hilo a traves de su id
+        public function obtenerHilo($id)
+        {
+            $query = "SELECT hilos.id,temas,titulo_hilo,fecha_creacion,nombre,descripcion_hilo FROM hilos 
+            join temas on hilos.id_temas = temas.id 
+            left join usuarios on usuarios.id = hilos.id_usuario
+            left join mensajes on hilos.id = mensajes.id_hilo where hilos.id = '$id' group by hilos.id";
+            $response = ["result"=>""];
+            $response['result'] = parent::obtenerDatos($query);
+            return $response;
+        }
     public function post($json)
     {
         $datos = json_decode($json,true);
@@ -28,6 +38,7 @@ class hilos extends conexion
         if(isset($datos['titulo_hilo']) && isset($datos['descripcion_hilo']) && isset($datos['fecha_creacion'])
          && isset($datos['id_usuario']) && isset($datos['id_temas']))
         {
+            $response = ["result"=>""];
             $this->titulo_name = $datos['titulo_hilo'];
             $this->descripcion_hilo = $datos['descripcion_hilo'];
             $this->fecha_creacion_hilo = $datos['fecha_creacion'];
@@ -36,8 +47,8 @@ class hilos extends conexion
             $resp = $this->isertHilo();
             if($resp)
             {
-                $respuesta['result'] = array("usuarioId" =>$resp);
-                return json_encode($respuesta);
+                $response['result'] = array("usuarioId" =>$resp);
+                return $response;
             }
             else
             {
@@ -50,7 +61,7 @@ class hilos extends conexion
     private  function isertHilo()
     {
         $query ="INSERT INTO ".$this->table . "(titulo_hilo,descripcion_hilo,fecha_creacion,id_usuario,id_temas) values('" . $this->titulo_name . "','" . $this->descripcion_hilo . "','" . $this->fecha_creacion_hilo ."','" . $this->id_usuario . "','" . $this->id_temas . "')";
-        $resp = parent::nonQueryId($query);
+        $resp = parent::nonQueryId($query,2);
         if($resp)
         {
             return $resp;

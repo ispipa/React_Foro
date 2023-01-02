@@ -19,21 +19,13 @@ const Messages = () => {
     const setLoadGlobal = (state) => dispatch(setLoadingGlobal(state))
     const isLoading = useSelector(state => state.isLoading)
     const navigate = useNavigate();
-
-
-    // const { id } =  useParams()
-    // const [ temas , setTemas ] = useState("Prueba")
-    // useEffect(() => {
-    //     axios.post(`http://localhost/foro/foro/server/hilos.php`, {})
-    //     .then(res =>console.log(res))
-    //     .catch(error =>console.log(error))
-    // }, [])
-
+    const URL = process.env.REACT_APP_URL_API
     const [temas, setTemas] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost/foro/foro/server/temas.php")
+        axios.get(`${URL}/temas.php`)
             .then(res => {
+                console.log(res.data)
                 setTemas(res.data)
             })
             .catch(error => console.log(error))
@@ -49,10 +41,10 @@ const Messages = () => {
             id_usuario: isUser,
             id_temas: e.target.tema_select.value
         }
-        console.log(titulo_hilo)
 
-        axios.post(`http://localhost/foro/foro/server/hilos.php`, { titulo_hilo, descripcion_hilo, fecha_creacion, id_usuario, id_temas })
+        axios.post(`${URL}/hilos.php`, { titulo_hilo, descripcion_hilo, fecha_creacion, id_usuario, id_temas })
             .then(res => {
+                console.log(res.data)
                 const { id_tema, temas } = res.data.result.usuarioId;
                 setLoadGlobal(true)
                 setTimeout(() => {
